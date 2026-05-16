@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng Hợp 12 Trường CLC Vào Lớp 6: Tỉ Lệ Chọi & Đề Toán</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+        }
+        p.intro {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        /* Thanh tìm kiếm trường học */
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 15px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .search-box:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Định dạng bảng dữ liệu */
+        .table-responsive {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+        th, td {
+            padding: 14px 12px;
+            border: 1px solid #e0e0e0;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Định dạng các cột */
+        td.stt { text-align: center; font-weight: bold; color: #7f8c8d; }
+        td.school-name { font-weight: bold; color: #2c3e50; }
+        td.math-feature { text-align: left; font-size: 0.95em; }
+        td.ratio { text-align: center; font-weight: bold; color: #444; }
+        td.difficulty { text-align: center; }
+
+        /* Khối màu (Badge) cho cột Đánh giá độ khó */
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            display: inline-block;
+            width: 90px;
+            text-align: center;
+        }
+        .diff-vhigh { background-color: #fcedea; color: #c0392b; border: 1px solid #f5b7b1; } /* Rất khó */
+        .diff-high { background-color: #fef5e7; color: #d35400; border: 1px solid #fbc493; }  /* Khó */
+        .diff-med { background-color: #ebf5fb; color: #2980b9; border: 1px solid #aed6f1; }   /* Khá khó / Vừa phải */
+        .diff-low { background-color: #eaf2f8; color: #7f8c8d; border: 1px solid #ccd1d1; }   /* Cơ bản khá */
+
+        /* Hộp thông tin tổng kết */
+        .summary-box {
+            background-color: #eaf2f8;
+            border-left: 5px solid #2980b9;
+            padding: 15px 20px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+        .summary-box h4 {
+            margin: 0 0 10px 0;
+            color: #2980b9;
+            font-size: 1.1em;
+        }
+        .summary-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .summary-box li {
+            margin-bottom: 7px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>TỔNG HỢP DỮ LIỆU TUYỂN SINH 12 TRƯỜNG THCS CHẤT LƯỢNG CAO</h1>
+    <p class="intro">Bảng tra cứu đặc điểm đề thi môn Toán, Tỉ lệ chọi và Đánh giá độ khó chi tiết</p>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" onkeyup="filterTable()" placeholder="🔍 Gõ tên trường để tìm nhanh...">
+    </div>
+
+    <div class="table-responsive">
+        <table id="schoolTable">
+            <thead>
+                <tr>
+                    <th style="width: 5%">STT</th>
+                    <th style="width: 20%">Tên Trường</th>
+                    <th style="width: 45%">Đặc Điểm Đề Thi Môn Toán</th>
+                    <th style="width: 15%">Tỉ Lệ Chọi</th>
+                    <th style="width: 15%">Độ Khó Đề Toán</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="stt">1</td>
+                    <td class="school-name">Năng khiếu ĐHSP</td>
+                    <td class="math-feature">Đề có chiều sâu học thuật rất cao, tập trung vào bản chất toán học và khả năng tư duy độc lập.</td>
+                    <td class="ratio">~ 1 / 15</td>
+                    <td class="difficulty"><span class="badge diff-vhigh">Rất khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">2</td>
+                    <td class="school-name">Archimedes (Vòng 2)</td>
+                    <td class="math-feature">Nổi tiếng với các bài toán "hack não", đòi hỏi tư duy sáng tạo và kỹ năng giải toán nâng cao cực tốt.</td>
+                    <td class="ratio">1/5 - 1/7</td>
+                    <td class="difficulty"><span class="badge diff-vhigh">Rất khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">3</td>
+                    <td class="school-name">Ngoại ngữ (UMS)</td>
+                    <td class="math-feature">Đề thi mang tính chất đánh giá năng lực, bao gồm nhiều câu hỏi về logic và IQ hơn là toán thuần túy.</td>
+                    <td class="ratio">~ 1 / 18</td>
+                    <td class="difficulty"><span class="badge diff-high">Khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">4</td>
+                    <td class="school-name">Nguyễn Tất Thành</td>
+                    <td class="math-feature">Đề rất dài và bao quát kiến thức, đòi hỏi học sinh phải làm bài nhanh và cực kỳ chính xác.</td>
+                    <td class="ratio">~ 1 / 20</td>
+                    <td class="difficulty"><span class="badge diff-high">Khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">5</td>
+                    <td class="school-name">Ngôi Sao HN (Vòng 2)</td>
+                    <td class="math-feature">Tập trung mạnh vào toán tư duy, đặc biệt là các bài toán dạng mô hình và logic.</td>
+                    <td class="ratio">1/5 - 1/7</td>
+                    <td class="difficulty"><span class="badge diff-high">Khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">6</td>
+                    <td class="school-name">Cầu Giấy</td>
+                    <td class="math-feature">Đề công lập CLC chuẩn mực, độ phân hóa cao ở các câu cuối (thường là toán chuyển động hoặc hình học khó).</td>
+                    <td class="ratio">~ 1 / 7.5</td>
+                    <td class="difficulty"><span class="badge diff-high">Khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">7</td>
+                    <td class="school-name">Thanh Xuân</td>
+                    <td class="math-feature">Tương đương hoặc có năm nhỉnh hơn Cầu Giấy về độ lắt léo trong câu hỏi.</td>
+                    <td class="ratio">1/8 - 1/10</td>
+                    <td class="difficulty"><span class="badge diff-high">Khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">8</td>
+                    <td class="school-name">Nam Từ Liêm</td>
+                    <td class="math-feature">Đề ổn định ở mức khá giỏi, các câu hỏi phân loại thường nằm ở mức 8.5 - 10 điểm.</td>
+                    <td class="ratio">1/8 - 1/10</td>
+                    <td class="difficulty"><span class="badge diff-med">Khá khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">9</td>
+                    <td class="school-name">Lương Thế Vinh</td>
+                    <td class="math-feature">Đề có xu hướng kiểm tra kiến thức rộng, nhiều câu hỏi trắc nghiệm đòi hỏi tốc độ xử lý nhanh.</td>
+                    <td class="ratio">~ 1 / 10</td>
+                    <td class="difficulty"><span class="badge diff-med">Khá khó</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">10</td>
+                    <td class="school-name">Lê Lợi (Hà Đông)</td>
+                    <td class="math-feature">Đề sát với chương trình nâng cao của Bộ, ít các bài toán "đánh đố" quá mức.</td>
+                    <td class="ratio">1/4 - 1/6</td>
+                    <td class="difficulty"><span class="badge diff-med">Vừa phải</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">11</td>
+                    <td class="school-name">Đoàn Thị Điểm</td>
+                    <td class="math-feature">Đề kiểm tra toàn diện, tập trung vào nền tảng vững chắc và ứng dụng thực tế.</td>
+                    <td class="ratio">1/4 - 1/6</td>
+                    <td class="difficulty"><span class="badge diff-med">Vừa phải</span></td>
+                </tr>
+                <tr>
+                    <td class="stt">12</td>
+                    <td class="school-name">Marie Curie</td>
+                    <td class="math-feature">Đề Toán thường ở mức cơ bản và khá (theo khẳng định của trường), trọng tâm tuyển sinh nằm ở Tiếng Anh.</td>
+                    <td class="ratio">1/8 - 1/10</td>
+                    <td class="difficulty"><span class="badge diff-low">Cơ bản & Khá</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="summary-box">
+        <h4>📌 Gợi ý lộ trình phân bổ nguyện vọng dựa trên độ khó và tỉ lệ chọi:</h4>
+        <ul>
+            <li><strong>Nhóm Thử Thách Cao (STT 1 - 5):</strong> Đề thi đòi hỏi năng lực tư duy đặc biệt (Logic, IQ, nâng cao chuyên sâu) kết hợp với tỉ lệ chọi khốc liệt. Phù hợp làm mục tiêu cao nhất cho học sinh xuất sắc, có thế mạnh toán học rõ rệt.</li>
+            <li><strong>Nhóm Cạnh Tranh CLC Công Lập (STT 6 - 9):</strong> Đề thi bám sát chương trình nhưng có tính phân hóa bài bản ở các câu cuối để nhặt điểm 9, 10. Học sinh cần rèn luyện tính cẩn thận, tốc độ giải và kỹ năng trình bày tự luận chắc chắn.</li>
+            <li><strong>Nhóm Chiến Lược & Vừa Sức (STT 10 - 12):</strong> Đề thi kiểm tra toàn diện năng lực nền tảng, ít câu đánh đố lắt léo, áp lực tỉ lệ chọi ở mức dễ thở hơn hoặc trọng tâm chuyển sang môn điều kiện khác (ví dụ: Tiếng Anh). Rất thích hợp làm phương án an toàn hoặc mục tiêu vừa sức.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+function filterTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("schoolTable");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByClassName("school-name")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }       
+    }
+}
+</script>
+
+</body>
+</html>
