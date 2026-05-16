@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bí Kíp Ôn Tập Toán - Chinh Phục Điểm Cao</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tích hợp MathJax để render công thức Toán học -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #4e89ae;
+            --secondary: #43658b;
+            --accent: #ed6663;
+            --accent-light: #ffa372;
+            --bg-color: #f4f9f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --success: #4caf50;
+            --warning: #ff9800;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: radial-gradient(#e0ecec 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(78, 137, 174, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .header::after {
+            content: "\f518";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255,255,255,0.1);
+            bottom: -20px;
+            right: 20px;
+            transform: rotate(-15deg);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            border-bottom: 2px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .card-title i {
+            background: var(--accent-light);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .intro-text {
+            margin-bottom: 15px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Formulas & Notes */
+        .formula-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+
+        .formula-box h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 5px solid var(--warning);
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+        
+        .warning-box h4 {
+            color: var(--warning);
+            margin-bottom: 8px;
+        }
+
+        ul.checklist {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        ul.checklist li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        ul.checklist li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+
+        /* ẨN HIỆN ĐÁP ÁN (DETAILS & SUMMARY) */
+        .example-box {
+            background: #fff9f0;
+            border: 2px dashed var(--accent-light);
+            border-radius: 12px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .example-box summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            outline: none;
+            list-style: none; /* Ẩn mũi tên mặc định */
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .example-box summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .example-box summary:hover {
+            background: #ffecd2;
+        }
+
+        /* Custom icon mũi tên */
+        .example-box summary::after {
+            content: "\f107";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .example-box[open] summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .example-box[open] summary {
+            border-bottom: 2px dashed var(--accent-light);
+            background: #ffecd2;
+        }
+
+        .solution-content {
+            padding: 15px 20px;
+            background: #ffffff;
+            font-size: 1rem;
+        }
+
+        .example-label {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .sol-title {
+            color: var(--success);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sub-section {
+            margin-top: 20px;
+        }
+
+        .sub-section h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2rem; }
+            .card { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1><i class="fas fa-rocket"></i> BÍ KÍP ÔN TẬP TOÁN</h1>
+            <p>Tổng hợp các dạng toán trọng điểm giúp các con tự tin đạt điểm cao!<br><i>(Click vào từng đề bài để xem lời giải nhé)</i></p>
+        </header>
+
+        <!-- CHỦ ĐỀ 1 -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-sort-numeric-up-alt"></i> 1. Các bài toán về Dãy số
+            </div>
+            <p class="intro-text">Dãy số là chủ đề phong phú với nhiều biến thể. Dưới đây là các dạng trọng tâm các con cần nắm vững:</p>
+            
+            <div class="sub-section">
+                <h3>1.1. Dãy số cách đều</h3>
+                <div class="formula-box">
+                    <h4><i class="fas fa-key"></i> Công thức cần nhớ:</h4>
+                    <ul class="checklist">
+                        <li>Số số hạng = $\frac{\text{Số cuối} - \text{Số đầu}}{\text{Khoảng cách}} + 1$</li>
+                        <li>Tổng = $\frac{(\text{Số đầu} + \text{Số cuối}) \times \text{Số số hạng}}{2}$</li>
+                        <li>Số hạng thứ $n$ = $\text{Số đầu} + (n - 1) \times \text{Khoảng cách}$</li>
+                    </ul>
+                </div>
+                
+                <details class="example-box">
+                    <summary>
+                        <span class="example-label">Ví dụ 1</span>
+                        Cho dãy số: <strong>$2, 6, 10, 14, 18, \dots$</strong> Tính tổng của $40$ số hạng đầu tiên của dãy.
+                    </summary>
+                    <div class="solution-content">
+                        <div class="sol-title"><i class="fas fa-check-circle"></i> Lời giải chi tiết:</div>
+                        <p>Dãy số trên là dãy cách đều có khoảng cách là $d = 4$.</p>
+                        <p>Số hạng thứ 40 của dãy là: $$2 + (40 - 1) \times 4 = 158$$</p>
+                        <p>Tổng của 40 số hạng đầu tiên là: $$S = \frac{(2 + 158) \times 40}{2} = 3200$$</p>
+                        <p><b>Đáp số:</b> $3200$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="sub-section">
+                <h3>1.2. Dãy chữ và Phép chia có dư</h3>
+                <details class="example-box">
+                    <summary>
+                        <span class="example-label">Ví dụ 2</span>
+                        Viết liên tiếp cụm từ <strong>LUONGTHEVINH LUONGTHEVINH...</strong> thành một dãy dài. Hỏi chữ cái thứ $2025$ của dãy là chữ cái nào?
+                    </summary>
+                    <div class="solution-content">
+                        <div class="sol-title"><i class="fas fa-check-circle"></i> Lời giải chi tiết:</div>
+                        <p>Cụm từ <strong>"LUONGTHEVINH"</strong> có $12$ chữ cái.</p>
+                        <p>Ta thực hiện phép chia: $$2025 : 12 = 168 \text{ (dư } 9)$$</p>
+                        <p>Điều này có nghĩa là dãy lặp lại $168$ lần cụm từ trên và dư $9$ chữ cái. Chữ thứ 9 trong cụm <strong>L-U-O-N-G-T-H-E-<span style="color:red">V</span>-I-N-H</strong> là chữ <strong>V</strong>.</p>
+                        <p><b>Đáp số:</b> Chữ V</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="sub-section">
+                <h3>1.3. Bài toán số trang sách (Số nhà, số báo danh)</h3>
+                <p>Thường có 2 yêu cầu: Cho số trang tìm số chữ số, hoặc cho số chữ số yêu cầu tìm số trang.</p>
+                <details class="example-box">
+                    <summary>
+                        <span class="example-label">Ví dụ 3</span>
+                        Để đánh số trang của một quyển sách người ta phải dùng tất cả <strong>$642$</strong> chữ số. Hỏi quyển sách đó có bao nhiêu trang?
+                    </summary>
+                    <div class="solution-content">
+                        <div class="sol-title"><i class="fas fa-check-circle"></i> Lời giải chi tiết:</div>
+                        <p>- Từ trang $1$ đến $9$ có $9$ trang, cần dùng: $9 \times 1 = 9$ (chữ số).</p>
+                        <p>- Từ trang $10$ đến $99$ có $90$ trang, cần dùng: $90 \times 2 = 180$ (chữ số).</p>
+                        <p>Số chữ số còn lại để đánh các trang có 3 chữ số là: $$642 - (9 + 180) = 453 \text{ (chữ số)}$$</p>
+                        <p>Số trang có 3 chữ số là: $$453 : 3 = 151 \text{ (trang)}$$</p>
+                        <p>Quyển sách đó có tổng số trang là: $$9 + 90 + 151 = 250 \text{ (trang)}$$</p>
+                        <p><b>Đáp số:</b> $250$ trang</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- CHỦ ĐỀ 2 -->
+        <div class="card" style="border-top-color: #9c27b0;">
+            <div class="card-title" style="color: #7b1fa2;">
+                <i class="fas fa-chart-pie" style="background: #ba68c8;"></i> 2. Các bài toán về Tỉ số
+            </div>
+            <p class="intro-text">Dạng bài này không quá khó nhưng rất dễ nhầm lẫn. Các con chú ý nhé!</p>
+            
+            <div class="formula-box" style="border-left-color: #9c27b0; background: #f3e5f5;">
+                <h4><i class="fas fa-lightbulb"></i> Công thức cơ bản:</h4>
+                <ul class="checklist">
+                    <li>Tìm <strong>$\frac{m}{n}$</strong> của số $A$: $\rightarrow A \times \frac{m}{n}$</li>
+                    <li>Tìm một số biết <strong>$\frac{m}{n}$</strong> của nó bằng $A$: $\rightarrow A : \frac{m}{n}$</li>
+                </ul>
+            </div>
+
+            <!-- Đã bổ sung theo yêu cầu -->
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Lưu ý mấu chốt:</h4>
+                <p>- <strong>Đơn vị tỉ số:</strong> Tuyệt đối không vô tư cộng/trừ các tỉ số khác đơn vị. (VD: Không thể lấy $\frac{2}{5}$ số nam cộng $\frac{1}{3}$ số nữ).</p>
+                <p>- <strong>Chuyển về "Tổng số":</strong> Cần biết quy đổi chuẩn. VD: Giỏi = $\frac{2}{5}$ Còn lại $\implies$ Giỏi = $\frac{2}{7}$ Tổng số học sinh.</p>
+                <p>- <strong>Vẽ sơ đồ đoạn thẳng:</strong> Sử dụng sơ đồ để minh họa các đại lượng, giúp bài toán trực quan và dễ xác định hướng đi hơn.</p>
+            </div>
+
+            <details class="example-box">
+                <summary style="background: #faf5fc;">
+                    <span class="example-label" style="background:#9c27b0">Ví dụ 4</span>
+                    Mai có một rổ bóng. Bóng xanh bằng $\frac{2}{5}$ tổng số bóng. Bóng đỏ bằng $\frac{1}{3}$ tổng số bóng. Còn lại là bóng tím có $16$ quả. Hỏi Mai có tất cả bao nhiêu quả bóng?
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#9c27b0"></i> Lời giải chi tiết:</div>
+                    <p>Phân số chỉ số bóng tím so với tổng số bóng là:</p>
+                    <p>$$1 - \left( \frac{2}{5} + \frac{1}{3} \right) = 1 - \frac{11}{15} = \frac{4}{15} \text{ (tổng số bóng)}$$</p>
+                    <p>Theo đề bài, $\frac{4}{15}$ tổng số bóng tương ứng với $16$ quả.</p>
+                    <p>Tổng số quả bóng Mai có là: $$16 : \frac{4}{15} = 60 \text{ (quả)}$$</p>
+                    <p><b>Đáp số:</b> $60$ quả bóng</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- CHỦ ĐỀ 3 -->
+        <div class="card" style="border-top-color: #ff9800;">
+            <div class="card-title" style="color: #e65100;">
+                <i class="fas fa-birthday-cake" style="background: #ffb74d;"></i> 3. Các bài toán về Tuổi
+            </div>
+            <p class="intro-text">Trọng tâm thường rơi vào các câu hỏi "Trước đây / Sau này tuổi người này gấp mấy lần tuổi người kia". Phương pháp hiệu quả nhất là <strong>vẽ sơ đồ đoạn thẳng</strong> và dựa vào tính chất: <i>Hiệu số tuổi của hai người không thay đổi theo thời gian</i>.</p>
+
+            <details class="example-box">
+                <summary style="background: #fff8eb;">
+                    <span class="example-label" style="background:#ff9800">Ví dụ 5</span>
+                    Năm nay con $6$ tuổi và kém mẹ $28$ tuổi. Hỏi sau bao nhiêu năm nữa thì <strong>$3$ lần tuổi mẹ bằng $10$ lần tuổi con</strong>?
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#ff9800"></i> Lời giải chi tiết:</div>
+                    <p>Hiệu số tuổi của hai mẹ con luôn không đổi là $28$ tuổi.</p>
+                    <p>Khi $3$ lần tuổi mẹ bằng $10$ lần tuổi con, tức là tỉ số tuổi mẹ và tuổi con là $\frac{10}{3}$.</p>
+                    <p>Coi tuổi mẹ là $10$ phần, tuổi con là $3$ phần. Hiệu số phần bằng nhau là: $$10 - 3 = 7 \text{ (phần)}$$</p>
+                    <p>Giá trị một phần là: $28 : 7 = 4$ (tuổi).</p>
+                    <p>Tuổi con lúc đó là: $$4 \times 3 = 12 \text{ (tuổi)}$$</p>
+                    <p>Số năm cần tìm là: $$12 - 6 = 6 \text{ (năm)}$$</p>
+                    <p><b>Đáp số:</b> $6$ năm nữa</p>
+                </div>
+            </details>
+
+            <details class="example-box">
+                <summary style="background: #fff8eb;">
+                    <span class="example-label" style="background:#ff9800">Ví dụ 6</span>
+                    Hiện nay anh $27$ tuổi. Trước đây, khi tuổi anh bằng tuổi em hiện nay thì hồi đó tuổi anh gấp đôi tuổi em. Tính tuổi em hiện nay.
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#ff9800"></i> Lời giải chi tiết:</div>
+                    <p>Gọi tuổi em trước đây là $1$ phần thì tuổi anh trước đây là $2$ phần. Hiệu số tuổi của hai người là: $2 - 1 = 1$ phần.</p>
+                    <p>Hiện nay hiệu số tuổi không thay đổi (vẫn là $1$ phần). Vì tuổi em hiện nay bằng tuổi anh trước đây nên tuổi em hiện nay là $2$ phần.</p>
+                    <p>Tuổi anh hiện nay sẽ là: $$2 \text{ phần} + 1 \text{ phần} = 3 \text{ (phần)}$$</p>
+                    <p>Theo đề bài tuổi anh hiện nay là $27$ tuổi, suy ra $3$ phần $= 27 \implies 1$ phần $= 9$ (tuổi).</p>
+                    <p>Tuổi em hiện nay ($2$ phần) là: $$9 \times 2 = 18 \text{ (tuổi)}$$</p>
+                    <p><b>Đáp số:</b> $18$ tuổi</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- CHỦ ĐỀ 4 -->
+        <div class="card" style="border-top-color: #4caf50;">
+            <div class="card-title" style="color: #2e7d32;">
+                <i class="fas fa-users-cog" style="background: #81c784;"></i> 4. Bài toán Công việc
+            </div>
+            <p class="intro-text">Dạng bài rất hay xuất hiện trong các đề thi. Các con cần thực hiện thuần thục các bước rút về đơn vị (1 ngày/1 giờ làm được bao nhiêu phần công việc).</p>
+
+            <details class="example-box">
+                <summary style="background: #f1f8e9;">
+                    <span class="example-label" style="background:#4caf50">Ví dụ 7</span>
+                    An và Bình cùng làm một công việc có thể hoàn thành trong $12$ ngày. Sau $8$ ngày cùng làm thì An chuyển đi. Bình phải làm nốt phần việc còn lại trong $10$ ngày. Hỏi nếu làm riêng thì mỗi người làm trong bao lâu mới xong công việc đó?
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#4caf50"></i> Lời giải chi tiết:</div>
+                    <p>Trong $1$ ngày, An và Bình làm chung được: $\frac{1}{12}$ (công việc).</p>
+                    <p>Trong $8$ ngày, hai bạn làm được: $$8 \times \frac{1}{12} = \frac{2}{3} \text{ (công việc)}$$</p>
+                    <p>Phần công việc còn lại Bình phải làm là: $$1 - \frac{2}{3} = \frac{1}{3} \text{ (công việc)}$$</p>
+                    <p>Bình làm $\frac{1}{3}$ công việc trong $10$ ngày. Vậy thời gian để Bình làm một mình xong toàn bộ công việc là: $$10 : \frac{1}{3} = 30 \text{ (ngày)}$$</p>
+                    <p>Trong $1$ ngày, Bình làm một mình được $\frac{1}{30}$ công việc. Vậy trong $1$ ngày, An làm một mình được: $$\frac{1}{12} - \frac{1}{30} = \frac{1}{20} \text{ (công việc)}$$</p>
+                    <p>Thời gian để An làm một mình xong công việc là $20$ ngày.</p>
+                    <p><b>Đáp số:</b> An: $20$ ngày, Bình: $30$ ngày</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- CHỦ ĐỀ 5 -->
+        <div class="card" style="border-top-color: #e91e63;">
+            <div class="card-title" style="color: #c2185b;">
+                <i class="fas fa-percentage" style="background: #f06292;"></i> 5. Tỉ số phần trăm
+            </div>
+            <div class="formula-box" style="border-left-color: #e91e63; background: #fce4ec;">
+                <h4><i class="fas fa-key"></i> Công thức vàng:</h4>
+                <ul class="checklist">
+                    <li>Tìm <strong>$m\%$</strong> của số $A$: $\rightarrow A : 100 \times m$</li>
+                    <li>Tìm một số biết <strong>$m\%$</strong> của nó bằng $A$: $\rightarrow A : m \times 100$</li>
+                </ul>
+            </div>
+            
+            <p class="intro-text"><strong>Các dạng bài đặc trưng:</strong> Mua bán lãi lỗ; Bài toán hạt tươi hạt khô; Thay đổi 2 đại lượng trong một tích (như diện tích hình chữ nhật).</p>
+
+            <details class="example-box">
+                <summary style="background: #fce4ec;">
+                    <span class="example-label" style="background:#e91e63">Ví dụ 8</span>
+                    Nhân dịp Trung thu, cửa hàng giảm giá lồng đèn <strong>$20\%$</strong>. Ngày hôm sau, cửa hàng giảm thêm <strong>$10\%$</strong> trên giá đã giảm nên giá bán là $144\,000$ đồng. Hỏi giá ban đầu là bao nhiêu?
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#e91e63"></i> Lời giải chi tiết:</div>
+                    <p>Giá bán hiện tại ($144\,000$ đ) tương ứng với số phần trăm sau lần giảm thứ 2 là: $$100\% - 10\% = 90\% \text{ (giá sau lần giảm 1)}$$</p>
+                    <p>Giá của lồng đèn sau lần giảm 1 là: $$144000 : 90\% = 160\,000 \text{ (đồng)}$$</p>
+                    <p>Giá $160\,000$ đồng này tương ứng với số phần trăm so với giá ban đầu là: $$100\% - 20\% = 80\% \text{ (giá ban đầu)}$$</p>
+                    <p>Giá ban đầu của lồng đèn là: $$160000 : 80\% = 200\,000 \text{ (đồng)}$$</p>
+                    <p><b>Đáp số:</b> $200\,000$ đồng</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- CHỦ ĐỀ 6 -->
+        <div class="card" style="border-top-color: #00bcd4;">
+            <div class="card-title" style="color: #00838f;">
+                <i class="fas fa-draw-polygon" style="background: #4dd0e1;"></i> 6. Hình học: Tam giác & Hình thang
+            </div>
+            <p class="intro-text">Chủ điểm quan trọng:</p>
+            <ul class="checklist">
+                <li>Áp dụng công thức diện tích (Dạng cơ bản).</li>
+                <li>Tỉ số diện tích các tam giác chung chiều cao.</li>
+                <li>Tỉ số diện tích các tam giác chung đáy.</li>
+            </ul>
+            <div class="warning-box" style="border-left-color: #00bcd4; background: #e0f7fa;">
+                <p><i class="fas fa-star" style="color:#00bcd4"></i> <strong>Đặc biệt lưu ý:</strong> Cấu hình <em>"cánh dơi"</em> trong hình thang và <em>nguyên lý đuôi cá</em> (nguyên lý chia 3 tam giác).</p>
+            </div>
+
+            <details class="example-box">
+                <summary style="background: #e0f7fa;">
+                    <span class="example-label" style="background:#00bcd4">Ví dụ 9</span>
+                    Cho tam giác $ABC$, điểm $M$ trên cạnh $BC$ sao cho $MB = 2 \times MC$; điểm $N$ trên cạnh $AC$ sao cho $AN = 3 \times NC$. Biết $AM$ cắt $BN$ tại $O$ và diện tích tam giác $ABC = 330cm^2$. Tính diện tích tam giác $AOB$.
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#00bcd4"></i> Lời giải chi tiết:</div>
+                    <p>Theo nguyên lý tỉ lệ diện tích chung đỉnh (đuôi cá):</p>
+                    <p>- Vì $MB = 2 \times MC \implies \frac{S_{AOB}}{S_{AOC}} = \frac{MB}{MC} = 2 \implies S_{AOC} = \frac{1}{2} S_{AOB}$</p>
+                    <p>- Vì $AN = 3 \times NC \implies \frac{S_{AOB}}{S_{BOC}} = \frac{AN}{NC} = 3 \implies S_{BOC} = \frac{1}{3} S_{AOB}$</p>
+                    <p>Mặt khác, ta có: $$S_{ABC} = S_{AOB} + S_{BOC} + S_{AOC}$$</p>
+                    <p>Thay các tỉ lệ vào, ta được: $$330 = S_{AOB} + \frac{1}{3} S_{AOB} + \frac{1}{2} S_{AOB}$$ $$330 = \frac{11}{6} S_{AOB}$$</p>
+                    <p>Diện tích tam giác $AOB$ là: $$S_{AOB} = 330 : \frac{11}{6} = 180 \text{ } (cm^2)$$</p>
+                    <p><b>Đáp số:</b> $180cm^2$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- CHỦ ĐỀ 7 -->
+        <div class="card" style="border-top-color: #607d8b;">
+            <div class="card-title" style="color: #455a64;">
+                <i class="fas fa-car-side" style="background: #90a4ae;"></i> 7. Bài toán Chuyển động
+            </div>
+            <p class="intro-text">Các con cần tập trung cao độ vào:</p>
+            <ul class="checklist">
+                <li>Mối quan hệ tỉ lệ thuận/nghịch giữa Vận tốc, Quãng đường, Thời gian.</li>
+                <li>Chuyển động ngược chiều (gặp nhau) / Cùng chiều (đuổi kịp).</li>
+                <li>Chuyển động trên vòng tròn / Qua lại nhiều lần.</li>
+            </ul>
+
+            <details class="example-box">
+                <summary style="background: #eceff1;">
+                    <span class="example-label" style="background:#607d8b">Ví dụ 10</span>
+                    Cùng một lúc, ô tô và xe máy cùng đi từ A đến B, quãng đường AB dài $120km$. Vận tốc ô tô là $50km/giờ$, xe máy là $30km/giờ$. Hỏi sau khi cùng đi được bao lâu thì quãng đường còn lại của ô tô bằng $\frac{1}{3}$ quãng đường còn lại của xe máy?
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#607d8b"></i> Lời giải chi tiết:</div>
+                    <p>Gọi $t$ (giờ) là thời gian hai xe đã đi được.</p>
+                    <p>Quãng đường còn lại của ô tô là: $120 - 50 \times t$</p>
+                    <p>Quãng đường còn lại của xe máy là: $120 - 30 \times t$</p>
+                    <p>Theo bài ra ta có: $$120 - 50 \times t = \frac{1}{3} \times (120 - 30 \times t)$$</p>
+                    <p>Nhân cả hai vế với 3: $$360 - 150 \times t = 120 - 30 \times t$$</p>
+                    <p>Chuyển vế tìm $t$: $$360 - 120 = 150 \times t - 30 \times t$$ $$240 = 120 \times t \implies t = 2 \text{ (giờ)}$$</p>
+                    <p><b>Đáp số:</b> $2$ giờ</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- CHỦ ĐỀ 8 -->
+        <div class="card" style="border-top-color: #795548;">
+            <div class="card-title" style="color: #5d4037;">
+                <i class="fas fa-cubes" style="background: #a1887f;"></i> 8. Hình khối và Hình tròn
+            </div>
+            <p class="intro-text">Các dạng bài thường thi:</p>
+            <ul class="checklist">
+                <li>Tính Diện tích xung quanh, toàn phần, Thể tích, Chu vi, Diện tích hình tròn.</li>
+                <li>Đếm khối lập phương nhỏ (hoặc sơn màu).</li>
+                <li><strong>Bài toán "Bể nước":</strong> Sự thay đổi mực nước khi thả/vớt vật thể.</li>
+                <li><strong>Diện tích hình phức tạp:</strong> Cắt ghép, bù trừ (hình lá, cánh hoa...).</li>
+            </ul>
+
+            <details class="example-box">
+                <summary style="background: #efebe9;">
+                    <span class="example-label" style="background:#795548">Ví dụ 11</span>
+                    Một bể nước hình lập phương cạnh $10dm$ đang chứa đầy nước. Người ta thả chìm hẳn vào bể một khối lập phương bằng sắt cạnh $8dm$ khiến nước trào ra. Hỏi sau khi vớt khối sắt ra, mực nước trong bể cao bao nhiêu?
+                </summary>
+                <div class="solution-content">
+                    <div class="sol-title"><i class="fas fa-check-circle" style="color:#795548"></i> Lời giải chi tiết:</div>
+                    <p>Thể tích của bể nước là: $$10 \times 10 \times 10 = 1000 \text{ } (dm^3)$$</p>
+                    <p>Thể tích của khối sắt bằng thể tích nước bị trào ra: $$8 \times 8 \times 8 = 512 \text{ } (dm^3)$$</p>
+                    <p>Sau khi vớt khối sắt ra, thể tích nước còn lại trong bể là: $$1000 - 512 = 488 \text{ } (dm^3)$$</p>
+                    <p>Diện tích đáy bể là: $10 \times 10 = 100 \text{ } (dm^2)$</p>
+                    <p>Chiều cao của mực nước còn lại trong bể là: $$488 : 100 = 4,88 \text{ } (dm)$$</p>
+                    <p><b>Đáp số:</b> $4,88dm$</p>
+                </div>
+            </details>
+        </div>
+
+    </div>
+
+</body>
+</html>
