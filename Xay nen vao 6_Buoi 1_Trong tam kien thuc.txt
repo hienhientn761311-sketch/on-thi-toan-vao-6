@@ -1,0 +1,252 @@
+<style>
+.sttn-wrap { max-width: 860px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important;
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(22px, 5.2vw, 34px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 6px 0 !important;
+}
+.sttn-hero-sub {
+  color: #ceedca !important;
+  font-size: clamp(13px, 3vw, 16px) !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+.sttn-note {
+  background: #e5f6e3 !important;
+  border-left: 5px solid #5fbd18 !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 18px 0 !important;
+}
+.sttn-note p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; font-style: italic !important; }
+
+.sttn-card {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 18px !important;
+  padding: clamp(16px, 4vw, 26px) !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 6px 18px rgba(28,88,31,0.10) !important;
+}
+.sttn-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px dashed #ceedca !important;
+}
+.sttn-num {
+  flex: 0 0 auto !important;
+  width: 42px !important; height: 42px !important;
+  background: #1c581f !important;
+  color: #ffda0f !important;
+  border-radius: 12px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 20px !important; font-weight: 800 !important;
+}
+.sttn-head h3 {
+  margin: 0 !important;
+  color: #1c581f !important;
+  font-size: clamp(16px, 3.8vw, 21px) !important;
+  font-weight: 800 !important;
+}
+
+.sttn-sub {
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(14px, 3.2vw, 16px) !important;
+  margin: 16px 0 8px 0 !important;
+  display: flex !important; align-items: center !important; gap: 8px !important;
+}
+.sttn-sub::before { content: "▸" !important; color: #5fbd18 !important; }
+
+.sttn-card p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; margin: 6px 0 !important; }
+
+.sttn-formula {
+  background: #e5f6e3 !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  margin: 10px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(14px, 3.2vw, 17px) !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+}
+.sttn-formula b { color: #1c581f !important; }
+
+.sttn-list { list-style: none !important; padding: 0 !important; margin: 8px 0 !important; }
+.sttn-list li {
+  position: relative !important;
+  padding: 8px 12px 8px 34px !important;
+  margin: 8px 0 !important;
+  background: #f5faf2 !important;
+  border-radius: 10px !important;
+  font-size: clamp(13px, 3vw, 15px) !important;
+  line-height: 1.8 !important;
+}
+.sttn-list li::before {
+  content: "✓" !important;
+  position: absolute !important; left: 12px !important; top: 8px !important;
+  color: #5fbd18 !important; font-weight: 800 !important;
+}
+
+.sttn-tip {
+  background: #fffdf0 !important;
+  border: 2px solid #ffda0f !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  margin: 14px 0 !important;
+}
+.sttn-tip p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; }
+.sttn-tip .sttn-tip-label { font-weight: 800 !important; color: #1c581f !important; }
+
+.sttn-hl { background: #ffda0f !important; padding: 1px 6px !important; border-radius: 5px !important; font-weight: 700 !important; }
+
+.sttn-step {
+  display: flex !important; gap: 12px !important; align-items: flex-start !important;
+  margin: 10px 0 !important;
+}
+.sttn-step-n {
+  flex: 0 0 auto !important;
+  width: 28px !important; height: 28px !important;
+  background: #5fbd18 !important; color: #fff !important;
+  border-radius: 50% !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-weight: 800 !important; font-size: 14px !important;
+}
+.sttn-step p { margin: 3px 0 0 0 !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6 CLC · TỔNG HỢP KIẾN THỨC</span>
+    <p class="sttn-hero-title">TRỌNG TÂM KIẾN THỨC BUỔI 1</p>
+    <p class="sttn-hero-sub">SỐ TỰ NHIÊN · DẤU HIỆU CHIA HẾT · DÃY SỐ</p>
+  </div>
+
+  <div class="sttn-note">
+    <p>Gửi các sĩ tử: Đây là toàn bộ "vũ khí" để các con chinh phục các bài toán trong buổi học vừa qua. Hãy dán tờ bí kíp này ở góc học tập và đọc lại thường xuyên nhé! ♡</p>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">1</div>
+      <h3>CẤU TẠO &amp; PHÂN TÍCH SỐ</h3>
+    </div>
+
+    <p class="sttn-sub">Phân tích số tự nhiên</p>
+    <div class="sttn-formula">
+      ab = a × 10 + b<br>
+      abc = a × 100 + b × 10 + c = ab × 10 + c<br>
+      abcd = a × 1000 + b × 100 + c × 10 + d = abc × 10 + d = ab × 100 + cd
+    </div>
+
+    <p class="sttn-sub">Viết thêm chữ số</p>
+    <ul class="sttn-list">
+      <li>Viết thêm chữ số <b>x</b> vào <b>bên phải</b>: Số mới gấp 10 lần số cũ và cộng thêm x. <em>(Ví dụ: abc2 = abc × 10 + 2).</em></li>
+      <li>Viết thêm chữ số <b>x</b> vào <b>bên trái</b> số có n chữ số: Số mới = Số cũ + x × 10ⁿ. <em>(Ví dụ: 3abc = 3000 + abc).</em></li>
+    </ul>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">2</div>
+      <h3>PHÉP CHIA &amp; DẤU HIỆU CHIA HẾT</h3>
+    </div>
+
+    <p class="sttn-sub">Công thức phép chia có dư</p>
+    <div class="sttn-formula">SỐ BỊ CHIA = THƯƠNG × SỐ CHIA + SỐ DƯ</div>
+    <p><b>Lưu ý:</b> Số dư luôn phải <span class="sttn-hl">nhỏ hơn số chia</span>.</p>
+
+    <p class="sttn-sub">Dấu hiệu chia hết cốt lõi</p>
+    <ul class="sttn-list">
+      <li><b>Chia hết cho 2 và 5:</b> Chữ số tận cùng bắt buộc phải là 0.</li>
+      <li><b>Chia hết cho 3 và 9:</b> Dựa vào tổng các chữ số.</li>
+    </ul>
+
+    <p class="sttn-sub">Định lý về số dư (Cực kỳ quan trọng)</p>
+    <ul class="sttn-list">
+      <li>Một số chia cho 10 dư bao nhiêu thì chữ số tận cùng của nó chính là bấy nhiêu.</li>
+      <li>Một số chia cho 9 (hoặc 3) dư bao nhiêu thì tổng các chữ số của nó chia cho 9 (hoặc 3) cũng dư đúng bấy nhiêu.</li>
+    </ul>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">3</div>
+      <h3>DÃY SỐ CÁCH ĐỀU</h3>
+    </div>
+
+    <p>Đối với một dãy số cách đều tăng dần, các con hãy ghi nhớ 3 "công thức vàng" sau:</p>
+
+    <p class="sttn-sub">Tính số lượng số hạng</p>
+    <div class="sttn-formula">Số số hạng = (Số cuối − Số đầu) : Khoảng cách + 1</div>
+
+    <p class="sttn-sub">Tìm số hạng thứ n của dãy</p>
+    <div class="sttn-formula">Số hạng thứ n = Số đầu + (n − 1) × Khoảng cách</div>
+
+    <p class="sttn-sub">Tính tổng của dãy số</p>
+    <div class="sttn-formula">Tổng = (Số đầu + Số cuối) × Số số hạng : 2</div>
+
+    <div class="sttn-tip">
+      <p><span class="sttn-tip-label">★ Mẹo giải toán tìm X:</span> Nếu đề bài cho một dãy cộng dồn có chứa X (Ví dụ: (2 + X) + (4 + X) + ... = 780), hãy đếm xem dãy số tự nhiên có bao nhiêu số hạng, thì sẽ có bấy nhiêu chữ X được cộng với nhau!</p>
+    </div>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">4</div>
+      <h3>QUY LUẬT CHỮ SỐ TẬN CÙNG</h3>
+    </div>
+
+    <p>Để tìm chữ số tận cùng của một dãy tính nhân dài dằng dặc, ta không cần nhân hết ra, mà chỉ cần nhớ quy luật sau:</p>
+    <ul class="sttn-list">
+      <li>Tích của <b>Số chẵn × 5</b> chắc chắn có tận cùng là <span class="sttn-hl">0</span>.</li>
+      <li>Tích của <b>Số lẻ × 5</b> chắc chắn có tận cùng là <span class="sttn-hl">5</span>.</li>
+      <li>Khi trong một tích liên tiếp có chứa các thừa số như 10, 20, 30... hoặc cụm (2 × 5), (4 × 5)... thì tích đó luôn có tận cùng là <span class="sttn-hl">0</span>.</li>
+      <li>Nếu biểu thức là một phép tính hỗn hợp (cộng, trừ, nhân), hãy tách chúng thành các cụm tích nhỏ, tìm tận cùng của từng cụm rồi cộng/trừ các chữ số tận cùng đó với nhau.</li>
+    </ul>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">5</div>
+      <h3>GHÉP CẶP TÍNH TỔNG CÁC CHỮ SỐ</h3>
+    </div>
+
+    <p><b>Bài toán:</b> Tính tổng các chữ số của một dãy số tự nhiên liên tiếp (Ví dụ: từ 1 đến 99).</p>
+    <p><b>Phương pháp giải:</b> Thay vì cộng lẻ tẻ, ta dùng "Tuyệt chiêu ghép cặp":</p>
+
+    <div class="sttn-step"><div class="sttn-step-n">1</div><p>Thêm số 00 vào đầu dãy (Việc này không làm thay đổi tổng các chữ số). Dãy trở thành: 00, 01, 02, ..., 98, 99.</p></div>
+    <div class="sttn-step"><div class="sttn-step-n">2</div><p>Ghép cặp số đầu với số cuối: (00, 99); (01, 98); (02, 97);...</p></div>
+    <div class="sttn-step"><div class="sttn-step-n">3</div><p>Nhận xét: Tổng các chữ số của mỗi cặp luôn bằng nhau. <em>(Ví dụ: 0 + 0 + 9 + 9 = 18; 0 + 1 + 9 + 8 = 18...).</em></p></div>
+    <div class="sttn-step"><div class="sttn-step-n">4</div><p>Lấy tổng chữ số của 1 cặp × Số lượng cặp.</p></div>
+  </div>
+
+</div>
