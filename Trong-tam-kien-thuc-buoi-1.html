@@ -140,6 +140,8 @@
   font-weight: 800 !important; font-size: 14px !important;
 }
 .sttn-step p { margin: 3px 0 0 0 !important; }
+
+.sttn-ov { border-top: 1.5px solid currentColor !important; padding-top: 1px !important; display: inline-block !important; line-height: 1 !important; }
 </style>
 
 <div class="sttn-wrap">
@@ -162,15 +164,15 @@
 
     <p class="sttn-sub">Phân tích số tự nhiên</p>
     <div class="sttn-formula">
-      ab = a × 10 + b<br>
-      abc = a × 100 + b × 10 + c = ab × 10 + c<br>
-      abcd = a × 1000 + b × 100 + c × 10 + d = abc × 10 + d = ab × 100 + cd
+      <span class="sttn-ov">ab</span> = a × 10 + b<br>
+      <span class="sttn-ov">abc</span> = a × 100 + b × 10 + c = <span class="sttn-ov">ab</span> × 10 + c<br>
+      <span class="sttn-ov">abcd</span> = a × 1000 + b × 100 + c × 10 + d = <span class="sttn-ov">abc</span> × 10 + d = <span class="sttn-ov">ab</span> × 100 + <span class="sttn-ov">cd</span>
     </div>
 
     <p class="sttn-sub">Viết thêm chữ số</p>
     <ul class="sttn-list">
-      <li>Viết thêm chữ số <b>x</b> vào <b>bên phải</b>: Số mới gấp 10 lần số cũ và cộng thêm x. <em>(Ví dụ: abc2 = abc × 10 + 2).</em></li>
-      <li>Viết thêm chữ số <b>x</b> vào <b>bên trái</b> số có n chữ số: Số mới = Số cũ + x × 10ⁿ. <em>(Ví dụ: 3abc = 3000 + abc).</em></li>
+      <li>Viết thêm chữ số <b>x</b> vào <b>bên phải</b>: Số mới gấp 10 lần số cũ và cộng thêm x. <em>(Ví dụ: <span class="sttn-ov">abc2</span> = <span class="sttn-ov">abc</span> × 10 + 2).</em></li>
+      <li>Viết thêm chữ số <b>x</b> vào <b>bên trái</b> số có n chữ số: Số mới = Số cũ + x × 10ⁿ. <em>(Ví dụ: <span class="sttn-ov">3abc</span> = 3000 + <span class="sttn-ov">abc</span>).</em></li>
     </ul>
   </div>
 
