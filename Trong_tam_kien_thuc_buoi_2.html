@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trọng tâm kiến thức Buổi 2 - Phân số &amp; Tỉ số</title>
+<style>body{margin:0;padding:16px;background:#f5faf2;font-family:Inter,system-ui,Arial,sans-serif;}</style>
+</head>
+<body>
+<style>
+.sttn-wrap { max-width: 860px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important;
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(22px, 5.2vw, 34px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 6px 0 !important;
+}
+.sttn-hero-sub {
+  color: #ceedca !important;
+  font-size: clamp(13px, 3vw, 16px) !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+.sttn-note {
+  background: #e5f6e3 !important;
+  border-left: 5px solid #5fbd18 !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 18px 0 !important;
+}
+.sttn-note p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; font-style: italic !important; }
+
+.sttn-card {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 18px !important;
+  padding: clamp(16px, 4vw, 26px) !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 6px 18px rgba(28,88,31,0.10) !important;
+}
+.sttn-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px dashed #ceedca !important;
+}
+.sttn-num {
+  flex: 0 0 auto !important;
+  width: 42px !important; height: 42px !important;
+  background: #1c581f !important;
+  color: #ffda0f !important;
+  border-radius: 12px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 20px !important; font-weight: 800 !important;
+}
+.sttn-head h3 {
+  margin: 0 !important;
+  color: #1c581f !important;
+  font-size: clamp(16px, 3.8vw, 21px) !important;
+  font-weight: 800 !important;
+}
+
+.sttn-sub {
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(14px, 3.2vw, 16px) !important;
+  margin: 16px 0 8px 0 !important;
+  display: flex !important; align-items: baseline !important; gap: 8px !important;
+}
+.sttn-sub .sttn-k {
+  flex: 0 0 auto !important;
+  background: #5fbd18 !important; color: #fff !important;
+  min-width: 24px !important; height: 24px !important;
+  padding: 0 6px !important;
+  border-radius: 7px !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 14px !important; font-weight: 800 !important;
+  align-self: flex-start !important;
+}
+
+.sttn-card p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; margin: 6px 0 !important; }
+
+.sttn-formula {
+  background: #e5f6e3 !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  margin: 10px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(14px, 3.2vw, 17px) !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+}
+
+.sttn-list { list-style: none !important; padding: 0 !important; margin: 8px 0 !important; }
+.sttn-list li {
+  position: relative !important;
+  padding: 8px 12px 8px 34px !important;
+  margin: 8px 0 !important;
+  background: #f5faf2 !important;
+  border-radius: 10px !important;
+  font-size: clamp(13px, 3vw, 15px) !important;
+  line-height: 1.8 !important;
+}
+.sttn-list li::before {
+  content: "✓" !important;
+  position: absolute !important; left: 12px !important; top: 8px !important;
+  color: #5fbd18 !important; font-weight: 800 !important;
+}
+
+.sttn-tip {
+  background: #fffdf0 !important;
+  border: 2px solid #ffda0f !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  margin: 14px 0 !important;
+}
+.sttn-tip p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; }
+.sttn-tip .sttn-tip-label { font-weight: 800 !important; color: #1c581f !important; }
+
+.sttn-hl { background: #ffda0f !important; padding: 1px 6px !important; border-radius: 5px !important; font-weight: 700 !important; }
+
+/* Phân số */
+.sttn-frac { display: inline-flex !important; flex-direction: column !important; vertical-align: middle !important; text-align: center !important; margin: 0 3px !important; }
+.sttn-frac .sttn-top { border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
+.sttn-frac .sttn-bot { padding: 1px 6px 0 6px !important; }
+
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6 CLC · TỔNG HỢP KIẾN THỨC</span>
+    <p class="sttn-hero-title">TRỌNG TÂM KIẾN THỨC BUỔI 2</p>
+    <p class="sttn-hero-sub">PHÂN SỐ · BÀI TOÁN TỔNG/HIỆU VÀ TỈ SỐ</p>
+  </div>
+
+  <div class="sttn-note">
+    <p>Gửi các sĩ tử: Đây là toàn bộ "vũ khí" để các con chinh phục các bài toán trong buổi học vừa qua. Hãy dán tờ bí kíp này ở góc học tập và đọc lại thường xuyên nhé! ♡</p>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">1</div>
+      <h3>PHÂN SỐ &amp; DÃY PHÂN SỐ CÓ QUY LUẬT</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Tính chất phân phối của phép nhân đối với phép cộng/trừ</p>
+    <div class="sttn-formula">a × b + a × c − a × d = a × (b + c − d)</div>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Dãy phân số có quy luật (Khoảng cách 1)</p>
+    <ul class="sttn-list">
+      <li>Công thức tách cơ bản:
+        <div class="sttn-formula" style="background:#fff !important; margin:8px 0 0 0 !important;">
+          <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">n × (n + 1)</span></span>
+          =
+          <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">n</span></span>
+          −
+          <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">n + 1</span></span>
+        </div>
+      </li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Dãy phân số có khoảng cách khác 1</p>
+    <ul class="sttn-list">
+      <li>Khoảng cách 2 thừa số dưới mẫu là <b>k</b> (Ví dụ: 6 − 4 = 2). Tử số phải tương ứng bằng <b>k</b>.</li>
+      <li>Công thức tổng quát (Ví dụ k = 2):
+        <div class="sttn-formula" style="background:#fff !important; margin:8px 0 0 0 !important;">
+          <span class="sttn-frac"><span class="sttn-top">2</span><span class="sttn-bot">n × (n + 2)</span></span>
+          =
+          <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">n</span></span>
+          −
+          <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">n + 2</span></span>
+        </div>
+      </li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">4</span>Dãy số có quy luật nhân/chia gấp khúc</p>
+    <ul class="sttn-list">
+      <li><b>Dấu hiệu:</b> Quan sát thấy mẫu số sau gấp đôi mẫu số trước (hoặc phân số trước gấp đôi phân số sau).</li>
+      <li><b>Bí kíp:</b> Gọi biểu thức là <b>A</b>. Hãy nhân cả 2 vế của <b>A</b> với 2, ta được <span class="sttn-hl">2 × A</span>. Sau đó lấy biểu thức <span class="sttn-hl">(2 × A) − A</span> để triệt tiêu toàn bộ khúc giữa, chỉ còn lại số đầu và số cuối!</li>
+    </ul>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">2</div>
+      <h3>BÀI TOÁN TỔNG/HIỆU VÀ TỈ SỐ</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Bài toán Tính ngược từ cuối kết hợp Tổng − Tỉ</p>
+    <ul class="sttn-list">
+      <li><b>Nguyên lý:</b> Dù các đối tượng có đổ qua, đổ lại bao nhiêu lần đi nữa, thì <span class="sttn-hl">TỔNG</span> số lượng ban đầu của tất cả các đối tượng vẫn luôn <span class="sttn-hl">KHÔNG ĐỔI</span>.</li>
+      <li><b>Cách làm:</b> Dựa vào tỉ lệ lúc sau để vẽ sơ đồ đoạn thẳng. Tìm ra số lượng của mỗi đại lượng <em>lúc sau</em>. Từ đó làm bài toán tính ngược (trừ đi phần đã nhận, cộng lại phần đã cho đi) để tìm ra số lượng <em>lúc đầu</em>.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Bí kíp bài toán Hiệu − Tỉ</p>
+    <ul class="sttn-list">
+      <li>Nếu ta <b>cùng bớt</b> (hoặc <b>cùng thêm</b>) một số lượng bằng nhau ở cả hai đại lượng (Ví dụ: Cùng bán đi 100 con gà mái và 100 con gà trống), thì <span class="sttn-hl">HIỆU SỐ</span> của chúng <span class="sttn-hl">KHÔNG ĐỔI</span>.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Bài toán Quy về cùng một đơn vị (Bắc cầu)</p>
+    <ul class="sttn-list">
+      <li><b>Phương pháp:</b> Khi đề bài cho các tỉ số liên tiếp, hãy biểu diễn các đại lượng chưa biết theo <b>cùng một đại lượng làm gốc</b>.</li>
+      <li><b>Lưu ý điều kiện:</b> Vì số lượng người (số học sinh) hoặc đồ vật luôn phải là <b>số tự nhiên</b>, nên con sẽ suy ra được điều kiện <span class="sttn-hl">chia hết</span> đối với mẫu số của phân số tổng. Từ đó giúp tìm ra kết quả chính xác dựa vào khoảng cho trước.</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
