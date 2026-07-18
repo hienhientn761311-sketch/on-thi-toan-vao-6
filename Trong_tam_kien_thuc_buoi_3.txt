@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trọng tâm kiến thức Buổi 3 - Số thập phân &amp; Tỉ số phần trăm</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 860px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important;
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(22px, 5.2vw, 34px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 6px 0 !important;
+}
+.sttn-hero-sub {
+  color: #ceedca !important;
+  font-size: clamp(13px, 3vw, 16px) !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+.sttn-note {
+  background: #e5f6e3 !important;
+  border-left: 5px solid #5fbd18 !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 18px 0 !important;
+}
+.sttn-note p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; font-style: italic !important; }
+
+.sttn-card {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 18px !important;
+  padding: clamp(16px, 4vw, 26px) !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 6px 18px rgba(28,88,31,0.10) !important;
+}
+.sttn-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px dashed #ceedca !important;
+}
+.sttn-num {
+  flex: 0 0 auto !important;
+  width: 42px !important; height: 42px !important;
+  background: #1c581f !important;
+  color: #ffda0f !important;
+  border-radius: 12px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 20px !important; font-weight: 800 !important;
+}
+.sttn-head h3 {
+  margin: 0 !important;
+  color: #1c581f !important;
+  font-size: clamp(16px, 3.8vw, 21px) !important;
+  font-weight: 800 !important;
+}
+
+.sttn-sub {
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(14px, 3.2vw, 16px) !important;
+  margin: 16px 0 8px 0 !important;
+  display: flex !important; align-items: flex-start !important; gap: 8px !important;
+}
+.sttn-sub .sttn-k {
+  flex: 0 0 auto !important;
+  background: #5fbd18 !important; color: #fff !important;
+  min-width: 24px !important; height: 24px !important;
+  padding: 0 6px !important;
+  border-radius: 7px !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 14px !important; font-weight: 800 !important;
+}
+
+.sttn-card p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; margin: 6px 0 !important; }
+
+.sttn-formula {
+  background: #e5f6e3 !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  margin: 10px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(14px, 3.2vw, 17px) !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+}
+
+.sttn-list { list-style: none !important; padding: 0 !important; margin: 8px 0 !important; }
+.sttn-list li {
+  position: relative !important;
+  padding: 8px 12px 8px 34px !important;
+  margin: 8px 0 !important;
+  background: #f5faf2 !important;
+  border-radius: 10px !important;
+  font-size: clamp(13px, 3vw, 15px) !important;
+  line-height: 1.8 !important;
+}
+.sttn-list li::before {
+  content: "✓" !important;
+  position: absolute !important; left: 12px !important; top: 8px !important;
+  color: #5fbd18 !important; font-weight: 800 !important;
+}
+
+.sttn-warn { border: 2px solid #ffda0f !important; background: #fffdf0 !important; }
+.sttn-warn::before { content: "⚠" !important; color: #d98c00 !important; }
+
+.sttn-tip {
+  background: #fffdf0 !important;
+  border: 2px solid #ffda0f !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  margin: 14px 0 !important;
+}
+.sttn-tip p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; }
+.sttn-tip .sttn-tip-label { font-weight: 800 !important; color: #1c581f !important; }
+
+.sttn-hl { background: #ffda0f !important; padding: 1px 6px !important; border-radius: 5px !important; font-weight: 700 !important; }
+
+.sttn-frac { display: inline-flex !important; flex-direction: column !important; vertical-align: middle !important; text-align: center !important; margin: 0 3px !important; }
+.sttn-frac .sttn-top { border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
+.sttn-frac .sttn-bot { padding: 1px 6px 0 6px !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6 CLC · TỔNG HỢP KIẾN THỨC</span>
+    <p class="sttn-hero-title">TRỌNG TÂM KIẾN THỨC BUỔI 3</p>
+    <p class="sttn-hero-sub">SỐ THẬP PHÂN · CÁC BÀI TOÁN VỀ TỈ LỆ VÀ TỈ SỐ PHẦN TRĂM</p>
+  </div>
+
+  <div class="sttn-note">
+    <p>Gửi các sĩ tử: Đây là bộ bí kíp tổng quát nhất giúp các con chinh phục mọi bài toán biến thể trong chuyên đề vừa học. Hãy ghi nhớ thật kỹ nhé! ♡</p>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">1</div>
+      <h3>XỬ LÝ SỐ THẬP PHÂN</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Chuyển đổi số thập phân đặc biệt thành phân số</p>
+    <p>Trong các biểu thức tính nhanh, hãy biến đổi để triệt tiêu:</p>
+    <ul class="sttn-list">
+      <li>Nhân với <b>0,5</b> → Tương đương với <b>chia 2</b> (vì 0,5 = <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">2</span></span>).</li>
+      <li>Nhân với <b>0,25</b> → Tương đương với <b>chia 4</b> (vì 0,25 = <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">4</span></span>).</li>
+      <li>Nhân với <b>0,125</b> → Tương đương với <b>chia 8</b> (vì 0,125 = <span class="sttn-frac"><span class="sttn-top">1</span><span class="sttn-bot">8</span></span>).</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Quy luật dịch chuyển dấu phẩy</p>
+    <ul class="sttn-list">
+      <li>Dịch dấu phẩy <b>sang phải</b> 1, 2, 3... hàng → Số đó <span class="sttn-hl">gấp lên</span> 10, 100, 1000... lần.</li>
+      <li>Dịch dấu phẩy <b>sang trái</b> 1, 2, 3... hàng → Số đó <span class="sttn-hl">giảm đi</span> 10, 100, 1000... lần.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Bài toán tính sai do "Quên dấu phẩy"</p>
+    <p>Khi thực hiện phép tính với số thập phân mà quên dấu phẩy, bản chất là ta đã biến nó thành số tự nhiên (gấp lên 10, 100... lần). <b>Nguyên tắc giải:</b></p>
+    <ul class="sttn-list">
+      <li>Nếu quên phẩy ở số có <b>1 chữ số thập phân</b> → Số đó tăng 10 lần → Chênh lệch bằng <span class="sttn-hl">9 lần</span> số ban đầu.</li>
+      <li>Nếu quên phẩy ở số có <b>2 chữ số thập phân</b> → Số đó tăng 100 lần → Chênh lệch bằng <span class="sttn-hl">99 lần</span> số ban đầu.</li>
+      <li class="sttn-warn"><b>Đặc biệt chú ý:</b> Trong phép trừ, <b>SỐ TRỪ</b> mà <b>TĂNG</b> thì <b>HIỆU</b> sẽ <b>GIẢM</b> (và ngược lại).</li>
+    </ul>
+    <div class="sttn-tip">
+      <p><span class="sttn-tip-label">★ Chốt:</span> Từ khoảng chênh lệch giữa Kết quả đúng và Kết quả sai, tìm được số bị viết nhầm!</p>
+    </div>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">2</div>
+      <h3>TỈ LỆ THUẬN / NGHỊCH</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Bài toán Năng suất − Thời gian (Mức ăn, Đội công nhân)</p>
+    <p>Đây là dạng toán <b>Tỉ lệ nghịch</b> (Số người tăng thì Số ngày giảm).</p>
+    <ul class="sttn-list">
+      <li><b>Nguyên tắc:</b> Luôn xác định <span class="sttn-hl">phần công việc/lượng gạo còn lại</span> tại thời điểm có sự thay đổi (người đến thêm hoặc bỏ đi).</li>
+      <li><b>Phương pháp:</b> Tính số ngày còn lại theo dự định → Tính tổng số người thực tế lúc sau → Lập tóm tắt để tìm ra số ngày thực tế dựa trên tỉ lệ nghịch giữa số người và số ngày.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Chuyển động Tỉ lệ thuận / Tỉ lệ nghịch</p>
+    <ul class="sttn-list">
+      <li>Nếu <b>Thời gian không đổi</b> (đến đúng giờ đã định): Quãng đường <b>tỉ lệ thuận</b> với Vận tốc. (Vận tốc tăng bao nhiêu lần thì Quãng đường đi được tăng bấy nhiêu lần).</li>
+      <li>Nếu <b>Quãng đường không đổi</b> (cùng đi trên 1 đoạn đường): Vận tốc <b>tỉ lệ nghịch</b> với Thời gian. Tỉ số Vận tốc = <span class="sttn-frac"><span class="sttn-top">a</span><span class="sttn-bot">b</span></span> → Tỉ số Thời gian = <span class="sttn-frac"><span class="sttn-top">b</span><span class="sttn-bot">a</span></span>. Kết hợp với <b>Hiệu số thời gian</b> (đến sớm/muộn) để giải.</li>
+    </ul>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">3</div>
+      <h3>TỈ SỐ PHẦN TRĂM</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Bài toán hỗn hợp &amp; Pha dung dịch</p>
+    <ul class="sttn-list">
+      <li><b>Quy luật tổng 100%:</b> Tổng các thành phần ban đầu của một hỗn hợp luôn luôn bằng <span class="sttn-hl">100%</span>. Hãy lấy 100% trừ đi các phần đã biết để ra phần trăm của chất còn lại.</li>
+      <li><b>Lưu ý khi thêm chất nguyên chất:</b> Khi đổ thêm (ví dụ: đường, muối) vào dung dịch, có 2 đại lượng cùng tăng: Khối lượng của riêng chất đó <b>TĂNG</b>, dẫn đến Tổng khối lượng dung dịch cũng <b>TĂNG</b>.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Sự thay đổi phần trăm liên tiếp</p>
+    <ul class="sttn-list">
+      <li class="sttn-warn"><b>Cạm bẫy cực lớn:</b> Tuyệt đối <span class="sttn-hl">KHÔNG</span> lấy các phần trăm ở các giai đoạn cộng/trừ trực tiếp cho nhau.</li>
+      <li><b>Bản chất:</b> Vì đại lượng được chọn làm gốc (100%) thay đổi theo từng đợt. Phần trăm tăng/giảm của giai đoạn 2 phải được tính dựa trên <b>kết quả mới của giai đoạn 1</b> chứ không phải giá ban đầu.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Bài toán Vốn − Lãi − Bán</p>
+    <div class="sttn-formula">GIÁ BÁN = GIÁ VỐN + LÃI</div>
+    <ul class="sttn-list">
+      <li>Luôn coi <b>Giá vốn là gốc (100%)</b>. Lãi hoặc lỗ được cộng/trừ trực tiếp vào vốn để ra phần trăm của Giá Bán.</li>
+      <li class="sttn-warn">Khi <b>Giảm giá/Chiết khấu</b>, người ta giảm trên <span class="sttn-hl">Giá niêm yết</span> (Giá đang bán), chứ không giảm trên vốn!</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">4</span>Tỉ lệ phần trăm trong Hình học</p>
+    <ul class="sttn-list">
+      <li>Nếu kích thước (cạnh, bán kính) tăng lên, hãy lập <b>tỉ số giữa kích thước mới so với kích thước cũ</b>.</li>
+      <li>Tỉ số của <b>Diện tích</b> = tỉ số của kích thước × tỉ số của kích thước. Đừng quên <span class="sttn-hl">trừ đi 100%</span> ban đầu để ra phần "tăng/giảm".</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
