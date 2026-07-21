@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuyên đề 2 - Phân số. Bài toán tìm hai số khi biết tổng/hiệu và tỉ số</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 880px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(20px, 4.6vw, 30px) !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+.sttn-q {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 16px !important;
+  padding: clamp(14px, 3.5vw, 22px) !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 5px 16px rgba(28,88,31,0.09) !important;
+}
+.sttn-id {
+  display: inline-block !important;
+  background: #e5f6e3 !important; color: #1c581f !important;
+  font-size: clamp(11px, 2.4vw, 12.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: .4px !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  margin-bottom: 10px !important;
+}
+
+.sttn-q p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.9 !important; margin: 6px 0 !important; }
+.sttn-de { font-weight: 600 !important; }
+
+.sttn-ans-label {
+  color: #1c581f !important; font-weight: 800 !important;
+  font-size: clamp(13.5px, 3.1vw, 15.5px) !important;
+  margin: 14px 0 6px 0 !important;
+  padding-top: 12px !important;
+  border-top: 2px dashed #ceedca !important;
+}
+.sttn-ans { background: #f5faf2 !important; border-radius: 12px !important; padding: 12px 16px !important; }
+.sttn-ans p { margin: 5px 0 !important; }
+
+.sttn-calc {
+  display: block !important;
+  background: #e5f6e3 !important;
+  border-radius: 8px !important;
+  padding: 9px 14px !important;
+  margin: 7px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(13.5px, 3.1vw, 16px) !important;
+  line-height: 2.4 !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+}
+.sttn-calc.sttn-wrapline { white-space: normal !important; }
+.sttn-red { color: #c0272d !important; font-weight: 800 !important; }
+
+/* Phân số rút gọn: <span class="sttn-frac"><i>tử</i><b>mẫu</b></span> */
+.sttn-frac {
+  display: inline-flex !important; flex-direction: column !important;
+  vertical-align: middle !important; text-align: center !important;
+  margin: 0 3px !important; font-style: normal !important;
+}
+.sttn-frac i { font-style: normal !important; border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
+.sttn-frac b { font-weight: inherit !important; padding: 1px 6px 0 6px !important; }
+
+/* Sơ đồ */
+.sttn-svg { background: #fff !important; border-radius: 10px !important; padding: 12px 10px !important; margin: 8px 0 !important; overflow-x: auto !important; }
+.sttn-svg svg { width: 100% !important; min-width: 430px !important; height: auto !important; display: block !important; }
+.sttn-lbl { fill: #1c581f !important; font-size: 15px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-part { fill: #e5f6e3 !important; stroke: #1c581f !important; stroke-width: 1.6 !important; }
+.sttn-extra { fill: #ffda0f !important; stroke: #1c581f !important; stroke-width: 1.6 !important; }
+.sttn-brace { stroke: #c0272d !important; stroke-width: 1.6 !important; fill: none !important; }
+.sttn-note { fill: #c0272d !important; font-size: 15px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6</span>
+    <p class="sttn-hero-title">Chuyên đề 2: Phân số<br>Bài toán tìm hai số khi biết tổng/hiệu và tỉ số</p>
+  </div>
+
+  <!-- Bài 1 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 1 (ID: 351336)</span>
+    <p class="sttn-de">Tính:</p>
+    <span class="sttn-calc">(<span class="sttn-frac"><i>1</i><b>7</b></span> × <span class="sttn-frac"><i>12</i><b>17</b></span> + 2 × <span class="sttn-frac"><i>1</i><b>7</b></span> × <span class="sttn-frac"><i>11</i><b>17</b></span> − <span class="sttn-frac"><i>2</i><b>15</b></span> × <span class="sttn-frac"><i>1</i><b>7</b></span>) : <span class="sttn-frac"><i>2</i><b>5</b></span></span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">(<span class="sttn-frac"><i>1</i><b>7</b></span> × <span class="sttn-frac"><i>12</i><b>17</b></span> + 2 × <span class="sttn-frac"><i>1</i><b>7</b></span> × <span class="sttn-frac"><i>11</i><b>17</b></span> − <span class="sttn-frac"><i>2</i><b>15</b></span> × <span class="sttn-frac"><i>1</i><b>7</b></span>) : <span class="sttn-frac"><i>2</i><b>5</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>1</i><b>7</b></span> × (<span class="sttn-frac"><i>12</i><b>17</b></span> + 2 × <span class="sttn-frac"><i>11</i><b>17</b></span> − <span class="sttn-frac"><i>2</i><b>15</b></span>) : <span class="sttn-frac"><i>2</i><b>5</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>1</i><b>7</b></span> × (<span class="sttn-frac"><i>12</i><b>17</b></span> + <span class="sttn-frac"><i>22</i><b>17</b></span> − <span class="sttn-frac"><i>2</i><b>15</b></span>) : <span class="sttn-frac"><i>2</i><b>5</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>1</i><b>7</b></span> × (2 − <span class="sttn-frac"><i>2</i><b>15</b></span>) : <span class="sttn-frac"><i>2</i><b>5</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>1</i><b>7</b></span> × <span class="sttn-frac"><i>28</i><b>15</b></span> × <span class="sttn-frac"><i>5</i><b>2</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>1 × 7 × 2 × 2 × 5</i><b>7 × 3 × 5 × 2</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-red"><span class="sttn-frac"><i>2</i><b>3</b></span></span></span>
+    </div>
+  </div>
+
+  <!-- Bài 2 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 2 (ID: 335773)</span>
+    <p class="sttn-de">Tính giá trị biểu thức:</p>
+    <span class="sttn-calc">P = <span class="sttn-frac"><i>1 × 3 × 5 + 2 × 6 × 10 + 3 × 9 × 15</i><b>3 × 5 × 12 + 6 × 10 × 24 + 9 × 15 × 36</b></span></span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">P = <span class="sttn-frac"><i>1 × 3 × 5 + 2 × 6 × 10 + 3 × 9 × 15</i><b>3 × 5 × 12 + 6 × 10 × 24 + 9 × 15 × 36</b></span></span>
+      <span class="sttn-calc">P = <span class="sttn-frac"><i>1 × 3 × 5 + 1 × 2 × 2 × 3 × 2 × 5 + 1 × 3 × 3 × 3 × 3 × 5</i><b>3 × 5 × 12 + 2 × 3 × 2 × 5 × 2 × 12 + 3 × 3 × 3 × 5 × 3 × 12</b></span></span>
+      <span class="sttn-calc">P = <span class="sttn-frac"><i>1 × 3 × 5 + (1 × 3 × 5) × 8 + (1 × 3 × 5) × 27</i><b>3 × 5 × 12 + (3 × 5 × 12) × 8 + (3 × 5 × 12) × 27</b></span></span>
+      <span class="sttn-calc">P = <span class="sttn-frac"><i>1 × 3 × 5 × (1 + 8 + 27)</i><b>3 × 5 × 12 × (1 + 8 + 27)</b></span></span>
+      <span class="sttn-calc">P = <span class="sttn-red"><span class="sttn-frac"><i>1</i><b>12</b></span></span></span>
+    </div>
+  </div>
+
+  <!-- Bài 3 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 3 (ID: 335783)</span>
+    <p class="sttn-de">Tính giá trị biểu thức:</p>
+    <span class="sttn-calc">(1 − <span class="sttn-frac"><i>1</i><b>21</b></span>) × (1 − <span class="sttn-frac"><i>1</i><b>22</b></span>) × (1 − <span class="sttn-frac"><i>1</i><b>23</b></span>) × ....... × (1 − <span class="sttn-frac"><i>1</i><b>2020</b></span>)</span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">(1 − <span class="sttn-frac"><i>1</i><b>21</b></span>) × (1 − <span class="sttn-frac"><i>1</i><b>22</b></span>) × (1 − <span class="sttn-frac"><i>1</i><b>23</b></span>) × ....... × (1 − <span class="sttn-frac"><i>1</i><b>2020</b></span>)</span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>20</i><b>21</b></span> × <span class="sttn-frac"><i>21</i><b>22</b></span> × <span class="sttn-frac"><i>22</i><b>23</b></span> × ........ × <span class="sttn-frac"><i>2019</i><b>2020</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>20 × 21 × 22 × ..... × 2019</i><b>21 × 22 × 23 × .... × 2020</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-frac"><i>20</i><b>2020</b></span></span>
+      <span class="sttn-calc">= <span class="sttn-red"><span class="sttn-frac"><i>1</i><b>101</b></span></span></span>
+    </div>
+  </div>
+
+  <!-- Bài 4 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 4 (ID: 645633)</span>
+    <p class="sttn-de">Tính bằng cách thuận tiện:</p>
+    <span class="sttn-calc">A = <span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>6</b></span> + <span class="sttn-frac"><i>1</i><b>12</b></span> + <span class="sttn-frac"><i>1</i><b>20</b></span> + <span class="sttn-frac"><i>1</i><b>30</b></span> + <span class="sttn-frac"><i>1</i><b>42</b></span> + <span class="sttn-frac"><i>1</i><b>56</b></span> + <span class="sttn-frac"><i>1</i><b>72</b></span> + <span class="sttn-frac"><i>1</i><b>90</b></span></span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>6</b></span> + <span class="sttn-frac"><i>1</i><b>12</b></span> + <span class="sttn-frac"><i>1</i><b>20</b></span> + <span class="sttn-frac"><i>1</i><b>30</b></span> + <span class="sttn-frac"><i>1</i><b>42</b></span> + <span class="sttn-frac"><i>1</i><b>56</b></span> + <span class="sttn-frac"><i>1</i><b>72</b></span> + <span class="sttn-frac"><i>1</i><b>90</b></span></span>
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>1</i><b>1 × 2</b></span> + <span class="sttn-frac"><i>1</i><b>2 × 3</b></span> + <span class="sttn-frac"><i>1</i><b>3 × 4</b></span> + <span class="sttn-frac"><i>1</i><b>4 × 5</b></span> + <span class="sttn-frac"><i>1</i><b>5 × 6</b></span> + <span class="sttn-frac"><i>1</i><b>6 × 7</b></span> + <span class="sttn-frac"><i>1</i><b>7 × 8</b></span> + <span class="sttn-frac"><i>1</i><b>8 × 9</b></span> + <span class="sttn-frac"><i>1</i><b>9 × 10</b></span></span>
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>2 − 1</i><b>1 × 2</b></span> + <span class="sttn-frac"><i>3 − 2</i><b>2 × 3</b></span> + <span class="sttn-frac"><i>4 − 3</i><b>3 × 4</b></span> + <span class="sttn-frac"><i>5 − 4</i><b>4 × 5</b></span> + <span class="sttn-frac"><i>6 − 5</i><b>5 × 6</b></span> + <span class="sttn-frac"><i>7 − 6</i><b>6 × 7</b></span> + <span class="sttn-frac"><i>8 − 7</i><b>7 × 8</b></span> + <span class="sttn-frac"><i>9 − 8</i><b>8 × 9</b></span> + <span class="sttn-frac"><i>10 − 9</i><b>9 × 10</b></span></span>
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>2</i><b>1 × 2</b></span> − <span class="sttn-frac"><i>1</i><b>1 × 2</b></span> + <span class="sttn-frac"><i>3</i><b>2 × 3</b></span> − <span class="sttn-frac"><i>2</i><b>2 × 3</b></span> + <span class="sttn-frac"><i>4</i><b>3 × 4</b></span> − <span class="sttn-frac"><i>3</i><b>3 × 4</b></span> + <span class="sttn-frac"><i>5</i><b>4 × 5</b></span> − <span class="sttn-frac"><i>4</i><b>4 × 5</b></span> + <span class="sttn-frac"><i>6</i><b>5 × 6</b></span> − <span class="sttn-frac"><i>5</i><b>5 × 6</b></span> + <span class="sttn-frac"><i>7</i><b>6 × 7</b></span> − <span class="sttn-frac"><i>6</i><b>6 × 7</b></span> + <span class="sttn-frac"><i>8</i><b>7 × 8</b></span> − <span class="sttn-frac"><i>7</i><b>7 × 8</b></span> + <span class="sttn-frac"><i>9</i><b>8 × 9</b></span> − <span class="sttn-frac"><i>8</i><b>8 × 9</b></span> + <span class="sttn-frac"><i>10</i><b>9 × 10</b></span> − <span class="sttn-frac"><i>9</i><b>9 × 10</b></span></span>
+      <span class="sttn-calc">A = 1 − <span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>2</b></span> − <span class="sttn-frac"><i>1</i><b>3</b></span> + <span class="sttn-frac"><i>1</i><b>3</b></span> − <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> − <span class="sttn-frac"><i>1</i><b>5</b></span> + <span class="sttn-frac"><i>1</i><b>5</b></span> − <span class="sttn-frac"><i>1</i><b>6</b></span> + <span class="sttn-frac"><i>1</i><b>6</b></span> − <span class="sttn-frac"><i>1</i><b>7</b></span> + <span class="sttn-frac"><i>1</i><b>7</b></span> − <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> − <span class="sttn-frac"><i>1</i><b>9</b></span> + <span class="sttn-frac"><i>1</i><b>9</b></span> − <span class="sttn-frac"><i>1</i><b>10</b></span></span>
+      <span class="sttn-calc">A = 1 − <span class="sttn-frac"><i>1</i><b>10</b></span></span>
+      <span class="sttn-calc">A = <span class="sttn-red"><span class="sttn-frac"><i>9</i><b>10</b></span></span></span>
+    </div>
+  </div>
+
+  <!-- Bài 5 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 5 (ID: 1197663)</span>
+    <p class="sttn-de">Tính giá trị của biểu thức:</p>
+    <span class="sttn-calc">A = <span class="sttn-frac"><i>2</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>6</b></span> + <span class="sttn-frac"><i>2</i><b>12</b></span> + <span class="sttn-frac"><i>2</i><b>24</b></span> + ... + <span class="sttn-frac"><i>2</i><b>192</b></span></span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>2</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>6</b></span> + <span class="sttn-frac"><i>2</i><b>12</b></span> + <span class="sttn-frac"><i>2</i><b>24</b></span> + ... + <span class="sttn-frac"><i>2</i><b>192</b></span></span>
+      <p>Ta thấy mẫu số của phân số sau của A gấp 2 lần mẫu số của phân số trước của A.</p>
+      <p>Ta có:</p>
+      <span class="sttn-calc">2 × A = 2 × (<span class="sttn-frac"><i>2</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>6</b></span> + <span class="sttn-frac"><i>2</i><b>12</b></span> + <span class="sttn-frac"><i>2</i><b>24</b></span> + ... + <span class="sttn-frac"><i>2</i><b>192</b></span>)</span>
+      <span class="sttn-calc">2 × A = <span class="sttn-frac"><i>4</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>6</b></span> + <span class="sttn-frac"><i>2</i><b>12</b></span> + ... + <span class="sttn-frac"><i>2</i><b>96</b></span></span>
+      <span class="sttn-calc">2 × A − A = (<span class="sttn-frac"><i>4</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>6</b></span> + <span class="sttn-frac"><i>2</i><b>12</b></span> + ... + <span class="sttn-frac"><i>2</i><b>96</b></span>) − (<span class="sttn-frac"><i>2</i><b>3</b></span> + <span class="sttn-frac"><i>2</i><b>6</b></span> + <span class="sttn-frac"><i>2</i><b>12</b></span> + ... + <span class="sttn-frac"><i>2</i><b>96</b></span> + <span class="sttn-frac"><i>2</i><b>192</b></span>)</span>
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>4</i><b>3</b></span> − <span class="sttn-frac"><i>2</i><b>192</b></span></span>
+      <span class="sttn-calc">A = <span class="sttn-red"><span class="sttn-frac"><i>127</i><b>96</b></span></span></span>
+    </div>
+  </div>
+
+  <!-- Bài 6 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 6 (ID: 349467)</span>
+    <p class="sttn-de">Tìm x biết:</p>
+    <span class="sttn-calc">(x + <span class="sttn-frac"><i>1</i><b>2</b></span>) + (x + <span class="sttn-frac"><i>1</i><b>4</b></span>) + (x + <span class="sttn-frac"><i>1</i><b>8</b></span>) + (x + <span class="sttn-frac"><i>1</i><b>16</b></span>) = 1</span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">(x + <span class="sttn-frac"><i>1</i><b>2</b></span>) + (x + <span class="sttn-frac"><i>1</i><b>4</b></span>) + (x + <span class="sttn-frac"><i>1</i><b>8</b></span>) + (x + <span class="sttn-frac"><i>1</i><b>16</b></span>) = 1</span>
+      <span class="sttn-calc">(x + x + x + x) + (<span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>16</b></span>) = 1</span>
+      <span class="sttn-calc">(1 + 1 + 1 + 1) × x + (<span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>16</b></span>) = 1</span>
+      <span class="sttn-calc">4 × x + (<span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>16</b></span>) = 1</span>
+      <p>Đặt:</p>
+      <span class="sttn-calc">A = <span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>16</b></span></span>
+      <span class="sttn-calc">⇒ 2A = 1 + <span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span></span>
+      <span class="sttn-calc">2A − A = (1 + <span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span>) − (<span class="sttn-frac"><i>1</i><b>2</b></span> + <span class="sttn-frac"><i>1</i><b>4</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>16</b></span>)</span>
+      <span class="sttn-calc">A = 1 − <span class="sttn-frac"><i>1</i><b>16</b></span> = <span class="sttn-frac"><i>15</i><b>16</b></span></span>
+      <span class="sttn-calc">Hay 4 × x + <span class="sttn-frac"><i>15</i><b>16</b></span> = 1</span>
+      <span class="sttn-calc">⇒ 4 × x = 1 − <span class="sttn-frac"><i>15</i><b>16</b></span> = <span class="sttn-frac"><i>1</i><b>16</b></span></span>
+      <span class="sttn-calc">⇒ x = <span class="sttn-frac"><i>1</i><b>16</b></span> : 4 = <span class="sttn-frac"><i>1</i><b>16</b></span> × <span class="sttn-frac"><i>1</i><b>4</b></span> = <span class="sttn-red"><span class="sttn-frac"><i>1</i><b>64</b></span></span></span>
+    </div>
+  </div>
+
+  <!-- Bài 7 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 7 (ID: 393098)</span>
+    <p class="sttn-de">Có bao nhiêu số tự nhiên x thỏa mãn biểu thức dưới đây:</p>
+    <span class="sttn-calc"><span class="sttn-frac"><i>9</i><b>202</b></span> &lt; <span class="sttn-frac"><i>x + 6</i><b>303</b></span> &lt; <span class="sttn-frac"><i>9</i><b>101</b></span></span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc"><span class="sttn-frac"><i>8</i><b>202</b></span> &lt; <span class="sttn-frac"><i>x + 6</i><b>303</b></span> &lt; <span class="sttn-frac"><i>9</i><b>101</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>24</i><b>606</b></span> &lt; <span class="sttn-frac"><i>2 × (x + 6)</i><b>606</b></span> &lt; <span class="sttn-frac"><i>54</i><b>606</b></span></span>
+      <span class="sttn-calc">24 &lt; 2 × (x + 6) &lt; 54</span>
+      <span class="sttn-calc">12 &lt; x + 6 &lt; 27</span>
+      <span class="sttn-calc">6 &lt; x &lt; 21</span>
+      <p>x có thể nhận các giá trị:</p>
+      <span class="sttn-calc sttn-wrapline">7; 8; 9; 10; 11; 12; 13; 14; 15; 16; 17; 18; 19; 20</span>
+      <p>Vậy có <span class="sttn-red">14</span> giá trị x thỏa mãn.</p>
+    </div>
+  </div>
+
+  <!-- Bài 8 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 8 (ID: 1149118)</span>
+    <p class="sttn-de">Tìm x biết:</p>
+    <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>4 × 6</b></span> + <span class="sttn-frac"><i>1</i><b>6 × 8</b></span> + <span class="sttn-frac"><i>1</i><b>8 × 10</b></span> + <span class="sttn-frac"><i>1</i><b>10 × 12</b></span> + ... + <span class="sttn-frac"><i>1</i><b>58 × 60</b></span> = <span class="sttn-frac"><i>x</i><b>120</b></span></span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>4 × 6</b></span> + <span class="sttn-frac"><i>1</i><b>6 × 8</b></span> + <span class="sttn-frac"><i>1</i><b>8 × 10</b></span> + <span class="sttn-frac"><i>1</i><b>10 × 12</b></span> + ... + <span class="sttn-frac"><i>1</i><b>58 × 60</b></span> = <span class="sttn-frac"><i>x</i><b>120</b></span></span>
+      <span class="sttn-calc">2 × (<span class="sttn-frac"><i>1</i><b>4 × 6</b></span> + <span class="sttn-frac"><i>1</i><b>6 × 8</b></span> + <span class="sttn-frac"><i>1</i><b>8 × 10</b></span> + <span class="sttn-frac"><i>1</i><b>10 × 12</b></span> + ... + <span class="sttn-frac"><i>1</i><b>58 × 60</b></span>) = 2 × <span class="sttn-frac"><i>x</i><b>120</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>2</i><b>4 × 6</b></span> + <span class="sttn-frac"><i>2</i><b>6 × 8</b></span> + <span class="sttn-frac"><i>2</i><b>8 × 10</b></span> + <span class="sttn-frac"><i>2</i><b>10 × 12</b></span> + ... + <span class="sttn-frac"><i>2</i><b>58 × 60</b></span> = <span class="sttn-frac"><i>x</i><b>60</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>4</b></span> − <span class="sttn-frac"><i>1</i><b>6</b></span> + <span class="sttn-frac"><i>1</i><b>6</b></span> − <span class="sttn-frac"><i>1</i><b>8</b></span> + <span class="sttn-frac"><i>1</i><b>8</b></span> − <span class="sttn-frac"><i>1</i><b>10</b></span> + <span class="sttn-frac"><i>1</i><b>10</b></span> − <span class="sttn-frac"><i>1</i><b>12</b></span> + ... + <span class="sttn-frac"><i>1</i><b>58</b></span> − <span class="sttn-frac"><i>1</i><b>60</b></span> = <span class="sttn-frac"><i>x</i><b>60</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>4</b></span> − <span class="sttn-frac"><i>1</i><b>60</b></span> = <span class="sttn-frac"><i>x</i><b>60</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>15</i><b>60</b></span> − <span class="sttn-frac"><i>1</i><b>60</b></span> = <span class="sttn-frac"><i>x</i><b>60</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>14</i><b>60</b></span> = <span class="sttn-frac"><i>x</i><b>60</b></span></span>
+      <span class="sttn-calc">x = <span class="sttn-red">14</span></span>
+    </div>
+  </div>
+
+  <!-- Bài 9 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 9 (ID: 362943)</span>
+    <p class="sttn-de">Có ba thùng dầu đựng tổng cộng 123 lít dầu. Nếu đổ từ thùng thứ nhất sang thùng thứ hai 5 lít, rồi đổ từ thùng thứ hai sang thùng thứ ba 7 lít, tiếp tục đổ từ thùng thứ ba sang thùng thứ nhất 9 lít thì số dầu ở thùng thứ nhất sẽ ít hơn số dầu ở thùng thứ hai 4 lít và bằng <span class="sttn-frac"><i>2</i><b>3</b></span> số dầu ở thùng thứ ba. Tính số lít dầu ở mỗi thùng lúc đầu?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Vì sau khi đổ thì số dầu ở thùng thứ nhất ít hơn số dầu ở thùng thứ hai 4 lít và bằng <span class="sttn-frac"><i>2</i><b>3</b></span> số dầu ở thùng thứ ba nên ta coi số lít dầu ở thùng thứ nhất lúc sau là 2 phần thì số lít dầu ở thùng thứ hai lúc sau là 2 phần cộng thêm 4 lít và số lít dầu ở thùng thứ ba lúc sau là 3 phần.</p>
+      <p>Theo đề bài ta có sơ đồ sau khi thay đổi:</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ: thùng 1 gồm 2 phần, thùng 2 gồm 2 phần và 4 lít, thùng 3 gồm 3 phần, tổng 123 lít">
+          <text x="8" y="34" class="sttn-lbl">Thùng 1:</text>
+          <rect x="120" y="18" width="80" height="24" class="sttn-part"/>
+          <rect x="200" y="18" width="80" height="24" class="sttn-part"/>
+
+          <text x="8" y="80" class="sttn-lbl">Thùng 2:</text>
+          <rect x="120" y="64" width="80" height="24" class="sttn-part"/>
+          <rect x="200" y="64" width="80" height="24" class="sttn-part"/>
+          <rect x="280" y="64" width="46" height="24" class="sttn-extra"/>
+          <text x="334" y="82" class="sttn-note">4 lít</text>
+
+          <text x="8" y="126" class="sttn-lbl">Thùng 3:</text>
+          <rect x="120" y="110" width="80" height="24" class="sttn-part"/>
+          <rect x="200" y="110" width="80" height="24" class="sttn-part"/>
+          <rect x="280" y="110" width="80" height="24" class="sttn-part"/>
+
+          <path d="M 400 18 h 14 v 116 h -14" class="sttn-brace"/>
+          <text x="424" y="82" class="sttn-note">Tổng 123 lít</text>
+        </svg>
+      </div>
+      <p>Nhìn vào sơ đồ ta thấy nếu bớt 4 lít dầu ở thùng thứ hai lúc sau thì ta được 2 + 2 + 3 = 7 phần bằng nhau ứng với: 123 − 4 = 119 lít.</p>
+      <p>Giá trị một phần bằng nhau là:</p>
+      <span class="sttn-calc">119 : 7 = 17 (lít)</span>
+      <p>Số dầu thùng 1 lúc sau:</p>
+      <span class="sttn-calc">17 × 2 = 34 (lít)</span>
+      <p>Số dầu thùng 2 lúc sau:</p>
+      <span class="sttn-calc">34 + 4 = 38 (lít)</span>
+      <p>Số dầu thùng 1 ban đầu:</p>
+      <span class="sttn-calc">34 + 5 − 9 = <span class="sttn-red">30</span> (lít)</span>
+      <p>Số dầu thùng 2 ban đầu:</p>
+      <span class="sttn-calc">38 − 5 + 7 = <span class="sttn-red">40</span> (lít)</span>
+      <p>Số dầu thùng 3 ban đầu:</p>
+      <span class="sttn-calc">123 − 30 − 40 = <span class="sttn-red">53</span> (lít)</span>
+    </div>
+  </div>
+
+  <!-- Bài 10 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 10 (ID: 1230311)</span>
+    <p class="sttn-de">Bác Năm có nuôi một số gà, trong đó số gà mái nhiều hơn số gà trống là 352 con. Biết rằng nếu bác Năm bán 100 con gà mái và 100 con gà trống thì số gà mái còn lại bằng <span class="sttn-frac"><i>7</i><b>3</b></span> số gà trống. Hỏi lúc đầu bác Năm có tổng cộng bao nhiêu con gà?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Khi bác Năm bán đi mỗi loại 100 con, hiệu số gà mái và gà trống vẫn không đổi và bằng 352 con.</p>
+      <p>Vì lúc sau số gà mái còn lại bằng <span class="sttn-frac"><i>7</i><b>3</b></span> số gà trống nên ta coi số gà mái lúc sau là 7 phần thì số trống lúc sau là 3 phần.</p>
+      <p>Ta có sơ đồ sau:</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ: gà mái lúc sau 7 phần, gà trống lúc sau 3 phần, hiệu 352 con">
+          <text x="8" y="38" class="sttn-lbl">Gà mái:</text>
+          <rect x="110" y="22" width="56" height="24" class="sttn-part"/>
+          <rect x="166" y="22" width="56" height="24" class="sttn-part"/>
+          <rect x="222" y="22" width="56" height="24" class="sttn-part"/>
+          <rect x="278" y="22" width="56" height="24" class="sttn-part"/>
+          <rect x="334" y="22" width="56" height="24" class="sttn-part"/>
+          <rect x="390" y="22" width="56" height="24" class="sttn-part"/>
+          <rect x="446" y="22" width="56" height="24" class="sttn-part"/>
+
+          <text x="8" y="90" class="sttn-lbl">Gà trống:</text>
+          <rect x="110" y="74" width="56" height="24" class="sttn-part"/>
+          <rect x="166" y="74" width="56" height="24" class="sttn-part"/>
+          <rect x="222" y="74" width="56" height="24" class="sttn-part"/>
+
+          <path d="M 278 100 v 12 h 224 v -12" class="sttn-brace"/>
+          <text x="330" y="126" class="sttn-note">352 con</text>
+        </svg>
+      </div>
+      <p>Hiệu số phần bằng nhau là:</p>
+      <span class="sttn-calc">7 − 3 = 4 (phần)</span>
+      <p>Số gà trống lúc sau là:</p>
+      <span class="sttn-calc">352 : 4 × 3 = 264 (con)</span>
+      <p>Số gà trống lúc đầu là:</p>
+      <span class="sttn-calc">264 + 100 = 364 (con)</span>
+      <p>Số gà mái lúc đầu là:</p>
+      <span class="sttn-calc">364 + 352 = 716 (con)</span>
+      <p>Tổng số gà lúc đầu là:</p>
+      <span class="sttn-calc">364 + 716 = <span class="sttn-red">1080</span> (con)</span>
+    </div>
+  </div>
+
+  <!-- Bài 11 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 11 (ID: 346353)</span>
+    <p class="sttn-de">Lớp 6A có 40 học sinh. Số học sinh giỏi bằng <span class="sttn-frac"><i>2</i><b>3</b></span> số học sinh khá. Số học sinh khá bằng <span class="sttn-frac"><i>3</i><b>4</b></span> số học sinh trung bình. Số học sinh yếu có trong khoảng từ 1 đến 5 em. Hãy tính số học sinh từng loại?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Coi học sinh giỏi là 2 phần thì số học sinh khá là 3 phần và số học sinh trung bình là 4 phần.</p>
+      <p>Ta có sơ đồ:</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ: học sinh trung bình 4 phần, khá 3 phần, giỏi 2 phần">
+          <text x="8" y="34" class="sttn-lbl">Trung bình:</text>
+          <rect x="140" y="18" width="76" height="24" class="sttn-part"/>
+          <rect x="216" y="18" width="76" height="24" class="sttn-part"/>
+          <rect x="292" y="18" width="76" height="24" class="sttn-part"/>
+          <rect x="368" y="18" width="76" height="24" class="sttn-part"/>
+
+          <text x="8" y="82" class="sttn-lbl">Khá:</text>
+          <rect x="140" y="66" width="76" height="24" class="sttn-part"/>
+          <rect x="216" y="66" width="76" height="24" class="sttn-part"/>
+          <rect x="292" y="66" width="76" height="24" class="sttn-part"/>
+
+          <text x="8" y="130" class="sttn-lbl">Giỏi:</text>
+          <rect x="140" y="114" width="76" height="24" class="sttn-part"/>
+          <rect x="216" y="114" width="76" height="24" class="sttn-part"/>
+        </svg>
+      </div>
+      <p>Học sinh giỏi, khá, trung bình chiếm số phần là: 2 + 3 + 4 = 9 (phần)</p>
+      <p>Do đó tổng số học sinh loại khá, giỏi, trung bình chia hết cho 9</p>
+      <p>Vì số học sinh yếu là từ 1 − 5 nên tổng số học sinh giỏi, khá, trung bình trong khoảng từ 35 đến 39 em (do tổng số học sinh là 40 em).</p>
+      <p>Trong khoảng từ 35 đến 39 chỉ có 36 chia hết cho 9 ⇒ Tổng số học sinh giỏi, khá và trung bình là 36.</p>
+      <p>Số học sinh giỏi là:</p>
+      <span class="sttn-calc">36 : 9 × 2 = <span class="sttn-red">8</span> (học sinh)</span>
+      <p>Số học sinh khá là:</p>
+      <span class="sttn-calc">36 : 9 × 3 = <span class="sttn-red">12</span> (học sinh)</span>
+      <p>Số học sinh trung bình là:</p>
+      <span class="sttn-calc">36 : 9 × 4 = <span class="sttn-red">16</span> (học sinh)</span>
+      <p>Số học sinh yếu là:</p>
+      <span class="sttn-calc">40 − 36 = <span class="sttn-red">4</span> (học sinh)</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
