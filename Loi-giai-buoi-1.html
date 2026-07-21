@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuyên đề 1 - Số tự nhiên. Dấu hiệu chia hết. Dãy số</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 880px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(20px, 4.6vw, 30px) !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+.sttn-q {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 16px !important;
+  padding: clamp(14px, 3.5vw, 22px) !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 5px 16px rgba(28,88,31,0.09) !important;
+}
+.sttn-id {
+  display: inline-block !important;
+  background: #e5f6e3 !important; color: #1c581f !important;
+  font-size: clamp(11px, 2.4vw, 12.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: .4px !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  margin-bottom: 10px !important;
+}
+
+.sttn-q p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; margin: 6px 0 !important; }
+.sttn-de { font-weight: 600 !important; }
+
+.sttn-ans-label {
+  color: #1c581f !important; font-weight: 800 !important;
+  font-size: clamp(13.5px, 3.1vw, 15.5px) !important;
+  margin: 14px 0 6px 0 !important;
+  padding-top: 12px !important;
+  border-top: 2px dashed #ceedca !important;
+}
+.sttn-ans { background: #f5faf2 !important; border-radius: 12px !important; padding: 12px 16px !important; }
+.sttn-ans p { margin: 5px 0 !important; }
+
+.sttn-calc {
+  display: block !important;
+  background: #e5f6e3 !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  margin: 6px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(13.5px, 3.1vw, 16px) !important;
+  line-height: 1.9 !important;
+  overflow-x: auto !important;
+}
+.sttn-red { color: #c0272d !important; font-weight: 800 !important; }
+
+.sttn-ov { border-top: 1.5px solid currentColor !important; padding-top: 1px !important; display: inline-block !important; line-height: 1 !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6</span>
+    <p class="sttn-hero-title">Chuyên đề 1: Số tự nhiên<br>Dấu hiệu chia hết · Dãy số</p>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 1 (#932744)</span>
+    <p class="sttn-de">Tìm một số tự nhiên có ba chữ số biết rằng khi viết thêm chữ số 2 vào bên phải số đó thì nó tăng thêm 4106 đơn vị.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Gọi số cần tìm là <span class="sttn-ov">abc</span> (a ≠ 0)</p>
+      <p>Khi viết thêm chữ số 2 vào bên phải số đó thì ta được số mới có dạng <span class="sttn-ov">abc2</span>.</p>
+      <p>Theo đề bài ta có:</p>
+      <span class="sttn-calc"><span class="sttn-ov">abc2</span> = <span class="sttn-ov">abc</span> + 4106</span>
+      <span class="sttn-calc"><span class="sttn-ov">abc</span> × 10 + 2 = <span class="sttn-ov">abc</span> + 4106</span>
+      <span class="sttn-calc"><span class="sttn-ov">abc</span> × 10 − <span class="sttn-ov">abc</span> = 4106 − 2</span>
+      <span class="sttn-calc"><span class="sttn-ov">abc</span> × (10 − 1) = 4104</span>
+      <span class="sttn-calc"><span class="sttn-ov">abc</span> × 9 = 4104</span>
+      <span class="sttn-calc"><span class="sttn-ov">abc</span> = 456</span>
+      <p>Vậy số cần tìm là <span class="sttn-red">456</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 2 (#1203492)</span>
+    <p class="sttn-de">Một cửa hàng nhập về một số hộp bánh trong một đợt khuyến mãi. Số hộp bánh là một số có ba chữ số và chữ số hàng trăm là 3. Biết rằng khi chia số hộp bánh đó cho 10 thì dư 7 và số đó chia hết cho 9. Hỏi cửa hàng đã nhập về bao nhiêu hộp bánh?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Gọi số hộp bánh cửa hàng đã nhập về là <span class="sttn-ov">3ab</span> (với a, b là các chữ số).</p>
+      <p>Theo đề bài, số hộp bánh này khi chia cho 10 thì dư 7. Một số chia cho 10 dư 7 thì phải có chữ số tận cùng là 7.</p>
+      <p>Do đó, b = 7.</p>
+      <p>Số hộp bánh lúc này có dạng là <span class="sttn-ov">3a7</span>.</p>
+      <p>Mặt khác, số này lại chia hết cho 9. Theo dấu hiệu chia hết cho 9, tổng các chữ số của nó phải chia hết cho 9.</p>
+      <span class="sttn-calc">Hay: 3 + a + 7 = 10 + a chia hết cho 9</span>
+      <p>Suy ra: a = 8.</p>
+      <p>Vậy số hộp bánh mà cửa hàng đã nhập về là <span class="sttn-red">387</span> hộp.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 3 (#939812)</span>
+    <p class="sttn-de">Cho số 36, hãy viết 1 chữ số bên phải và 1 chữ số bên trái để nhận được số A lớn nhất có 4 chữ số chia hết cho 2, 3 và 5.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Gọi chữ số viết thêm vào bên phải là b, chữ số viết thêm vào bên trái là a (a khác 0).</p>
+      <p>Do đó, số phải tìm có dạng là A = <span class="sttn-ov">a36b</span>.</p>
+      <p>− Vì A chia hết cho 2 nên b = 0; b = 2; b = 4; b = 6; b = 8.</p>
+      <p>− Vì A chia hết cho 5 nên b = 0; b = 5.</p>
+      <p>Do đó, để A chia hết cho cả 2 và 5 thì b = 0.</p>
+      <p>Thay b = 0 vào A ta có A = <span class="sttn-ov">a360</span>.</p>
+      <p>Vì A chia hết cho 3 tổng các chữ số của A phải chia hết cho 3.</p>
+      <span class="sttn-calc">Hay a + 3 + 6 + 0 = a + 9 chia hết cho 3</span>
+      <p>Suy ra: a = 3; a = 6 hoặc a = 9.</p>
+      <p>Để A là số lớn nhất có 4 chữ số, ta chọn a = 9.</p>
+      <p>Vậy số phải tìm là <span class="sttn-red">9 360</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 4 (#409487)</span>
+    <p class="sttn-de">Bạn An phải thực hiện phép chia một số cho 135, nhưng vì sơ ý nên bạn đó đã viết sai số bị chia như sau: chữ số hàng trăm là 7 thành 5, chữ số hàng chục là 5 thành 7. Vì thế phép chia sai có thương là 226 và dư 60. Tìm thương và số dư đúng của phép chia.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Số bị chia bị viết sai là:</p>
+      <span class="sttn-calc">226 × 135 + 60 = 30570</span>
+      <p>Vì số bị chia viết sai chữ số hàng trăm là 7 thành 5, chữ số hàng chục là 5 thành 7 nên số bị chia đúng là 30750.</p>
+      <p>Thực hiện phép chia ta có:</p>
+      <span class="sttn-calc">30750 : 135 = 227 (dư 105)</span>
+      <p>Vậy phép chia đúng có thương là <span class="sttn-red">227</span> và dư <span class="sttn-red">105</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 5 (#409551)</span>
+    <p class="sttn-de">Cho dãy số: 3; 33; 333; … Hỏi số thứ 34 của dãy chia 9 dư mấy?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Nhận xét:</p>
+      <p>Số thứ nhất có 1 chữ số 3.</p>
+      <p>Số thứ hai có 2 chữ số 3.</p>
+      <p>………………………..</p>
+      <p>Số thứ 34 có 34 chữ số 3.</p>
+      <p>Tổng các chữ số của số thứ 34 là:</p>
+      <span class="sttn-calc">3 × 34 = 102</span>
+      <p>Vì 102 : 9 = 11 (dư 3) nên số thứ 34 của dãy chia 9 cũng dư <span class="sttn-red">3</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 6 (#1126912)</span>
+    <p class="sttn-de">Trên một dãy phố có các số nhà được đánh số liên tiếp từ 1 đến 65. Nhân dịp tết, tổ dân phố họp và đưa ra quy định các hộ dân có số nhà là số chẵn tổ chức treo đèn lồng trước cửa, còn các hộ dân có số nhà là số lẻ thì treo cờ. Hỏi theo quy định có tất cả bao nhiêu nhà phải treo đèn lồng?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Các nhà phải treo đèn lồng là các hộ dân có số nhà là số chẵn.</p>
+      <p>Ta có dãy số ứng với số nhà phải treo đèn lồng là: 2; 4; 6; 8; ....; 64.</p>
+      <p>Mà các số chẵn liên tiếp cách nhau 2 đơn vị, nên đây là dãy số cách đều với khoảng cách giữa hai số hạng liên tiếp là 2 đơn vị.</p>
+      <p>Số số hạng của dãy số là:</p>
+      <span class="sttn-calc">(64 − 2) : 2 + 1 = 32 (số hạng)</span>
+      <p>Vậy theo quy định có tất cả <span class="sttn-red">32</span> nhà phải treo đèn lồng.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 7 (#333864)</span>
+    <p class="sttn-de">Cho dãy số: 11; 17; 23; 29; 35; .... Tìm số hạng thứ 70 của dãy.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Ta thấy dãy số trên là dãy số cách đều với khoảng cách giữa hai số liên tiếp là 6 đơn vị.</p>
+      <p>Áp dụng tính số số hạng của dãy số cách đều ta suy ra:</p>
+      <span class="sttn-calc">Số hạng cuối = (Số số hạng − 1) × khoảng cách + Số hạng đầu</span>
+      <p>Vậy số hạng thứ 70 của dãy là:</p>
+      <span class="sttn-calc">(70 − 1) × 6 + 11 = <span class="sttn-red">425</span></span>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 8 (#930663)</span>
+    <p class="sttn-de">Tìm chữ số tận cùng của biểu thức sau:</p>
+    <span class="sttn-calc">A = 1 + 1 × 2 + 1 × 2 × 3 + 1 × 2 × 3 × 4 + … + 1 × 2 × 3 × 4 × … × 1000</span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <span class="sttn-calc">A = 1 + 1 × 2 + 1 × 2 × 3 + 1 × 2 × 3 × 4 + … + 1 × 2 × 3 × 4 × … × 1000</span>
+      <span class="sttn-calc">A = 1 + 2 + 6 + <span class="sttn-ov">…4</span> + <span class="sttn-ov">…0</span> + <span class="sttn-ov">…0</span> + ... + <span class="sttn-ov">…0</span></span>
+      <span class="sttn-calc">A = <span class="sttn-ov">…3</span></span>
+      <p>Vậy biểu thức A có chữ số tận cùng là <span class="sttn-red">3</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 9 (#359236)</span>
+    <p class="sttn-de">Kết quả dãy tính sau tận cùng là chữ số nào?</p>
+    <span class="sttn-calc">1991 × 1992 × 1993 × 1994 + 1995 × 1996 × 1997 × 1998 × 1999</span>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Ta có:</p>
+      <span class="sttn-calc">1991 × 1992 × 1993 × 1994</span>
+      <span class="sttn-calc">= (1991 × 1992) × (1993 × 1994)</span>
+      <span class="sttn-calc">= <span class="sttn-ov">...2</span> × <span class="sttn-ov">...2</span> = <span class="sttn-ov">...4</span></span>
+      <p>Đây là tích của hai số có chữ số tận cùng là 2</p>
+      <p>Do đó kết quả được một số có chữ số tận cùng bằng 4. &nbsp;(1)</p>
+      <span class="sttn-calc">1995 × 1996 × 1997 × 1998 × 1999</span>
+      <span class="sttn-calc">= (1995 × 1996) × 1997 × 1998 × 1999</span>
+      <span class="sttn-calc">= <span class="sttn-ov">...0</span> × 1997 × 1998 × 1999</span>
+      <p>Đây là tích của một số có chữ số tận cùng bằng 0 với một số</p>
+      <p>Do đó Kết quả là một số có chữ số tận cùng bằng 0. &nbsp;(2)</p>
+      <p>Từ (1) và (2) dẫn đến 1991 × 1992 × 1993 × 1994 + 1995 × 1996 × 1997 × 1998 × 1999 là tổng của một số có chữ số tận cùng bằng 4 và một số có chữ số tận cùng bằng 0.</p>
+      <p>Vậy kết quả là một số có chữ số tận cùng bằng <span class="sttn-red">4</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 10 (#931475)</span>
+    <p class="sttn-de">Tìm x biết: (2 + x) + (4 + x) + (6 + x) + ... + (52 + x) = 780</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Dãy số cách đều 2; 4; 6; …; 52 có số số hạng là:</p>
+      <span class="sttn-calc">(52 − 2) : 2 + 1 = 26 (số hạng)</span>
+      <p>Tổng của dãy số 2; 4; 6; …; 52 là:</p>
+      <span class="sttn-calc">(52 + 2) × 26 : 2 = 702</span>
+      <p>Do đó, ta có:</p>
+      <span class="sttn-calc">(2 + x) + (4 + x) + (6 + x) + ... + (52 + x) = 780</span>
+      <span class="sttn-calc">26 × x + 702 = 780</span>
+      <span class="sttn-calc">26 × x = 780 − 702</span>
+      <span class="sttn-calc">26 × x = 78</span>
+      <span class="sttn-calc">x = 78 : 26</span>
+      <span class="sttn-calc">x = <span class="sttn-red">3</span></span>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 11 (#930224)</span>
+    <p class="sttn-de">Cho S = 12345…9899, có các chữ số liên tiếp 1; 2; 3; …; 99 viết liên tiếp nhau. Tính tổng các chữ số của S.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Từ 1 đến 99 có 99 số hạng.</p>
+      <p>Ta thêm các chữ số 0 để được dãy số có 2 chữ số và tổng các chữ số của S không thay đổi.</p>
+      <span class="sttn-calc">00; 01; 02; 03; …; 99</span>
+      <p>Dãy mới có số các số hạng là: 99 + 1 = 100 (số)</p>
+      <p>Dãy số mới có số chữ số là: 2 × 100 = 200 (chữ số)</p>
+      <p>Mỗi chữ số xuất hiện số lần là:</p>
+      <span class="sttn-calc">200 : 10 = 20 (lần)</span>
+      <p>Tổng các chữ số của S là:</p>
+      <span class="sttn-calc">20 × (0 + 1 + 2 + … + 9) = 20 × 45 = <span class="sttn-red">900</span></span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
