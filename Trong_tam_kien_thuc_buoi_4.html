@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trọng tâm kiến thức Buổi 4 - Toán chuyển động &amp; Công việc làm chung</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 860px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(22px, 5.2vw, 34px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 6px 0 !important;
+}
+.sttn-hero-sub {
+  color: #ceedca !important;
+  font-size: clamp(13px, 3vw, 16px) !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+.sttn-note {
+  background: #e5f6e3 !important;
+  border-left: 5px solid #5fbd18 !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 18px 0 !important;
+}
+.sttn-note p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; font-style: italic !important; }
+
+.sttn-card {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 18px !important;
+  padding: clamp(16px, 4vw, 26px) !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 6px 18px rgba(28,88,31,0.10) !important;
+}
+.sttn-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px dashed #ceedca !important;
+}
+.sttn-num {
+  flex: 0 0 auto !important;
+  width: 42px !important; height: 42px !important;
+  background: #1c581f !important; color: #ffda0f !important;
+  border-radius: 12px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 20px !important; font-weight: 800 !important;
+}
+.sttn-head h3 {
+  margin: 0 !important; color: #1c581f !important;
+  font-size: clamp(16px, 3.8vw, 21px) !important; font-weight: 800 !important;
+}
+
+.sttn-sub {
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(14px, 3.2vw, 16px) !important;
+  margin: 16px 0 8px 0 !important;
+  display: flex !important; align-items: flex-start !important; gap: 8px !important;
+}
+.sttn-sub .sttn-k {
+  flex: 0 0 auto !important;
+  background: #5fbd18 !important; color: #fff !important;
+  min-width: 24px !important; height: 24px !important;
+  padding: 0 6px !important;
+  border-radius: 7px !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 14px !important; font-weight: 800 !important;
+}
+
+.sttn-card p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; margin: 6px 0 !important; }
+
+.sttn-formula {
+  background: #e5f6e3 !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  margin: 10px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(14px, 3.2vw, 17px) !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+}
+
+.sttn-list { list-style: none !important; padding: 0 !important; margin: 8px 0 !important; }
+.sttn-list li {
+  position: relative !important;
+  padding: 8px 12px 8px 34px !important;
+  margin: 8px 0 !important;
+  background: #f5faf2 !important;
+  border-radius: 10px !important;
+  font-size: clamp(13px, 3vw, 15px) !important;
+  line-height: 1.8 !important;
+}
+.sttn-list li::before {
+  content: "✓" !important;
+  position: absolute !important; left: 12px !important; top: 8px !important;
+  color: #5fbd18 !important; font-weight: 800 !important;
+}
+.sttn-warn { border: 2px solid #ffda0f !important; background: #fffdf0 !important; }
+.sttn-warn::before { content: "⚠" !important; color: #d98c00 !important; }
+
+.sttn-tip {
+  background: #fffdf0 !important;
+  border: 2px solid #ffda0f !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  margin: 14px 0 !important;
+}
+.sttn-tip p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; }
+.sttn-tip .sttn-tip-label { font-weight: 800 !important; color: #1c581f !important; }
+
+.sttn-hl { background: #ffda0f !important; padding: 1px 6px !important; border-radius: 5px !important; font-weight: 700 !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6 CLC · TỔNG HỢP KIẾN THỨC</span>
+    <p class="sttn-hero-title">TRỌNG TÂM KIẾN THỨC BUỔI 4</p>
+    <p class="sttn-hero-sub">TOÁN CHUYỂN ĐỘNG · BÀI TOÁN CÔNG VIỆC LÀM CHUNG</p>
+  </div>
+
+  <div class="sttn-note">
+    <p>Gửi các sĩ tử: Đây là bộ bí kíp tổng quát nhất giúp các con chinh phục mọi bài toán biến thể trong chuyên đề vừa học. Hãy ghi nhớ thật kỹ nhé! ♡</p>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">1</div>
+      <h3>TOÁN CHUYỂN ĐỘNG</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Ba đại lượng cơ bản: Quãng đường (S), Vận tốc (v), Thời gian (t)</p>
+    <div class="sttn-formula">S = v × t &nbsp;→&nbsp; v = S : t &nbsp;→&nbsp; t = S : v</div>
+    <ul class="sttn-list">
+      <li class="sttn-warn"><b>Lưu ý tử thần:</b> Các đơn vị đo phải <span class="sttn-hl">đồng nhất</span> trước khi tính (Ví dụ: Vận tốc là km/h thì Thời gian phải đổi ra giờ, Quãng đường phải là km).</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Bài toán Hai chuyển động (Xuất phát cùng lúc)</p>
+    <ul class="sttn-list">
+      <li><b>Chuyển động Ngược chiều (Gặp nhau):</b> Hai vật đi lại gần nhau.<br>Thời gian gặp nhau = Khoảng cách ban đầu : Tổng hai vận tốc.</li>
+    </ul>
+    <div class="sttn-formula">t = S : (v₁ + v₂)</div>
+    <ul class="sttn-list">
+      <li><b>Chuyển động Cùng chiều (Đuổi kịp):</b> Vật đi nhanh đuổi vật đi chậm.<br>Thời gian đuổi kịp = Khoảng cách ban đầu : Hiệu hai vận tốc.</li>
+    </ul>
+    <div class="sttn-formula">t = S : (v₁ − v₂) &nbsp;(Với v₁ &gt; v₂)</div>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Toán chuyển động có chiều dài (Đoàn tàu)</p>
+    <ul class="sttn-list">
+      <li><b>Tàu chạy qua cột điện/cây/người đứng yên:</b> Quãng đường đi được chính là <span class="sttn-hl">Chiều dài của đoàn tàu</span>.</li>
+      <li><b>Tàu chạy qua cây cầu/đường hầm:</b> Quãng đường đi được = <span class="sttn-hl">Chiều dài tàu + Chiều dài cầu/hầm</span>.</li>
+    </ul>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">2</div>
+      <h3>BÀI TOÁN CÔNG VIỆC LÀM CHUNG</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Nguyên tắc cốt lõi</p>
+    <ul class="sttn-list">
+      <li>Phải luôn coi toàn bộ công việc cần hoàn thành là <span class="sttn-hl">1 đơn vị</span> (hoặc <span class="sttn-hl">100%</span>).</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Các bước giải cơ bản (Bài toán Năng suất)</p>
+    <ul class="sttn-list">
+      <li><b>Bước 1 − Tìm năng suất:</b> Rút về 1 đơn vị thời gian (1 giờ / 1 ngày) thì mỗi người/mỗi vòi làm được bao nhiêu phần công việc.</li>
+    </ul>
+    <div class="sttn-formula">Năng suất = 1 : Thời gian hoàn thành</div>
+    <ul class="sttn-list">
+      <li><b>Bước 2 − Tìm năng suất chung:</b> Cộng (hoặc trừ) các năng suất đơn lẻ lại với nhau.<br>Ví dụ: 1 ngày cả 2 người cùng làm được = Năng suất người 1 + Năng suất người 2.</li>
+      <li><b>Bước 3 − Tính thời gian chung:</b></li>
+    </ul>
+    <div class="sttn-formula">Thời gian làm chung = 1 : Tổng năng suất</div>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Bài toán thay đổi người làm</p>
+    <ul class="sttn-list">
+      <li class="sttn-warn"><b>Cạm bẫy:</b> Tuyệt đối <span class="sttn-hl">không</span> lấy số ngày trừ đi số ngày (Ví dụ: Không được lấy 10 ngày trừ 7 ngày để ra số ngày làm riêng).</li>
+    </ul>
+    <p><b>Phương pháp giải:</b></p>
+    <ul class="sttn-list">
+      <li>Tính xem trong thời gian làm chung ban đầu, họ đã làm được bao nhiêu phần công việc.</li>
+      <li>Tính phần công việc còn lại = <span class="sttn-hl">1 − Phần đã làm được</span>.</li>
+      <li>Lấy phần công việc còn lại chia cho Thời gian làm nốt (hoặc Năng suất của người làm nốt) để tìm ra đáp án bài toán yêu cầu.</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
