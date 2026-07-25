@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuyên đề 4 - Toán chuyển động. Bài toán công việc làm chung</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 880px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(20px, 4.6vw, 30px) !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+.sttn-sec {
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  background: #1c581f !important;
+  border-radius: 14px !important;
+  padding: 12px 18px !important;
+  margin: 26px 0 14px 0 !important;
+}
+.sttn-sec-n {
+  flex: 0 0 auto !important;
+  width: 34px !important; height: 34px !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  border-radius: 10px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-weight: 800 !important; font-size: 17px !important;
+}
+.sttn-sec h3 { margin: 0 !important; color: #fff !important; font-size: clamp(15px, 3.6vw, 19px) !important; font-weight: 800 !important; }
+
+.sttn-q {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 16px !important;
+  padding: clamp(14px, 3.5vw, 22px) !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 5px 16px rgba(28,88,31,0.09) !important;
+}
+.sttn-id {
+  display: inline-block !important;
+  background: #e5f6e3 !important; color: #1c581f !important;
+  font-size: clamp(11px, 2.4vw, 12.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: .4px !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  margin-bottom: 10px !important;
+}
+
+.sttn-q p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.85 !important; margin: 6px 0 !important; }
+.sttn-de { font-weight: 600 !important; }
+.sttn-subq { font-weight: 800 !important; color: #1c581f !important; margin-top: 10px !important; }
+
+.sttn-ans-label {
+  color: #1c581f !important; font-weight: 800 !important;
+  font-size: clamp(13.5px, 3.1vw, 15.5px) !important;
+  margin: 14px 0 6px 0 !important;
+  padding-top: 12px !important;
+  border-top: 2px dashed #ceedca !important;
+}
+.sttn-ans { background: #f5faf2 !important; border-radius: 12px !important; padding: 12px 16px !important; }
+.sttn-ans p { margin: 5px 0 !important; }
+
+.sttn-calc {
+  display: block !important;
+  background: #e5f6e3 !important;
+  border-radius: 8px !important;
+  padding: 9px 14px !important;
+  margin: 7px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(13.5px, 3.1vw, 16px) !important;
+  line-height: 2.2 !important;
+  overflow-x: auto !important;
+}
+.sttn-red { color: #c0272d !important; font-weight: 800 !important; }
+
+.sttn-frac { display: inline-flex !important; flex-direction: column !important; vertical-align: middle !important; text-align: center !important; margin: 0 3px !important; font-style: normal !important; }
+.sttn-frac i { font-style: normal !important; border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
+.sttn-frac b { font-weight: inherit !important; padding: 1px 6px 0 6px !important; }
+
+.sttn-svg { background: #fff !important; border-radius: 10px !important; padding: 12px 10px !important; margin: 8px 0 !important; overflow-x: auto !important; }
+.sttn-svg svg { width: 100% !important; min-width: 430px !important; height: auto !important; display: block !important; }
+.sttn-lbl { fill: #1c581f !important; font-size: 15px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-ln { stroke: #c0272d !important; stroke-width: 2.4 !important; }
+.sttn-dot { fill: #c0272d !important; }
+.sttn-pt { fill: #1c581f !important; }
+.sttn-cap { fill: #1c581f !important; font-size: 14px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-note { fill: #c0272d !important; font-size: 14px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-part { fill: #e5f6e3 !important; stroke: #1c581f !important; stroke-width: 1.6 !important; }
+.sttn-brace { stroke: #c0272d !important; stroke-width: 1.6 !important; fill: none !important; }
+.sttn-arrow { stroke: #1414b8 !important; stroke-width: 1.8 !important; fill: none !important; marker-end: url(#sttnArr) !important; }
+.sttn-mv { fill: #1414b8 !important; font-size: 13px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+
+/* Bài 2 - theo mẫu gốc */
+.sttn-axis { stroke: #222 !important; stroke-width: 2 !important; }
+.sttn-meet { fill: #e01b1b !important; }
+.sttn-meetlbl { fill: #c0272d !important; font-size: 14px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-mango { fill: #e8820e !important; font-size: 15px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-bingo { fill: #2aa3e0 !important; font-size: 15px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-lineO { stroke: #e8820e !important; stroke-width: 2.2 !important; marker-end: url(#sttnArrO) !important; }
+.sttn-lineB { stroke: #2aa3e0 !important; stroke-width: 2.2 !important; marker-end: url(#sttnArrB) !important; }
+.sttn-lineO2 { stroke: #e8820e !important; stroke-width: 2.2 !important; fill: none !important; marker-end: url(#sttnArrO) !important; }
+.sttn-lineB2 { stroke: #2aa3e0 !important; stroke-width: 2.2 !important; fill: none !important; marker-end: url(#sttnArrB) !important; }
+
+/* Bài 3 - theo mẫu gốc */
+.sttn-guide { stroke: #c9c9c9 !important; stroke-width: 1 !important; stroke-dasharray: 4 4 !important; }
+.sttn-blue { fill: #1a35d6 !important; font-size: 15px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-blue2 { fill: #1a35d6 !important; font-size: 12px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-orange { fill: #e8820e !important; font-size: 15px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-b3line { stroke: #1a35d6 !important; stroke-width: 2.4 !important; marker-end: url(#b3blue) !important; }
+.sttn-b3dash { stroke: #1a35d6 !important; stroke-width: 2 !important; stroke-dasharray: 7 5 !important; marker-end: url(#b3blue) !important; }
+.sttn-o3line { stroke: #e8820e !important; stroke-width: 2.4 !important; marker-end: url(#b3orange) !important; }
+.sttn-gap { stroke: #c0272d !important; stroke-width: 2 !important; stroke-dasharray: 4 3 !important; marker-end: url(#b3red) !important; marker-start: url(#b3redS) !important; }
+.sttn-brk { stroke: #222 !important; stroke-width: 1.4 !important; fill: none !important; }
+.sttn-brkR { stroke: #c0272d !important; stroke-width: 1.4 !important; fill: none !important; }
+
+/* Bài 5 - tàu qua cột điện / đường hầm */
+.sttn-t5 { fill: #111 !important; font-size: 20px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-ground { stroke: #222 !important; stroke-width: 2 !important; }
+.sttn-pole { stroke: #111 !important; stroke-width: 4 !important; }
+.sttn-train { fill: #dcd9f5 !important; stroke: #3a3aa0 !important; stroke-width: 1.6 !important; }
+.sttn-trainlbl { fill: #3a3aa0 !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 1px !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-wheel { fill: #b8b8b8 !important; stroke: #555 !important; stroke-width: 1.2 !important; }
+.sttn-dim { stroke: #222 !important; stroke-width: 1.4 !important; marker-start: url(#b5s) !important; marker-end: url(#b5e) !important; }
+.sttn-tunnel { fill: #ffffff !important; stroke: #222 !important; stroke-width: 2 !important; }
+.sttn-tunneltop { fill: #d9d9d9 !important; stroke: #222 !important; stroke-width: 2 !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6</span>
+    <p class="sttn-hero-title">Chuyên đề 4: Toán chuyển động<br>Bài toán công việc làm chung</p>
+  </div>
+
+  <!-- ===== PHẦN 1 ===== -->
+  <div class="sttn-sec">
+    <div class="sttn-sec-n">1</div>
+    <h3>Toán chuyển động</h3>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 1 (ID: 1156664)</span>
+    <p class="sttn-de">Mỗi sáng anh An đi bộ làm từ nhà lúc 7 giờ và tới công ty lúc 7 giờ 25 phút. Hôm nay anh An đi được 450 m thì phát hiện để quên tài liệu ở nhà nên anh quay về lấy rồi đi ngay, vì thế anh có mặt ở công ty lúc 7 giờ 35 phút. Tính vận tốc đi của anh An. (Coi vận tốc anh An đi trên cả quãng đường là không đổi)</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Thời gian đến công ty hôm nay của anh An nhiều hơn mọi ngày là:</p>
+      <span class="sttn-calc">7 giờ 35 phút − 7 giờ 25 phút = 10 (phút)</span>
+      <p>Thời gian đến công ty tăng thêm 10 phút là vì anh An đã đi thêm một quãng đường bằng hai lần quãng đường từ nhà đến chỗ quay lại.</p>
+      <p>Quãng đường anh An đi thêm là:</p>
+      <span class="sttn-calc">450 × 2 = 900 (m)</span>
+      <p>Vận tốc đi của anh An là:</p>
+      <span class="sttn-calc">900 : 10 = <span class="sttn-red">90</span> (m/phút)</span>
+      <p>Vậy anh An đi với vận tốc là <span class="sttn-red">90 m/phút</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 2 (ID: 1209954)</span>
+    <p class="sttn-de">Có 2 chú rô-bốt (Mango và Bingo) chạy trên quãng đường dài 90 m. Mango chạy từ A còn Bingo chạy từ B. Hai chú rô-bốt cứ chạy liên tục (Mango chạy đến B thì lại quay về A rồi lại chạy tiếp về B, Bingo cũng vậy). Biết vận tốc Mango là 8 m/phút còn vận tốc Bingo là 10 m/phút.</p>
+    <p class="sttn-subq">a) Hai chú rô-bốt gặp nhau lần 1 sau bao nhiêu phút?</p>
+    <p class="sttn-subq">b) Hai chú rô-bốt gặp nhau lần 3 sau bao nhiêu phút kể từ lần gặp nhau 1?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p><b>a)</b> Hình vẽ minh họa:</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 660 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mango 8 m/phút từ A đi sang phải, Bingo 10 m/phút từ B đi sang trái, gặp nhau tại M1, tổng quãng đường 1 lần AB = 90m">
+          <defs>
+            <marker id="sttnArrO" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#e8820e"/></marker>
+            <marker id="sttnArrB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2aa3e0"/></marker>
+          </defs>
+          <text x="150" y="28" class="sttn-mango" text-anchor="middle">Mango (8 m/phút)</text>
+          <text x="470" y="28" class="sttn-bingo" text-anchor="middle">Bingo (10 m/phút)</text>
+          <line x1="55" y1="50" x2="315" y2="50" class="sttn-lineO"/>
+          <line x1="590" y1="50" x2="335" y2="50" class="sttn-lineB"/>
+
+          <line x1="45" y1="78" x2="600" y2="78" class="sttn-axis"/>
+          <circle cx="45" cy="78" r="4.5" class="sttn-pt"/>
+          <circle cx="200" cy="78" r="4.5" class="sttn-pt"/>
+          <circle cx="445" cy="78" r="4.5" class="sttn-pt"/>
+          <circle cx="600" cy="78" r="4.5" class="sttn-pt"/>
+          <circle cx="322" cy="78" r="6" class="sttn-meet"/>
+          <text x="40" y="100" class="sttn-cap">A</text>
+          <text x="596" y="100" class="sttn-cap">B</text>
+          <text x="322" y="104" class="sttn-meetlbl" text-anchor="middle">M₁ (Gặp lần 1)</text>
+
+          <path d="M 48 122 v 8 h 552 v -8" class="sttn-brace"/>
+          <text x="324" y="146" class="sttn-note" text-anchor="middle">Tổng quãng đường = 1 lần AB = 90m</text>
+        </svg>
+      </div>
+      <p>Tổng vận tốc của 2 chú rô-bốt là:</p>
+      <span class="sttn-calc">8 + 10 = 18 (m/phút)</span>
+      <p>Thời gian hai chú rô-bốt gặp nhau lần 1 là:</p>
+      <span class="sttn-calc">90 : 18 = <span class="sttn-red">5</span> (phút)</span>
+
+      <p><b>b)</b> Hình vẽ minh họa:</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 660 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Đường đi của Mango (cam) đến B rồi quay lại đi sang trái, đường đi của Bingo (xanh) đến A rồi quay lại đi sang phải, gặp nhau lần 2 tại M2">
+          <text x="470" y="24" class="sttn-mango" text-anchor="middle">Đường đi của Mango (đến B rồi quay lại)</text>
+          <path d="M 600 44 h -255" class="sttn-lineO2"/>
+
+          <line x1="45" y1="78" x2="600" y2="78" class="sttn-axis"/>
+          <circle cx="45" cy="78" r="4.5" class="sttn-pt"/>
+          <circle cx="600" cy="78" r="4.5" class="sttn-pt"/>
+          <circle cx="322" cy="78" r="6" class="sttn-meet"/>
+          <circle cx="445" cy="78" r="6" class="sttn-meet"/>
+          <text x="40" y="66" class="sttn-cap">A</text>
+          <text x="596" y="66" class="sttn-cap">B</text>
+          <text x="322" y="100" class="sttn-meetlbl" text-anchor="middle">M₁</text>
+          <text x="445" y="100" class="sttn-meetlbl" text-anchor="middle">M₂</text>
+
+          <path d="M 60 112 h 385" class="sttn-lineB2"/>
+          <text x="200" y="150" class="sttn-bingo" text-anchor="middle">Đường đi của Bingo (đến A rồi quay lại)</text>
+        </svg>
+      </div>
+      <p>Kể từ lần gặp 1, cứ sau mỗi lần gặp nhau tiếp theo, tổng quãng đường 2 chú rô-bốt đi được thêm bằng 2 lần quãng đường AB.</p>
+      <p>Do đó, kể từ lần gặp 1 đến lần gặp 3, tổng quãng đường 2 chú rô-bốt đã đi được bằng:</p>
+      <span class="sttn-calc">2 × 2 = 4 (lần quãng đường AB)</span>
+      <p>Tổng độ dài quãng đường hai chú rô-bốt đã đi được kể từ lần gặp 1 đến lần gặp 3 là:</p>
+      <span class="sttn-calc">90 × 4 = 360 (m)</span>
+      <p>Kể từ lần gặp 1, thời gian hai chú rô-bốt gặp nhau lần 3 là:</p>
+      <span class="sttn-calc">360 : 18 = <span class="sttn-red">20</span> (phút)</span>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 3 (ID: 1188402)</span>
+    <p class="sttn-de">Trên một tuyến đường thẳng từ A đến B dài 110 km, có vị trí C nằm giữa A và B, biết rằng quãng đường từ A đến C dài 40 km.</p>
+    <p class="sttn-de">Lúc 8 giờ sáng, một xe tải xuất phát từ A đi đến B với tốc độ 50 km/h.</p>
+    <p class="sttn-de">Lúc 9 giờ sáng, một taxi xuất phát từ C đi đến B với tốc độ 70 km/h và gặp xe tải.</p>
+    <p class="sttn-de">Hỏi hai xe gặp nhau tại điểm cách B bao nhiêu ki-lô-mét?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <div class="sttn-svg">
+        <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ bài 3: xe tải xuất phát A lúc 8:00 v=50, taxi xuất phát C lúc 9:00 v=70, trục A-C-G-B dài 110km, AC 40km, gặp tại G cách B ? km">
+          <defs>
+            <marker id="b3blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#1a35d6"/></marker>
+            <marker id="b3orange" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#e8820e"/></marker>
+            <marker id="b3red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0272d"/></marker>
+            <marker id="b3redS" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#c0272d"/></marker>
+          </defs>
+
+          <line x1="85" y1="40" x2="85" y2="240" class="sttn-guide"/>
+          <line x1="360" y1="40" x2="360" y2="240" class="sttn-guide"/>
+          <line x1="415" y1="40" x2="415" y2="240" class="sttn-guide"/>
+          <line x1="610" y1="40" x2="610" y2="240" class="sttn-guide"/>
+          <line x1="685" y1="40" x2="685" y2="240" class="sttn-guide"/>
+
+          <!-- xe tải -->
+          <text x="222" y="60" class="sttn-blue" text-anchor="middle">Xe tải (v = 50 km/h)</text>
+          <text x="55" y="82" class="sttn-blue" text-anchor="end">8:00</text>
+          <line x1="85" y1="77" x2="405" y2="77" class="sttn-b3line"/>
+          <text x="415" y="82" class="sttn-blue" text-anchor="middle">9:00</text>
+          <line x1="430" y1="77" x2="610" y2="77" class="sttn-b3dash"/>
+
+          <!-- taxi -->
+          <text x="440" y="128" class="sttn-orange" text-anchor="middle">Taxi (v = 70 km/h)</text>
+          <text x="335" y="150" class="sttn-orange" text-anchor="end">9:00</text>
+          <line x1="360" y1="145" x2="610" y2="145" class="sttn-o3line"/>
+
+          <!-- khoảng chênh 10 km giữa C và vị trí tải lúc 9:00 -->
+          <line x1="363" y1="180" x2="412" y2="180" class="sttn-gap"/>
+
+          <!-- 40 km : A -> C -->
+          <path d="M 85 210 v -10 h 275 v 10" class="sttn-brk"/>
+          <text x="222" y="196" class="sttn-cap" text-anchor="middle">40 km</text>
+
+          <!-- ? km : G -> B -->
+          <path d="M 610 210 v -10 h 75 v 10" class="sttn-brkR"/>
+          <text x="647" y="196" class="sttn-note" text-anchor="middle">? km</text>
+
+          <!-- trục chính -->
+          <line x1="85" y1="240" x2="685" y2="240" class="sttn-axis"/>
+          <circle cx="85" cy="240" r="5" class="sttn-pt"/>
+          <circle cx="360" cy="240" r="5" class="sttn-pt"/>
+          <circle cx="415" cy="240" r="5" class="sttn-pt"/>
+          <circle cx="610" cy="240" r="5" class="sttn-pt"/>
+          <circle cx="685" cy="240" r="5" class="sttn-pt"/>
+          <text x="85" y="262" class="sttn-cap" text-anchor="middle">A</text>
+          <text x="360" y="262" class="sttn-cap" text-anchor="middle">C</text>
+          <text x="415" y="260" class="sttn-blue2" text-anchor="middle">Tải lúc</text>
+          <text x="415" y="274" class="sttn-blue2" text-anchor="middle">9:00</text>
+          <text x="610" y="262" class="sttn-note" text-anchor="middle">G</text>
+          <text x="685" y="262" class="sttn-cap" text-anchor="middle">B</text>
+
+          <!-- 110 km : A -> B -->
+          <path d="M 85 286 v 8 h 600 v -8" class="sttn-brace"/>
+          <text x="385" y="300" class="sttn-cap" text-anchor="middle">110 km</text>
+        </svg>
+      </div>
+      <p>Khi taxi xuất phát thì xe tải đã đi được:</p>
+      <span class="sttn-calc">9 giờ − 8 giờ = 1 giờ</span>
+      <p>Quãng đường xe tải đã đi được trước khi taxi xuất phát là:</p>
+      <span class="sttn-calc">1 × 50 = 50 (km)</span>
+      <p>Vì taxi xuất phát từ C nên lúc 9 giờ taxi cách xe tải là:</p>
+      <span class="sttn-calc">50 − 40 = 10 (km)</span>
+      <p>Hiệu vận tốc của hai xe là:</p>
+      <span class="sttn-calc">70 − 50 = 20 (km/h)</span>
+      <p>Kể từ lúc 9 giờ, taxi đuổi kịp xe tải sau thời gian là:</p>
+      <span class="sttn-calc">10 : 20 = 0,5 (giờ)</span>
+      <p>Quãng đường taxi đi được trong 0,5 giờ là:</p>
+      <span class="sttn-calc">0,5 × 70 = 35 (km)</span>
+      <p>Chỗ gặp nhau cách B số ki-lô-mét là:</p>
+      <span class="sttn-calc">(110 − 40) − 35 = <span class="sttn-red">35</span> (km)</span>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 4 (ID: 1151155)</span>
+    <p class="sttn-de">Một người đi xe máy dự định đi từ nhà lúc 8 giờ và đến cơ quan lúc 8 giờ 30 phút. Do có việc đột xuất, người đó xuất phát muộn hơn 7,5 phút so với dự kiến. Để đến cơ quan đúng giờ, mỗi giờ người đó phải đi nhanh hơn dự kiến 10 km. Tính độ dài quãng đường từ nhà đến cơ quan.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Thời gian dự định đi từ nhà đến cơ quan là:</p>
+      <span class="sttn-calc">8 giờ 30 phút − 8 giờ = 30 phút = 0,5 (giờ)</span>
+      <p>Do xuất phát muộn hơn 7,5 phút nên thời gian thực tế người đó đi là:</p>
+      <span class="sttn-calc">30 − 7,5 = 22,5 (phút)</span>
+      <p>Tỉ số giữa thời gian thực tế và thời gian dự định là:</p>
+      <span class="sttn-calc">22,5 : 30 = <span class="sttn-frac"><i>3</i><b>4</b></span></span>
+      <p>Vì quãng đường không đổi nên vận tốc và thời gian là hai đại lượng tỉ lệ nghịch. Do đó, tỉ số giữa vận tốc thực tế và vận tốc dự định là <span class="sttn-frac"><i>4</i><b>3</b></span>.</p>
+      <p>Hiệu vận tốc giữa thực tế và dự định là 10 km/giờ.</p>
+      <p>Ta có sơ đồ:</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ: vận tốc thực tế 4 phần, dự định 3 phần, hiệu 10 km/giờ">
+          <text x="8" y="38" class="sttn-lbl">V thực tế:</text>
+          <rect x="130" y="22" width="86" height="24" class="sttn-part"/>
+          <rect x="216" y="22" width="86" height="24" class="sttn-part"/>
+          <rect x="302" y="22" width="86" height="24" class="sttn-part"/>
+          <rect x="388" y="22" width="86" height="24" class="sttn-part"/>
+
+          <text x="8" y="90" class="sttn-lbl">V dự định:</text>
+          <rect x="130" y="74" width="86" height="24" class="sttn-part"/>
+          <rect x="216" y="74" width="86" height="24" class="sttn-part"/>
+          <rect x="302" y="74" width="86" height="24" class="sttn-part"/>
+
+          <path d="M 388 100 v 12 h 86 v -12" class="sttn-brace"/>
+          <text x="398" y="126" class="sttn-note">10 km/giờ</text>
+        </svg>
+      </div>
+      <p>Theo sơ đồ, hiệu số phần bằng nhau là:</p>
+      <span class="sttn-calc">4 − 3 = 1 (phần)</span>
+      <p>Vận tốc dự định của người đó là:</p>
+      <span class="sttn-calc">10 : 1 × 3 = 30 (km/h)</span>
+      <p>Độ dài quãng đường từ nhà đến cơ quan là:</p>
+      <span class="sttn-calc">30 × 0,5 = <span class="sttn-red">15</span> (km)</span>
+      <p>Vậy quãng đường từ nhà đến cơ quan dài <span class="sttn-red">15 km</span>.</p>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 5 (ID: 336130)</span>
+    <p class="sttn-de">Một đoàn tàu băng qua một cột điện hết 8 giây. Cũng với vận tốc đó, đoàn tàu băng qua một đường hầm dài 260 m hết 1 phút. Vận tốc của đoàn tàu đó là bao nhiêu?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <div class="sttn-svg">
+        <svg viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bài 5: (1) tàu đi qua cột điện t=8s, quãng đường bằng chiều dài tàu; (2) tàu đi qua đường hầm 260m t=60s, quãng đường bằng chiều dài tàu cộng 260m">
+          <defs>
+            <marker id="b5s" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#222"/></marker>
+            <marker id="b5e" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#222"/></marker>
+          </defs>
+
+          <!-- Phần 1 -->
+          <text x="60" y="30" class="sttn-t5">1. Tàu đi qua cột điện (t = 8s)</text>
+          <line x1="40" y1="150" x2="440" y2="150" class="sttn-ground"/>
+          <!-- cột điện -->
+          <line x1="235" y1="150" x2="235" y2="66" class="sttn-pole"/>
+          <path d="M 235 66 l -7 14 h 14 z" fill="#111"/>
+          <!-- toa tàu -->
+          <rect x="105" y="118" width="120" height="32" class="sttn-train"/>
+          <text x="165" y="138" class="sttn-trainlbl" text-anchor="middle">TÀU</text>
+          <circle cx="120" cy="152" r="6" class="sttn-wheel"/>
+          <circle cx="145" cy="152" r="6" class="sttn-wheel"/>
+          <circle cx="170" cy="152" r="6" class="sttn-wheel"/>
+          <circle cx="200" cy="152" r="6" class="sttn-wheel"/>
+          <!-- ngoặc chiều dài tàu -->
+          <line x1="105" y1="176" x2="235" y2="176" class="sttn-dim"/>
+          <text x="170" y="200" class="sttn-cap" text-anchor="middle">Chiều dài tàu</text>
+
+          <!-- Phần 2 -->
+          <text x="60" y="252" class="sttn-t5">2. Tàu đi qua đường hầm (t = 60s)</text>
+          <line x1="40" y1="392" x2="600" y2="392" class="sttn-ground"/>
+          <!-- đường hầm -->
+          <rect x="235" y="300" width="260" height="92" class="sttn-tunnel"/>
+          <rect x="235" y="300" width="260" height="14" class="sttn-tunneltop"/>
+          <text x="365" y="352" class="sttn-cap" text-anchor="middle">Đường hầm (260m)</text>
+          <!-- toa tàu trước hầm -->
+          <rect x="115" y="360" width="120" height="32" class="sttn-train"/>
+          <circle cx="130" cy="394" r="6" class="sttn-wheel"/>
+          <circle cx="155" cy="394" r="6" class="sttn-wheel"/>
+          <circle cx="180" cy="394" r="6" class="sttn-wheel"/>
+          <circle cx="210" cy="394" r="6" class="sttn-wheel"/>
+          <!-- gióng dọc -->
+          <line x1="115" y1="392" x2="115" y2="410" class="sttn-guide"/>
+          <line x1="235" y1="392" x2="235" y2="410" class="sttn-guide"/>
+
+          <text x="330" y="424" class="sttn-note" text-anchor="middle">Tổng quãng đường = Chiều dài tàu + 260m</text>
+        </svg>
+      </div>
+      <p>Đổi 1 phút = 60 giây.</p>
+      <p>Thời gian tàu băng qua cột điện là thời gian tàu chạy được một đoạn đường bằng chiều dài của đoàn tàu.</p>
+      <p>Thời gian tàu băng qua một đường hầm là thời gian tàu chạy được một đoạn đường bằng tổng chiều dài của đoàn tàu và chiều dài của đường hầm.</p>
+      <p>Vậy thời gian để tàu đi quãng đường bằng chiều dài của đường hầm là:</p>
+      <span class="sttn-calc">60 − 8 = 52 (giây)</span>
+      <p>Vận tốc của đoàn tàu là:</p>
+      <span class="sttn-calc">260 : 52 = 5 (m/giây) = 18 000 (m/giờ) = <span class="sttn-red">18</span> (km/giờ)</span>
+    </div>
+  </div>
+
+  <!-- ===== PHẦN 2 ===== -->
+  <div class="sttn-sec">
+    <div class="sttn-sec-n">2</div>
+    <h3>Bài toán công việc làm chung</h3>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 6 (ID: 896251)</span>
+    <p class="sttn-de">Để làm xong một cái tủ quần áo nếu chỉ có người thứ nhất làm thì trong 5 ngày sẽ hoàn thành, còn chỉ có người thứ hai làm thì trong 10 ngày mới hoàn thành. Lúc đầu chỉ có người thứ nhất làm, sau 2 ngày thì người thứ nhất có việc bận phải nghỉ làm nên người thứ hai đã đến làm thay phần việc còn lại. Hỏi sau bao lâu nữa thì người thứ hai mới hoàn thành cái tủ quần áo đó?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>1 ngày người thứ nhất làm được số phần công việc là:</p>
+      <span class="sttn-calc">1 : 5 = <span class="sttn-frac"><i>1</i><b>5</b></span> (cái tủ)</span>
+      <p>1 ngày người thứ hai làm được số phần công việc là:</p>
+      <span class="sttn-calc">1 : 10 = <span class="sttn-frac"><i>1</i><b>10</b></span> (cái tủ)</span>
+      <p>2 ngày người thứ nhất làm được số phần công việc là:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>5</b></span> × 2 = <span class="sttn-frac"><i>2</i><b>5</b></span> (cái tủ)</span>
+      <p>Số phần công việc còn lại mà người thứ hai phải hoàn thành là:</p>
+      <span class="sttn-calc">1 − <span class="sttn-frac"><i>2</i><b>5</b></span> = <span class="sttn-frac"><i>3</i><b>5</b></span> (cái tủ)</span>
+      <p>Người thứ hai làm xong cái tủ quần áo đó sau khoảng thời gian là:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>3</i><b>5</b></span> : <span class="sttn-frac"><i>1</i><b>10</b></span> = <span class="sttn-red">6</span> (ngày)</span>
+    </div>
+  </div>
+
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 7 (ID: 720427)</span>
+    <p class="sttn-de">Kiên và Hiền cùng làm một công việc thì hoàn thành trong 10 ngày. Sau 7 ngày cùng làm thì Kiên nghỉ việc. Hiền phải làm nốt phần việc còn lại trong 9 ngày. Hỏi nếu làm riêng thì Kiên làm công việc đó trong bao lâu?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Hai người làm chung trong một ngày được số phần công việc là:</p>
+      <span class="sttn-calc">1 : 10 = <span class="sttn-frac"><i>1</i><b>10</b></span> (công việc)</span>
+      <p>Trong 7 ngày, hai người làm được số phần công việc là:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>10</b></span> × 7 = <span class="sttn-frac"><i>7</i><b>10</b></span> (công việc)</span>
+      <p>Công việc còn lại mà Hiền cần hoàn thành là:</p>
+      <span class="sttn-calc">1 − <span class="sttn-frac"><i>7</i><b>10</b></span> = <span class="sttn-frac"><i>3</i><b>10</b></span> (công việc)</span>
+      <p>Trong 1 ngày, Hiền làm được số phần công việc là:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>3</i><b>10</b></span> : 9 = <span class="sttn-frac"><i>1</i><b>30</b></span> (công việc)</span>
+      <p>Trong 1 ngày, Kiên làm được số phần công việc là:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>10</b></span> − <span class="sttn-frac"><i>1</i><b>30</b></span> = <span class="sttn-frac"><i>1</i><b>15</b></span> (công việc)</span>
+      <p>Kiên làm một mình thì hoàn thành công việc trong khoảng thời gian là:</p>
+      <span class="sttn-calc">1 : <span class="sttn-frac"><i>1</i><b>15</b></span> = <span class="sttn-red">15</span> (ngày)</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
