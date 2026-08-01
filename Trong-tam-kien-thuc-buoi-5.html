@@ -145,6 +145,50 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
 .sttn-tip .sttn-tip-label { font-weight: 800 !important; color: #1c581f !important; }
 
 .sttn-hl { background: #ffda0f !important; padding: 1px 6px !important; border-radius: 5px !important; font-weight: 700 !important; }
+
+/* Thẻ công thức cơ bản */
+.sttn-ref-head {
+  display: flex !important; align-items: center !important; gap: 12px !important;
+  margin-bottom: 14px !important; padding-bottom: 12px !important;
+  border-bottom: 2px dashed #ffe58a !important;
+}
+.sttn-ref-icon {
+  flex: 0 0 auto !important;
+  width: 42px !important; height: 42px !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  border-radius: 12px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 20px !important; font-weight: 800 !important; font-style: italic !important;
+}
+.sttn-ref-head h3 { margin: 0 !important; color: #1c581f !important; font-size: clamp(16px, 3.8vw, 21px) !important; font-weight: 800 !important; }
+
+.sttn-fgrid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; margin: 6px 0 !important; }
+.sttn-fitem {
+  background: #f5faf2 !important;
+  border: 1.5px solid #ceedca !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+}
+.sttn-fitem h4 {
+  margin: 0 0 8px 0 !important;
+  color: #1c581f !important;
+  font-size: clamp(13px, 3vw, 15px) !important; font-weight: 800 !important;
+}
+.sttn-fitem h4 span { font-weight: 600 !important; color: #6a8f3c !important; font-size: 0.88em !important; }
+.sttn-frow {
+  display: block !important;
+  background: #fff !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  margin: 6px 0 !important;
+  font-size: clamp(12.5px, 2.9vw, 14.5px) !important;
+  line-height: 1.7 !important;
+  color: #1c581f !important;
+}
+.sttn-frow b { color: #1c581f !important; }
+.sttn-fsub { color: #c0272d !important; font-weight: 800 !important; }
+.sttn-fitem.sttn-wide { grid-column: 1 / -1 !important; }
+@media (max-width: 520px) { .sttn-fgrid { grid-template-columns: 1fr !important; } }
 </style>
 
 <div class="sttn-wrap">
@@ -157,6 +201,54 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
 
   <div class="sttn-note">
     <p>Gửi các sĩ tử: Đây là bộ bí kíp tổng quát nhất giúp các con chinh phục mọi bài toán biến thể về Hình học trong chuyên đề vừa học. Hãy ghi nhớ thật kỹ nhé! ♡</p>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-ref-head">
+      <div class="sttn-ref-icon">fx</div>
+      <h3>CÔNG THỨC CƠ BẢN CẦN NHỚ</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">A</span>Hình phẳng (2D)</p>
+    <div class="sttn-fgrid">
+      <div class="sttn-fitem">
+        <h4>Hình vuông <span>(cạnh a)</span></h4>
+        <span class="sttn-frow">Chu vi: <b>P = a × 4</b></span>
+        <span class="sttn-frow">Diện tích: <b>S = a × a</b></span>
+      </div>
+      <div class="sttn-fitem">
+        <h4>Hình chữ nhật <span>(dài a, rộng b)</span></h4>
+        <span class="sttn-frow">Chu vi: <b>P = (a + b) × 2</b></span>
+        <span class="sttn-frow">Diện tích: <b>S = a × b</b></span>
+      </div>
+      <div class="sttn-fitem">
+        <h4>Hình tròn <span>(bán kính r, đường kính d)</span></h4>
+        <span class="sttn-frow">Chu vi: <b>C = r × 2 × 3,14</b> (= d × 3,14)</span>
+        <span class="sttn-frow">Diện tích: <b>S = r × r × 3,14</b></span>
+      </div>
+      <div class="sttn-fitem">
+        <h4>Hình thang <span>(đáy a, đáy b, cao h)</span></h4>
+        <span class="sttn-frow">Chu vi: <b>P = tổng 4 cạnh</b></span>
+        <span class="sttn-frow">Diện tích: <b>S = (a + b) × h : 2</b></span>
+      </div>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">B</span>Hình khối (3D)</p>
+    <div class="sttn-fgrid">
+      <div class="sttn-fitem">
+        <h4>Hình hộp chữ nhật <span>(dài a, rộng b, cao h)</span></h4>
+        <span class="sttn-frow"><span class="sttn-fsub">S<sub>xq</sub></span> = (a + b) × 2 × h</span>
+        <span class="sttn-frow"><span class="sttn-fsub">S<sub>tp</sub></span> = S<sub>xq</sub> + a × b × 2</span>
+        <span class="sttn-frow"><span class="sttn-fsub">V</span> = a × b × h</span>
+      </div>
+      <div class="sttn-fitem">
+        <h4>Hình lập phương <span>(cạnh a)</span></h4>
+        <span class="sttn-frow"><span class="sttn-fsub">S<sub>xq</sub></span> = a × a × 4</span>
+        <span class="sttn-frow"><span class="sttn-fsub">S<sub>tp</sub></span> = a × a × 6</span>
+        <span class="sttn-frow"><span class="sttn-fsub">V</span> = a × a × a</span>
+      </div>
+    </div>
+    <p style="font-size:clamp(12px,2.8vw,13.5px) !important; color:#6a8f3c !important; font-style:italic !important; margin-top:10px !important;">S<sub>xq</sub>: diện tích xung quanh &nbsp;·&nbsp; S<sub>tp</sub>: diện tích toàn phần &nbsp;·&nbsp; V: thể tích. S<sub>xq</sub> = chu vi đáy × chiều cao.</p>
   </div>
 
   <div class="sttn-card">
