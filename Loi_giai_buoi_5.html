@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuyên đề 5 - Chu vi, diện tích và thể tích (lời giải)</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 880px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(20px, 4.6vw, 30px) !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+.sttn-q {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 16px !important;
+  padding: clamp(14px, 3.5vw, 22px) !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 5px 16px rgba(28,88,31,0.09) !important;
+}
+.sttn-id {
+  display: inline-block !important;
+  background: #e5f6e3 !important; color: #1c581f !important;
+  font-size: clamp(11px, 2.4vw, 12.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: .4px !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  margin-bottom: 10px !important;
+}
+.sttn-q p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.85 !important; margin: 6px 0 !important; }
+.sttn-de { font-weight: 600 !important; }
+.sttn-step { font-weight: 800 !important; color: #1c581f !important; margin-top: 12px !important; }
+
+.sttn-ans-label {
+  color: #1c581f !important; font-weight: 800 !important;
+  font-size: clamp(13.5px, 3.1vw, 15.5px) !important;
+  margin: 14px 0 6px 0 !important;
+  padding-top: 12px !important;
+  border-top: 2px dashed #ceedca !important;
+}
+.sttn-ans { background: #f5faf2 !important; border-radius: 12px !important; padding: 12px 16px !important; }
+.sttn-ans p { margin: 5px 0 !important; }
+
+.sttn-calc {
+  display: block !important;
+  background: #e5f6e3 !important;
+  border-radius: 8px !important;
+  padding: 9px 14px !important;
+  margin: 7px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(13.5px, 3.1vw, 16px) !important;
+  line-height: 2.2 !important;
+  overflow-x: auto !important;
+}
+.sttn-red { color: #c0272d !important; font-weight: 800 !important; }
+
+.sttn-frac { display: inline-flex !important; flex-direction: column !important; vertical-align: middle !important; text-align: center !important; margin: 0 3px !important; font-style: normal !important; }
+.sttn-frac i { font-style: normal !important; border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
+.sttn-frac b { font-weight: inherit !important; padding: 1px 6px 0 6px !important; }
+
+.sttn-fig {
+  background: #fff !important;
+  border: 2px dashed #add93f !important;
+  border-radius: 12px !important;
+  padding: 22px 16px !important;
+  margin: 10px 0 !important;
+  text-align: center !important;
+  color: #6a8f3c !important;
+  font-size: clamp(12.5px, 2.9vw, 14px) !important;
+  font-style: italic !important;
+  line-height: 1.7 !important;
+}
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6</span>
+    <p class="sttn-hero-title">Chuyên đề 5: Chu vi, diện tích và thể tích các hình quen thuộc</p>
+  </div>
+
+  <!-- Bài 1 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 1 (ID: 342404)</span>
+    <p class="sttn-de">Xếp các hình lập phương nhỏ cạnh 1 cm thành hình lập phương lớn. Số hình không được sơn mặt nào gấp rưỡi số hình được sơn 1 mặt. Tính thể tích hình lập phương đó.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Giả sử trên mỗi cạnh hình lập phương lớn có n hình lập phương nhỏ. Thế thì:</p>
+      <p>− Số hình lập phương nhỏ được sơn 1 mặt là: 6 × (n − 2) × (n − 2)</p>
+      <p>− Số hình lập phương nhỏ không được sơn mặt nào là: (n − 2) × (n − 2) × (n − 2)</p>
+      <p>Theo đề bài thì:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>(n − 2) × (n − 2) × (n − 2)</i><b>6 × (n − 2) × (n − 2)</b></span> = <span class="sttn-frac"><i>3</i><b>2</b></span></span>
+      <span class="sttn-calc"><span class="sttn-frac"><i>n − 2</i><b>6</b></span> = <span class="sttn-frac"><i>3</i><b>2</b></span> ⇒ n = 11</span>
+      <p>Cạnh hình lập phương lớn là 11 cm.</p>
+      <p>Thể tích hình lập phương lớn là:</p>
+      <span class="sttn-calc">11 × 11 × 11 = <span class="sttn-red">1331</span> (cm³)</span>
+    </div>
+  </div>
+
+  <!-- Bài 2 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 2 (ID: 315289)</span>
+    <p class="sttn-de">Một miếng tôn có chu vi 44 dm và chiều dài hơn chiều rộng 2 dm. Người ta cắt 4 góc của miếng tôn 4 hình vuông bằng nhau, mỗi miếng có diện tích bằng 100 cm² rồi gấp lên thành một hình hộp không có nắp. Tính thể tích của hình hộp này.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Hiệu giữa chiều dài và chiều rộng của miếng tôn hình chữ nhật là: 2 (dm)</p>
+      <p>Ta có: Chu vi = (dài + rộng) × 2</p>
+      <p>Tổng chiều dài và chiều rộng của miếng tôn hình chữ nhật là:</p>
+      <span class="sttn-calc">44 : 2 = 22 (dm)</span>
+      <p>Ta đưa bài toán về dạng tìm hai số khi biết tổng và hiệu:</p>
+      <p>Chiều rộng của miếng tôn là:</p>
+      <span class="sttn-calc">(22 − 2) : 2 = 10 (dm)</span>
+      <p>Chiều dài của miếng tôn là:</p>
+      <span class="sttn-calc">10 + 2 = 12 (dm)</span>
+      <p>Cạnh của hình vuông bị cắt chính là chiều cao của hình hộp được gấp lại.</p>
+      <p>Diện tích mỗi hình vuông cắt đi bằng 100 cm² nên cạnh của hình vuông là 10 cm = 1 dm.</p>
+      <p>Khi cắt ở 4 góc của miếng tôn thì chiều dài và chiều rộng của hình hộp chữ nhật là:</p>
+      <p>Chiều dài của hình hộp chữ nhật là:</p>
+      <span class="sttn-calc">12 − 2 × 1 = 10 (dm) &nbsp;(do cắt ở 2 đầu)</span>
+      <p>Chiều rộng của hình hộp chữ nhật là:</p>
+      <span class="sttn-calc">10 − 2 × 1 = 8 (dm) &nbsp;(do cắt ở 2 đầu)</span>
+      <p>Vậy thể tích của hình hộp chữ nhật này là:</p>
+      <span class="sttn-calc">10 × 8 × 1 = <span class="sttn-red">80</span> (dm³)</span>
+    </div>
+  </div>
+
+  <!-- Bài 3 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 3 (ID: 606127)</span>
+    <p class="sttn-de">Người ta xếp hai hình hộp chữ nhật và một hình lập phương để ghép thành một khối hình chữ U như hình vẽ. Biết đáy của hai hình hộp chữ nhật đều là các hình vuông có cạnh bằng cạnh của hình lập phương. Tính diện tích toàn phần của hình mới được tạo thành.</p>
+    <div class="sttn-fig">[ Hình vẽ khối chữ U — sẽ bổ sung khi có hình gốc ]</div>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Diện tích toàn phần của một hình hộp chữ nhật là:</p>
+      <span class="sttn-calc">(5 + 5) × 2 × 20 + 5 × 5 × 2 = 450 (cm²)</span>
+      <p>Diện tích toàn phần của hai hình hộp chữ nhật là:</p>
+      <span class="sttn-calc">450 × 2 = 900 (cm²)</span>
+      <p>Diện tích toàn phần của hình lập phương là:</p>
+      <span class="sttn-calc">5 × 5 × 6 = 150 (cm²)</span>
+      <p>Khi ghép hai hình hộp chữ nhật và một hình lập phương thành khối hình chữ U như hình vẽ, có 4 mặt hình vuông cạnh 5 cm bị che khuất (gồm 2 mặt bên trái, phải của hình lập phương và 2 phần mặt bên của hình hộp chữ nhật tiếp xúc với hình lập phương).</p>
+      <p>Diện tích các phần bị che khuất là:</p>
+      <span class="sttn-calc">5 × 5 × 4 = 100 (cm²)</span>
+      <p>Diện tích toàn phần của hình mới được tạo thành là:</p>
+      <span class="sttn-calc">900 + 150 − 100 = <span class="sttn-red">950</span> (cm²)</span>
+    </div>
+  </div>
+
+  <!-- Bài 4 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 4 (ID: 432542)</span>
+    <p class="sttn-de">Một hình lập phương có cạnh 5 cm. Người ta đục một lỗ rộng 2 cm, dài 3 cm và xuyên từ mặt trước qua mặt sau của hình lập phương. Tính diện tích toàn phần của hình mới.</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Nhận thấy hình mới so với hình cũ thì mất đi 2 mặt 2 × 3 nhưng được thêm 2 mặt 2 × 5 và 2 mặt 3 × 5.</p>
+      <p>Vậy diện tích toàn phần hình mới là:</p>
+      <span class="sttn-calc">5 × 5 × 6 − 2 × 3 × 2 + 2 × 5 × 2 + 3 × 5 × 2 = <span class="sttn-red">188</span> (cm²)</span>
+    </div>
+  </div>
+
+  <!-- Bài 5 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 5 (ID: 339248)</span>
+    <p class="sttn-de">Bạn Hạnh có 20 miếng bìa hình vuông cạnh 1 dm. Bạn ấy xếp các bìa đó thành một hình chữ nhật (không đè lên nhau, cạnh khít nhau). Trong các hình chữ nhật xếp được có một hình có chu vi là lớn nhất. Hỏi hình chữ nhật đó có chu vi là bao nhiêu?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Diện tích của 1 miếng bìa là:</p>
+      <span class="sttn-calc">1 × 1 = 1 (dm²)</span>
+      <p>Diện tích của 20 miếng bìa là:</p>
+      <span class="sttn-calc">20 × 1 = 20 (dm²)</span>
+      <p>Vì khi xếp các miếng bìa lại với nhau theo các cách mà không đè lên nhau, các cạnh khít nhau thì diện tích của tấm bìa lớn sau khi ghép lại luôn bằng 20 dm².</p>
+      <p>Lại có các cạnh của hình chữ nhật lúc sau được ghép bằng các cạnh của hình vuông cạnh 1 dm nên độ dài các cạnh của hình chữ nhật lúc sau phải là các số tự nhiên.</p>
+      <p>Nhận thấy: 20 = 1 × 20 = 2 × 10 = 4 × 5 nên hình chữ nhật sau khi xếp sẽ có các kích thước là 1 × 20 hoặc 2 × 10 hoặc 4 × 5.</p>
+      <p>Trong các kích thước hình chữ nhật trên, kích thước 1 × 20 sẽ cho ta hình có chu vi lớn nhất.</p>
+      <p>Chu vi lớn nhất bằng:</p>
+      <span class="sttn-calc">2 × (1 + 20) = <span class="sttn-red">42</span> (dm)</span>
+    </div>
+  </div>
+
+  <!-- Bài 6 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 6 (ID: 350953)</span>
+    <p class="sttn-de">Lớp 5A có 32 học sinh chơi trò mèo đuổi chuột, chỉ có 1 bạn làm mèo, 1 bạn làm chuột, số còn lại nắm tay nhau xếp thành một hình tròn, hai bạn liền nhau cách nhau 1,2 m. Hỏi hai bạn cách xa nhau nhất trên đường tròn sẽ cách nhau bao nhiêu mét?</p>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Lớp 5A có 32 học sinh, 1 bạn làm mèo, 1 bạn làm chuột.</p>
+      <p>Số bạn học sinh của lớp 5A đứng xếp thành một hình tròn là:</p>
+      <span class="sttn-calc">32 − 1 − 1 = 30 (học sinh)</span>
+      <p>Hai bạn liền nhau đứng cách nhau 1,2 m.</p>
+      <p>30 bạn xếp thành hình tròn sẽ tạo ra 30 khoảng cách như vậy.</p>
+      <p>Chu vi đường tròn đó là:</p>
+      <span class="sttn-calc">1,2 × 30 = 36 (m)</span>
+      <p>Đường kính của hình tròn là:</p>
+      <span class="sttn-calc">36 : 3,14 = 11,46 (m)</span>
+      <p>Hai bạn cách xa nhau nhất là hai bạn đứng trên đường kính của hình tròn.</p>
+      <p>Vậy khoảng cách của 2 bạn đứng xa nhau nhất là <span class="sttn-red">11,46 m</span>.</p>
+    </div>
+  </div>
+
+  <!-- Bài 7 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 7 (ID: 1209975)</span>
+    <p class="sttn-de">Một kiến trúc sư thiết kế khu vườn hình chữ nhật ABCD. Ông xây một lối đi lát sỏi có diện tích là 60 m² (phần tô đậm), <span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính DA để trồng hoa, diện tích còn lại (phần gạch chéo) để trồng cỏ. Tính diện tích trồng cỏ, biết AB = AD × 2 = AM × 4.</p>
+    <div class="sttn-fig">[ Hình vẽ khu vườn ABCD — sẽ bổ sung khi có hình gốc ]</div>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Quan sát hình vẽ ta thấy:</p>
+      <p>Diện tích lối đi lát sỏi (phần tô đậm) = Diện tích hình chữ nhật AMND + <span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính NM − <span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính DA.</p>
+      <p>Vì tứ giác AMND là hình chữ nhật nên AD = MN, kéo theo <span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính NM bằng <span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính DA.</p>
+      <p>Do đó, hai phần diện tích cung tròn tự triệt tiêu nhau, dẫn đến:</p>
+      <p>Diện tích lối đi lát sỏi (phần tô đậm) = Diện tích hình chữ nhật AMND</p>
+      <p>Diện tích hình chữ nhật AMND là:</p>
+      <span class="sttn-calc">AD × AM = 60 (m²)</span>
+      <p>Từ giả thiết AB = AD × 2 = AM × 4 nên AD = AM × 2 hay AM = AD × <span class="sttn-frac"><i>1</i><b>2</b></span></p>
+      <p>Thay vào, ta có:</p>
+      <span class="sttn-calc">AD × AD × <span class="sttn-frac"><i>1</i><b>2</b></span> = 60 (m²)</span>
+      <span class="sttn-calc">AD × AD = 60 × 2 = 120 (m²)</span>
+      <p>Diện tích phần đất trồng hoa (<span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính DA) là:</p>
+      <span class="sttn-calc"><span class="sttn-frac"><i>1</i><b>4</b></span> × (AD × AD × 3,14) = <span class="sttn-frac"><i>1</i><b>4</b></span> × (120 × 3,14) = 94,2 (m²)</span>
+      <p>Diện tích toàn bộ khu vườn hình chữ nhật ABCD là:</p>
+      <span class="sttn-calc">AB × AD = (AD × 2) × AD = 2 × (AD × AD) = 2 × 120 = 240 (m²)</span>
+      <p>Diện tích để trồng cỏ (phần gạch chéo) là:</p>
+      <span class="sttn-calc">240 − 94,2 − 60 = <span class="sttn-red">85,8</span> (m²)</span>
+    </div>
+  </div>
+
+  <!-- Bài 8 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 8 (ID: 1198436)</span>
+    <p class="sttn-de">Cho hình vẽ, các hình vuông ABCD và DCEG đều có diện tích là 400 cm². EFG là nửa đường tròn đường kính EG, F là điểm chính giữa cung EFG. Tính diện tích phần tô đậm.</p>
+    <div class="sttn-fig">[ Hình vẽ hai hình vuông ABCD, DCEG và nửa đường tròn — sẽ bổ sung khi có hình gốc ]</div>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p class="sttn-step">Bước 1: Tính diện tích cả hình lớn</p>
+      <p>Vì hình vuông ABCD và DCEG đều có diện tích là 400 cm² và 400 = 20 × 20 nên cạnh mỗi hình vuông có độ dài là 20 cm.</p>
+      <p>Tổng diện tích hai hình vuông ABCD và DCEG là:</p>
+      <span class="sttn-calc">400 × 2 = 800 (cm²)</span>
+      <p>Bán kính nửa đường tròn đường kính EG là:</p>
+      <span class="sttn-calc">20 : 2 = 10 (cm)</span>
+      <p>Diện tích nửa đường tròn đường kính EG là:</p>
+      <span class="sttn-calc">(10 × 10 × 3,14) : 2 = 157 (cm²)</span>
+      <p>Tổng diện tích hai hình vuông và nửa hình tròn đường kính EG là:</p>
+      <span class="sttn-calc">800 + 157 = 957 (cm²)</span>
+
+      <p class="sttn-step">Bước 2: Tính diện tích tam giác ABF</p>
+      <p>Tam giác ABF có đáy AB = 20 cm, chiều cao từ F xuống đáy AB bằng: AD + DG + khoảng cách từ F đến GE.</p>
+      <p>Mà F là điểm chính giữa cung EFG nên khoảng cách từ F đến GE chính bằng bán kính và bằng 10 cm.</p>
+      <p>Suy ra chiều cao của tam giác ABF ứng với đáy AB là:</p>
+      <span class="sttn-calc">20 + 20 + 10 = 50 (cm)</span>
+      <p>Diện tích tam giác ABF là:</p>
+      <span class="sttn-calc">20 × 50 : 2 = 500 (cm²)</span>
+
+      <p class="sttn-step">Bước 3: Tính diện tích phần tô màu</p>
+      <p>Khi ta lấy tổng diện tích toàn hình trừ đi diện tích tam giác ABF, ta sẽ còn lại hai phần diện tích bằng nhau là:</p>
+      <p>Phần diện tích phía trên đường thẳng AF.</p>
+      <p>Phần diện tích phía dưới đường thẳng BF.</p>
+      <p>Diện tích phần tô màu là:</p>
+      <span class="sttn-calc">(957 − 500) : 2 = <span class="sttn-red">228,5</span> (cm²)</span>
+    </div>
+  </div>
+
+  <!-- Bài 9 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 9 (ID: 1209957)</span>
+    <p class="sttn-de">Cho tam giác ABC. Biết BM = NC = <span class="sttn-frac"><i>1</i><b>2</b></span> × MN; MI song song với BA; NI song song với AC. Biết diện tích tam giác AIM bằng 10 cm². Tính diện tích tam giác BMI và diện tích tam giác ABC.</p>
+    <div class="sttn-fig">[ Hình vẽ tam giác ABC với các điểm M, N, I — sẽ bổ sung khi có hình gốc ]</div>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Vì BM = NC = <span class="sttn-frac"><i>1</i><b>2</b></span> × MN nên MN = <span class="sttn-frac"><i>1</i><b>2</b></span> × BC.</p>
+      <p>Tam giác AMI và tam giác BMI có chung đáy MI; chiều cao hạ từ A xuống MI bằng chiều cao hạ từ B xuống MI (do MI song song với BA) nên:</p>
+      <span class="sttn-calc">S<sub>AMI</sub> = S<sub>BMI</sub> &nbsp;&nbsp;(1)</span>
+      <p>Tam giác BMI và tam giác CNI có chung chiều cao hạ từ I xuống BC; đáy BM = NC nên:</p>
+      <span class="sttn-calc">S<sub>BMI</sub> = S<sub>CNI</sub> &nbsp;&nbsp;(2)</span>
+      <p>Tam giác CNI và tam giác ANI có chung đáy NI; chiều cao hạ từ A xuống NI bằng chiều cao hạ từ C xuống NI (do NI song song với AC) nên:</p>
+      <span class="sttn-calc">S<sub>CNI</sub> = S<sub>ANI</sub> &nbsp;&nbsp;(3)</span>
+      <p>Từ (1), (2) và (3) suy ra:</p>
+      <span class="sttn-calc">S<sub>AMI</sub> = S<sub>BMI</sub> = S<sub>CNI</sub> = S<sub>ANI</sub> = <span class="sttn-red">10 cm²</span></span>
+      <p>Ta có: <span class="sttn-frac"><i>S<sub>BMI</sub></i><b>S<sub>MIN</sub></b></span> = <span class="sttn-frac"><i>BM</i><b>MN</b></span> = <span class="sttn-frac"><i>1</i><b>2</b></span> (do hai tam giác chung chiều cao hạ từ I xuống BN)</p>
+      <p>Hay:</p>
+      <span class="sttn-calc">S<sub>MIN</sub> = 2 × S<sub>BMI</sub> = 2 × 10 = 20 (cm²)</span>
+      <p>Suy ra:</p>
+      <span class="sttn-calc">S<sub>AMN</sub> = S<sub>AMI</sub> + S<sub>ANI</sub> + S<sub>MIN</sub> = 10 + 10 + 20 = 40 (cm²)</span>
+      <p>Tam giác AMN và tam giác ABC có chung chiều cao hạ từ A xuống BC; đáy MN = <span class="sttn-frac"><i>1</i><b>2</b></span> × BC nên:</p>
+      <span class="sttn-calc">S<sub>AMN</sub> = <span class="sttn-frac"><i>1</i><b>2</b></span> S<sub>ABC</sub></span>
+      <p>Hay:</p>
+      <span class="sttn-calc">S<sub>ABC</sub> = 2 × S<sub>AMN</sub> = 2 × 40 = <span class="sttn-red">80</span> (cm²)</span>
+    </div>
+  </div>
+
+  <!-- Bài 10 -->
+  <div class="sttn-q">
+    <span class="sttn-id">Bài 10 (ID: 1209858)</span>
+    <p class="sttn-de">Cho tam giác ABC có diện tích là 135 cm². Trên cạnh AB lấy điểm D sao cho AD = <span class="sttn-frac"><i>1</i><b>3</b></span> AB. Trên BC lấy điểm E sao cho BE = <span class="sttn-frac"><i>1</i><b>3</b></span> BC. Trên AC lấy điểm G sao cho CG = <span class="sttn-frac"><i>1</i><b>3</b></span> AC. Nối các điểm D, E, G được hình tam giác DEG. Tính diện tích tam giác DEG.</p>
+    <div class="sttn-fig">[ Hình vẽ tam giác ABC với D, E, G — sẽ bổ sung khi có hình gốc ]</div>
+
+    <p class="sttn-ans-label">Bài giải:</p>
+    <div class="sttn-ans">
+      <p>Hai tam giác ADG và ABG có chung chiều cao hạ từ G xuống AB và đáy AD = <span class="sttn-frac"><i>1</i><b>3</b></span> AB nên:</p>
+      <span class="sttn-calc">S<sub>ADG</sub> = <span class="sttn-frac"><i>1</i><b>3</b></span> S<sub>ABG</sub> &nbsp;&nbsp;(1)</span>
+      <p>Hai tam giác ABG và ABC có chung chiều cao hạ từ B xuống AC và đáy AG = <span class="sttn-frac"><i>2</i><b>3</b></span> AC nên:</p>
+      <span class="sttn-calc">S<sub>ABG</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> S<sub>ABC</sub> &nbsp;&nbsp;(2)</span>
+      <p>Từ (1) và (2) suy ra:</p>
+      <span class="sttn-calc">S<sub>ADG</sub> = <span class="sttn-frac"><i>1</i><b>3</b></span> S<sub>ABG</sub> = <span class="sttn-frac"><i>1</i><b>3</b></span> × <span class="sttn-frac"><i>2</i><b>3</b></span> × S<sub>ABC</sub> = <span class="sttn-frac"><i>2</i><b>9</b></span> × S<sub>ABC</sub> = <span class="sttn-frac"><i>2</i><b>9</b></span> × 135 = 30 (cm²)</span>
+      <p>Hai tam giác ECG và BCG có chung chiều cao hạ từ G xuống BC và đáy EC = <span class="sttn-frac"><i>2</i><b>3</b></span> BC nên:</p>
+      <span class="sttn-calc">S<sub>ECG</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> S<sub>BCG</sub> &nbsp;&nbsp;(3)</span>
+      <p>Hai tam giác BCG và ABC có chung chiều cao hạ từ B xuống AC và đáy CG = <span class="sttn-frac"><i>1</i><b>3</b></span> AC nên:</p>
+      <span class="sttn-calc">S<sub>BCG</sub> = <span class="sttn-frac"><i>1</i><b>3</b></span> S<sub>ABC</sub> &nbsp;&nbsp;(4)</span>
+      <p>Từ (3) và (4) suy ra:</p>
+      <span class="sttn-calc">S<sub>ECG</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> S<sub>BCG</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> × <span class="sttn-frac"><i>1</i><b>3</b></span> × S<sub>ABC</sub> = <span class="sttn-frac"><i>2</i><b>9</b></span> × S<sub>ABC</sub> = <span class="sttn-frac"><i>2</i><b>9</b></span> × 135 = 30 (cm²)</span>
+      <p>Hai tam giác BDE và ABE có chung chiều cao hạ từ E xuống AB và đáy BD = <span class="sttn-frac"><i>2</i><b>3</b></span> AB nên:</p>
+      <span class="sttn-calc">S<sub>BDE</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> S<sub>ABE</sub> &nbsp;&nbsp;(5)</span>
+      <p>Hai tam giác ABE và ABC có chung chiều cao hạ từ A xuống BC và đáy BE = <span class="sttn-frac"><i>1</i><b>3</b></span> BC nên:</p>
+      <span class="sttn-calc">S<sub>ABE</sub> = <span class="sttn-frac"><i>1</i><b>3</b></span> S<sub>ABC</sub> &nbsp;&nbsp;(6)</span>
+      <p>Từ (5) và (6) suy ra:</p>
+      <span class="sttn-calc">S<sub>BDE</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> S<sub>ABE</sub> = <span class="sttn-frac"><i>2</i><b>3</b></span> × <span class="sttn-frac"><i>1</i><b>3</b></span> × S<sub>ABC</sub> = <span class="sttn-frac"><i>2</i><b>9</b></span> × S<sub>ABC</sub> = <span class="sttn-frac"><i>2</i><b>9</b></span> × 135 = 30 (cm²)</span>
+      <p>Do đó:</p>
+      <span class="sttn-calc">S<sub>DEG</sub> = S<sub>ABC</sub> − S<sub>ADG</sub> − S<sub>ECG</sub> − S<sub>BDE</sub> = 135 − 30 − 30 − 30 = <span class="sttn-red">45</span> (cm²)</span>
+      <p>Vậy diện tích tam giác DEG là <span class="sttn-red">45 cm²</span>.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
