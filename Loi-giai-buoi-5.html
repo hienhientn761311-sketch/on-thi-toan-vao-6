@@ -86,9 +86,52 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
 }
 .sttn-red { color: #c0272d !important; font-weight: 800 !important; }
 
-.sttn-frac { display: inline-flex !important; flex-direction: column !important; vertical-align: middle !important; text-align: center !important; margin: 0 3px !important; font-style: normal !important; }
-.sttn-frac i { font-style: normal !important; border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
+.sttn-frac { display: inline-flex !important; flex-direction: column !important; vertical-align: middle !important; text-align: center !important; margin: 0 3px !important; font-style: normal !important; }.sttn-frac i { font-style: normal !important; border-bottom: 1.5px solid currentColor !important; padding: 0 6px 1px 6px !important; }
 .sttn-frac b { font-weight: inherit !important; padding: 1px 6px 0 6px !important; }
+
+.sttn-svg { background: #fff !important; border-radius: 12px !important; padding: 14px 10px !important; margin: 10px 0 !important; text-align: center !important; }
+.sttn-svg svg { width: 100% !important; max-width: 320px !important; height: auto !important; display: inline-block !important; }
+.sttn-edge { stroke: #444 !important; stroke-width: 1.6 !important; fill: none !important; stroke-linejoin: round !important; }
+.sttn-face-f { fill: #f3f6ee !important; }
+.sttn-face-t { fill: #ffffff !important; }
+.sttn-face-s { fill: #e2e8d8 !important; }
+.sttn-dim { stroke: #444 !important; stroke-width: 1.1 !important; fill: none !important; marker-start: url(#u5s) !important; marker-end: url(#u5e) !important; }
+.sttn-dimlbl { fill: #222 !important; font-size: 14px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+
+/* Mặt tô đỏ (bài 3, 4) */
+.sttn-red-face { fill: #f4a3a0 !important; stroke: #444 !important; stroke-width: 1.6 !important; stroke-linejoin: round !important; }
+.sttn-red-face-l { fill: #fad9d7 !important; stroke: #444 !important; stroke-width: 1.6 !important; stroke-linejoin: round !important; }
+.sttn-rlbl { fill: #c0272d !important; font-size: 16px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-dash { stroke: #888 !important; stroke-width: 1.2 !important; stroke-dasharray: 4 3 !important; fill: none !important; }
+.sttn-flow { stroke: #444 !important; stroke-width: 1.3 !important; fill: none !important; marker-end: url(#u5e) !important; }
+.sttn-face-in { fill: #d9d9d9 !important; stroke: #444 !important; stroke-width: 1.4 !important; stroke-linejoin: round !important; }
+.sttn-face-in2 { fill: #efefef !important; stroke: #444 !important; stroke-width: 1.4 !important; stroke-linejoin: round !important; }
+
+/* Vòng tròn bài 6 */
+.sttn-ring { fill: none !important; stroke: #b9b9c9 !important; stroke-width: 1.4 !important; stroke-dasharray: 3 4 !important; }
+.sttn-person { fill: #6a5cff !important; }
+.sttn-gap { stroke: #c0272d !important; stroke-width: 1.6 !important; stroke-dasharray: 4 3 !important; marker-start: url(#r6s) !important; marker-end: url(#r6e) !important; }
+.sttn-gaplbl { fill: #c0272d !important; font-size: 15px !important; font-weight: 800 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-role { font-size: 14px !important; font-weight: 700 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+.sttn-role-cat { fill: #fff5e6 !important; stroke: #e0a800 !important; stroke-width: 1.4 !important; }
+.sttn-role-mouse { fill: #eaf7e6 !important; stroke: #5fbd18 !important; stroke-width: 1.4 !important; }
+.sttn-center { fill: #1c581f !important; font-size: 15px !important; font-style: italic !important; font-weight: 600 !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
+
+/* Hình học phẳng bài 7-10 */
+.sttn-gline { stroke: #3a5bd0 !important; stroke-width: 1.6 !important; fill: none !important; }
+.sttn-gvert { fill: #3a5bd0 !important; }
+.sttn-glbl { fill: #2a3f9e !important; font-size: 15px !important; font-weight: 700 !important; font-family: Georgia, "Times New Roman", serif !important; font-style: italic !important; }
+.sttn-arc { stroke: #1f9d3a !important; stroke-width: 2 !important; fill: none !important; }
+.sttn-fill-orange { fill: #f9c690 !important; opacity: .85 !important; }
+.sttn-fill-yellow { fill: #ffd93b !important; opacity: .9 !important; }
+.sttn-fill-cream { fill: #fdf3c4 !important; }
+.sttn-fill-peach { fill: #f9d9b8 !important; }
+.sttn-hatch-l { stroke: #999 !important; stroke-width: 1 !important; }
+.sttn-blk { stroke: #333 !important; stroke-width: 1.5 !important; fill: none !important; }
+.sttn-blkv { fill: #333 !important; }
+.sttn-blklbl { fill: #333 !important; font-size: 15px !important; font-weight: 700 !important; font-family: Georgia, "Times New Roman", serif !important; font-style: italic !important; }
+.sttn-redv { fill: #d11 !important; }
+.sttn-redlbl { fill: #b00 !important; font-size: 15px !important; font-weight: 700 !important; font-family: Georgia, "Times New Roman", serif !important; font-style: italic !important; }
 
 .sttn-fig {
   background: #fff !important;
@@ -162,7 +205,33 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
   <div class="sttn-q">
     <span class="sttn-id">Bài 3 (ID: 606127)</span>
     <p class="sttn-de">Người ta xếp hai hình hộp chữ nhật và một hình lập phương để ghép thành một khối hình chữ U như hình vẽ. Biết đáy của hai hình hộp chữ nhật đều là các hình vuông có cạnh bằng cạnh của hình lập phương. Tính diện tích toàn phần của hình mới được tạo thành.</p>
-    <div class="sttn-fig">[ Hình vẽ khối chữ U — sẽ bổ sung khi có hình gốc ]</div>
+    <div class="sttn-svg">
+      <svg viewBox="18 -16 250 305" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Khối hình chữ U ghép từ hai hình hộp chữ nhật 5x5x20 và một hình lập phương cạnh 5, chiều cao 20 cm, cạnh vuông đáy 5 cm">
+        <defs>
+          <marker id="u5s" markerWidth="9" markerHeight="9" refX="2" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#444"/></marker>
+          <marker id="u5e" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#444"/></marker>
+        </defs>
+
+        <!-- right side face -->
+        <polygon points="220,20 252,-6 252,214 220,240" class="sttn-edge sttn-face-s"/>
+        <!-- arm tops -->
+        <polygon points="55,20 110,20 142,-6 87,-6" class="sttn-edge sttn-face-t"/>
+        <polygon points="165,20 220,20 252,-6 197,-6" class="sttn-edge sttn-face-t"/>
+        <!-- notch floor (top of cube) -->
+        <polygon points="110,185 165,185 197,159 142,159" class="sttn-edge sttn-face-t"/>
+        <!-- notch inner wall (right face of left arm) -->
+        <polygon points="110,20 110,185 142,159 142,-6" class="sttn-edge sttn-face-s"/>
+        <!-- front face (U) -->
+        <polygon points="55,20 110,20 110,185 165,185 165,20 220,20 220,240 55,240" class="sttn-edge sttn-face-f"/>
+
+        <!-- kích thước 20 cm -->
+        <line x1="40" y1="20" x2="40" y2="240" class="sttn-dim"/>
+        <text x="30" y="130" class="sttn-dimlbl" text-anchor="middle" transform="rotate(-90 30 130)">20 cm</text>
+        <!-- kích thước 5 cm -->
+        <line x1="110" y1="258" x2="165" y2="258" class="sttn-dim"/>
+        <text x="137" y="278" class="sttn-dimlbl" text-anchor="middle">5 cm</text>
+      </svg>
+    </div>
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
@@ -173,6 +242,37 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
       <p>Diện tích toàn phần của hình lập phương là:</p>
       <span class="sttn-calc">5 × 5 × 6 = 150 (cm²)</span>
       <p>Khi ghép hai hình hộp chữ nhật và một hình lập phương thành khối hình chữ U như hình vẽ, có 4 mặt hình vuông cạnh 5 cm bị che khuất (gồm 2 mặt bên trái, phải của hình lập phương và 2 phần mặt bên của hình hộp chữ nhật tiếp xúc với hình lập phương).</p>
+      <div class="sttn-svg">
+        <svg viewBox="0 0 490 250" style="max-width:460px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phân tích 4 mặt vuông bị che khuất: mặt 1 đáy cánh trái, mặt 2 và 3 hai bên khối lập phương, mặt 4 đáy cánh phải">
+          <!-- CÁNH TRÁI -->
+          <polygon points="40,20 96,20 116,5 60,5" class="sttn-edge sttn-face-t"/>
+          <polygon points="96,20 116,5 116,205 96,220" class="sttn-edge sttn-face-t"/>
+          <rect x="40" y="20" width="56" height="200" class="sttn-edge sttn-face-t"/>
+          <rect x="40" y="164" width="56" height="56" class="sttn-red-face"/>
+          <rect x="40" y="20" width="56" height="200" class="sttn-edge" fill="none"/>
+          <text x="68" y="198" class="sttn-rlbl" text-anchor="middle">1</text>
+
+          <!-- KHỐI LẬP PHƯƠNG GIỮA (isometric) -->
+          <polygon points="243,131 281,153 243,175 205,153" class="sttn-edge sttn-face-t"/>
+          <polygon points="205,153 243,175 243,219 205,197" class="sttn-red-face"/>
+          <polygon points="243,175 281,153 281,197 243,219" class="sttn-red-face"/>
+          <text x="222" y="190" class="sttn-rlbl" text-anchor="middle">2</text>
+          <text x="264" y="190" class="sttn-rlbl" text-anchor="middle">3</text>
+
+          <!-- CÁNH PHẢI -->
+          <polygon points="394,20 450,20 470,5 414,5" class="sttn-edge sttn-face-t"/>
+          <polygon points="450,20 470,5 470,205 450,220" class="sttn-edge sttn-face-t"/>
+          <rect x="394" y="20" width="56" height="200" class="sttn-edge sttn-face-t"/>
+          <rect x="394" y="164" width="56" height="56" class="sttn-red-face-l"/>
+          <line x1="422" y1="164" x2="422" y2="220" class="sttn-dash"/>
+          <rect x="394" y="20" width="56" height="200" class="sttn-edge" fill="none"/>
+          <text x="422" y="198" class="sttn-rlbl" text-anchor="middle">4</text>
+
+          <!-- mũi tên -->
+          <line x1="195" y1="185" x2="150" y2="185" class="sttn-flow" stroke-dasharray="5 3"/>
+          <line x1="291" y1="185" x2="340" y2="185" class="sttn-flow" stroke-dasharray="5 3"/>
+        </svg>
+      </div>
       <p>Diện tích các phần bị che khuất là:</p>
       <span class="sttn-calc">5 × 5 × 4 = 100 (cm²)</span>
       <p>Diện tích toàn phần của hình mới được tạo thành là:</p>
@@ -187,6 +287,42 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
+      <div class="sttn-svg">
+        <svg viewBox="0 0 400 360" style="max-width:300px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hình lập phương cạnh 5 cm nhìn chếch, bị đục một lỗ rộng 2 cm cao 3 cm xuyên từ mặt trước ra mặt sau">
+          <!-- các cạnh khuất (nét đứt) -->
+          <line x1="122" y1="17" x2="122" y2="257" class="sttn-dash"/>
+          <line x1="122" y1="257" x2="362" y2="257" class="sttn-dash"/>
+          <line x1="70" y1="295" x2="122" y2="257" class="sttn-dash"/>
+          <!-- mặt trên & phải (nét liền) -->
+          <polygon points="70,55 310,55 362,17 122,17" class="sttn-blk" fill="#fff"/>
+          <polygon points="310,55 362,17 362,257 310,295" class="sttn-blk" fill="#fafafa"/>
+          <!-- mặt trước -->
+          <rect x="70" y="55" width="240" height="240" class="sttn-blk" fill="#fff"/>
+
+          <!-- LỖ ĐỤC 2x3 -->
+          <!-- viền trên (thành lỗ trên) - trắng -->
+          <polygon points="128,127 194,127 204,119 138,119" fill="#fff" class="sttn-blk"/>
+          <!-- viền phải (thành lỗ phải) - trắng -->
+          <polygon points="194,127 204,119 204,235 194,243" fill="#fff" class="sttn-blk"/>
+          <!-- mặt trong lỗ: xám nhạt (phần trên) -->
+          <polygon points="128,127 194,127 194,200 128,243" class="sttn-face-in2"/>
+          <!-- mặt trong lỗ: xám đậm (phần dưới) -->
+          <polygon points="128,243 194,200 194,243" class="sttn-face-in"/>
+          <!-- viền lỗ + đường chéo -->
+          <rect x="128" y="127" width="66" height="116" class="sttn-blk" fill="none"/>
+          <line x1="128" y1="243" x2="194" y2="200" class="sttn-blk"/>
+
+          <!-- kích thước 3 cm -->
+          <line x1="112" y1="127" x2="112" y2="243" class="sttn-dim"/>
+          <text x="98" y="185" class="sttn-dimlbl" text-anchor="middle" transform="rotate(-90 98 185)">3 cm</text>
+          <!-- kích thước 2 cm -->
+          <line x1="128" y1="261" x2="194" y2="261" class="sttn-dim"/>
+          <text x="161" y="280" class="sttn-dimlbl" text-anchor="middle">2 cm</text>
+          <!-- kích thước 5 cm -->
+          <line x1="70" y1="330" x2="310" y2="330" class="sttn-dim"/>
+          <text x="190" y="349" class="sttn-dimlbl" text-anchor="middle">5 cm</text>
+        </svg>
+      </div>
       <p>Nhận thấy hình mới so với hình cũ thì mất đi 2 mặt 2 × 3 nhưng được thêm 2 mặt 2 × 5 và 2 mặt 3 × 5.</p>
       <p>Vậy diện tích toàn phần hình mới là:</p>
       <span class="sttn-calc">5 × 5 × 6 − 2 × 3 × 2 + 2 × 5 × 2 + 3 × 5 × 2 = <span class="sttn-red">188</span> (cm²)</span>
@@ -220,6 +356,53 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
+      <div class="sttn-svg">
+        <svg viewBox="0 0 460 320" style="max-width:420px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="30 bạn nắm tay tạo thành vòng tròn, hai bạn liền nhau cách nhau 1,2 m, ngoài vòng có bạn làm Mèo và bạn làm Chuột">
+          <defs>
+            <marker id="r6s" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#c0272d"/></marker>
+            <marker id="r6e" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0272d"/></marker>
+          </defs>
+          <circle cx="230" cy="160" r="120" class="sttn-ring"/>
+          <line x1="212" y1="43" x2="248" y2="43" class="sttn-gap"/>
+          <text x="230" y="30" class="sttn-gaplbl" text-anchor="middle">1,2 m</text>
+          <text x="230" y="152" class="sttn-center" text-anchor="middle">30 bạn nắm tay</text>
+          <text x="230" y="174" class="sttn-center" text-anchor="middle">tạo thành vòng tròn</text>
+          <rect x="8" y="146" width="58" height="28" rx="6" class="sttn-role-cat"/>
+          <text x="37" y="165" class="sttn-role" fill="#b8860b" text-anchor="middle">Mèo</text>
+          <rect x="394" y="146" width="60" height="28" rx="6" class="sttn-role-mouse"/>
+          <text x="424" y="165" class="sttn-role" fill="#3a7d18" text-anchor="middle">Chuột</text>
+          <circle cx="217.5" cy="40.7" r="5.5" class="sttn-person"/>
+          <circle cx="242.5" cy="40.7" r="5.5" class="sttn-person"/>
+          <circle cx="267.1" cy="45.9" r="5.5" class="sttn-person"/>
+          <circle cx="290.0" cy="56.1" r="5.5" class="sttn-person"/>
+          <circle cx="310.3" cy="70.8" r="5.5" class="sttn-person"/>
+          <circle cx="327.1" cy="89.5" r="5.5" class="sttn-person"/>
+          <circle cx="339.6" cy="111.2" r="5.5" class="sttn-person"/>
+          <circle cx="347.4" cy="135.1" r="5.5" class="sttn-person"/>
+          <circle cx="350.0" cy="160.0" r="5.5" class="sttn-person"/>
+          <circle cx="347.4" cy="184.9" r="5.5" class="sttn-person"/>
+          <circle cx="339.6" cy="208.8" r="5.5" class="sttn-person"/>
+          <circle cx="327.1" cy="230.5" r="5.5" class="sttn-person"/>
+          <circle cx="310.3" cy="249.2" r="5.5" class="sttn-person"/>
+          <circle cx="290.0" cy="263.9" r="5.5" class="sttn-person"/>
+          <circle cx="267.1" cy="274.1" r="5.5" class="sttn-person"/>
+          <circle cx="242.5" cy="279.3" r="5.5" class="sttn-person"/>
+          <circle cx="217.5" cy="279.3" r="5.5" class="sttn-person"/>
+          <circle cx="192.9" cy="274.1" r="5.5" class="sttn-person"/>
+          <circle cx="170.0" cy="263.9" r="5.5" class="sttn-person"/>
+          <circle cx="149.7" cy="249.2" r="5.5" class="sttn-person"/>
+          <circle cx="132.9" cy="230.5" r="5.5" class="sttn-person"/>
+          <circle cx="120.4" cy="208.8" r="5.5" class="sttn-person"/>
+          <circle cx="112.6" cy="184.9" r="5.5" class="sttn-person"/>
+          <circle cx="110.0" cy="160.0" r="5.5" class="sttn-person"/>
+          <circle cx="112.6" cy="135.1" r="5.5" class="sttn-person"/>
+          <circle cx="120.4" cy="111.2" r="5.5" class="sttn-person"/>
+          <circle cx="132.9" cy="89.5" r="5.5" class="sttn-person"/>
+          <circle cx="149.7" cy="70.8" r="5.5" class="sttn-person"/>
+          <circle cx="170.0" cy="56.1" r="5.5" class="sttn-person"/>
+          <circle cx="192.9" cy="45.9" r="5.5" class="sttn-person"/>
+        </svg>
+      </div>
       <p>Lớp 5A có 32 học sinh, 1 bạn làm mèo, 1 bạn làm chuột.</p>
       <p>Số bạn học sinh của lớp 5A đứng xếp thành một hình tròn là:</p>
       <span class="sttn-calc">32 − 1 − 1 = 30 (học sinh)</span>
@@ -238,7 +421,33 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
   <div class="sttn-q">
     <span class="sttn-id">Bài 7 (ID: 1209975)</span>
     <p class="sttn-de">Một kiến trúc sư thiết kế khu vườn hình chữ nhật ABCD. Ông xây một lối đi lát sỏi có diện tích là 60 m² (phần tô đậm), <span class="sttn-frac"><i>1</i><b>4</b></span> diện tích hình tròn bán kính DA để trồng hoa, diện tích còn lại (phần gạch chéo) để trồng cỏ. Tính diện tích trồng cỏ, biết AB = AD × 2 = AM × 4.</p>
-    <div class="sttn-fig">[ Hình vẽ khu vườn ABCD — sẽ bổ sung khi có hình gốc ]</div>
+    <div class="sttn-svg">
+      <svg viewBox="0 0 720 400" style="max-width:440px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Khu vườn chữ nhật ABCD, M N chia đôi, hai cung tròn xanh, lối đi lát sỏi màu cam giữa hai cung, phần trồng cỏ gạch chéo bên phải">
+        <defs>
+          <pattern id="hatch7" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="9" class="sttn-hatch-l"/>
+          </pattern>
+        </defs>
+        <!-- phần trồng cỏ (gạch chéo) bên phải arc2 -->
+        <path d="M 300,30 A 320,320 0 0 1 620,350 L 680,350 L 680,30 Z" fill="url(#hatch7)"/>
+        <!-- lối đi (cam) giữa hai cung -->
+        <path d="M 40,30 A 320,320 0 0 1 360,350 L 620,350 A 320,320 0 0 0 300,30 Z" class="sttn-fill-orange"/>
+        <!-- khung chữ nhật -->
+        <rect x="40" y="30" width="640" height="320" class="sttn-gline"/>
+        <!-- MN -->
+        <line x1="300" y1="30" x2="300" y2="350" class="sttn-gline"/>
+        <!-- hai cung tròn xanh -->
+        <path d="M 40,30 A 320,320 0 0 1 360,350" class="sttn-arc"/>
+        <path d="M 300,30 A 320,320 0 0 1 620,350" class="sttn-arc"/>
+        <!-- nhãn -->
+        <text x="30" y="24" class="sttn-glbl">A</text>
+        <text x="296" y="22" class="sttn-glbl">M</text>
+        <text x="686" y="24" class="sttn-glbl">B</text>
+        <text x="28" y="372" class="sttn-glbl">D</text>
+        <text x="294" y="372" class="sttn-glbl">N</text>
+        <text x="686" y="372" class="sttn-glbl">C</text>
+      </svg>
+    </div>
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
@@ -266,7 +475,35 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
   <div class="sttn-q">
     <span class="sttn-id">Bài 8 (ID: 1198436)</span>
     <p class="sttn-de">Cho hình vẽ, các hình vuông ABCD và DCEG đều có diện tích là 400 cm². EFG là nửa đường tròn đường kính EG, F là điểm chính giữa cung EFG. Tính diện tích phần tô đậm.</p>
-    <div class="sttn-fig">[ Hình vẽ hai hình vuông ABCD, DCEG và nửa đường tròn — sẽ bổ sung khi có hình gốc ]</div>
+    <div class="sttn-svg">
+      <svg viewBox="0 0 500 240" style="max-width:440px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hai hình vuông ABCD và DCEG cạnh 20 cm, nửa đường tròn đường kính EG với F là điểm chính giữa cung, phần tô đậm màu vàng phía trên đường AF">
+        <!-- phần tô màu vàng: A D G (arc tới F) F -->
+        <path d="M 40,30 L 200,30 L 360,30 A 80,80 0 0 1 440,110 L 40,30 Z" class="sttn-fill-yellow"/>
+        <!-- nửa đường tròn -->
+        <path d="M 360,30 A 80,80 0 0 1 360,190" class="sttn-gline"/>
+        <!-- hai hình vuông -->
+        <rect x="40" y="30" width="160" height="160" class="sttn-gline"/>
+        <rect x="200" y="30" width="160" height="160" class="sttn-gline"/>
+        <!-- các đường nối A-F, B-F -->
+        <line x1="40" y1="30" x2="440" y2="110" class="sttn-gline"/>
+        <line x1="40" y1="190" x2="440" y2="110" class="sttn-gline"/>
+        <!-- các đường dọc D-C, G-E đã có trong rect; thêm nhãn & điểm -->
+        <circle cx="40" cy="30" r="4" class="sttn-gvert"/>
+        <circle cx="200" cy="30" r="4" class="sttn-gvert"/>
+        <circle cx="360" cy="30" r="4" class="sttn-gvert"/>
+        <circle cx="440" cy="110" r="4" class="sttn-gvert"/>
+        <circle cx="40" cy="190" r="4" class="sttn-gvert"/>
+        <circle cx="200" cy="190" r="4" class="sttn-gvert"/>
+        <circle cx="360" cy="190" r="4" class="sttn-gvert"/>
+        <text x="30" y="24" class="sttn-glbl">A</text>
+        <text x="196" y="24" class="sttn-glbl">D</text>
+        <text x="352" y="24" class="sttn-glbl">G</text>
+        <text x="450" y="114" class="sttn-glbl">F</text>
+        <text x="26" y="208" class="sttn-glbl">B</text>
+        <text x="196" y="210" class="sttn-glbl">C</text>
+        <text x="352" y="210" class="sttn-glbl">E</text>
+      </svg>
+    </div>
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
@@ -302,7 +539,37 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
   <div class="sttn-q">
     <span class="sttn-id">Bài 9 (ID: 1209957)</span>
     <p class="sttn-de">Cho tam giác ABC. Biết BM = NC = <span class="sttn-frac"><i>1</i><b>2</b></span> × MN; MI song song với BA; NI song song với AC. Biết diện tích tam giác AIM bằng 10 cm². Tính diện tích tam giác BMI và diện tích tam giác ABC.</p>
-    <div class="sttn-fig">[ Hình vẽ tam giác ABC với các điểm M, N, I — sẽ bổ sung khi có hình gốc ]</div>
+    <div class="sttn-svg">
+      <svg viewBox="0 0 800 470" style="max-width:460px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tam giác ABC, M và N trên BC với BM = NC = nửa MN, I là giao của MI song song BA và NI song song AC, phần tô vàng là tam giác AMI">
+        <!-- tô vàng tam giác A M I -->
+        <polygon points="390,40 212.5,430 392.5,235" class="sttn-fill-cream"/>
+        <!-- tam giác ABC -->
+        <polygon points="390,40 30,430 760,430" class="sttn-gline"/>
+        <!-- các cạnh trong -->
+        <line x1="390" y1="40" x2="212.5" y2="430" class="sttn-gline"/>
+        <line x1="390" y1="40" x2="577.5" y2="430" class="sttn-gline"/>
+        <line x1="212.5" y1="430" x2="392.5" y2="235" class="sttn-gline"/>
+        <line x1="577.5" y1="430" x2="392.5" y2="235" class="sttn-gline"/>
+        <line x1="30" y1="430" x2="392.5" y2="235" class="sttn-gline"/>
+        <line x1="760" y1="430" x2="392.5" y2="235" class="sttn-gline"/>
+        <line x1="390" y1="40" x2="392.5" y2="235" class="sttn-gline"/>
+        <!-- điểm -->
+        <circle cx="390" cy="40" r="5" class="sttn-redv"/>
+        <circle cx="30" cy="430" r="5" class="sttn-redv"/>
+        <circle cx="760" cy="430" r="5" class="sttn-redv"/>
+        <circle cx="212.5" cy="430" r="5" class="sttn-redv"/>
+        <circle cx="577.5" cy="430" r="5" class="sttn-redv"/>
+        <circle cx="395" cy="430" r="5" class="sttn-redv"/>
+        <circle cx="392.5" cy="235" r="5" class="sttn-redv"/>
+        <!-- nhãn -->
+        <text x="382" y="30" class="sttn-redlbl">A</text>
+        <text x="10" y="452" class="sttn-redlbl">B</text>
+        <text x="768" y="452" class="sttn-redlbl">C</text>
+        <text x="200" y="458" class="sttn-redlbl">M</text>
+        <text x="568" y="458" class="sttn-redlbl">N</text>
+        <text x="404" y="230" class="sttn-redlbl">I</text>
+      </svg>
+    </div>
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
@@ -331,7 +598,30 @@ body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system
   <div class="sttn-q">
     <span class="sttn-id">Bài 10 (ID: 1209858)</span>
     <p class="sttn-de">Cho tam giác ABC có diện tích là 135 cm². Trên cạnh AB lấy điểm D sao cho AD = <span class="sttn-frac"><i>1</i><b>3</b></span> AB. Trên BC lấy điểm E sao cho BE = <span class="sttn-frac"><i>1</i><b>3</b></span> BC. Trên AC lấy điểm G sao cho CG = <span class="sttn-frac"><i>1</i><b>3</b></span> AC. Nối các điểm D, E, G được hình tam giác DEG. Tính diện tích tam giác DEG.</p>
-    <div class="sttn-fig">[ Hình vẽ tam giác ABC với D, E, G — sẽ bổ sung khi có hình gốc ]</div>
+    <div class="sttn-svg">
+      <svg viewBox="0 0 540 390" style="max-width:400px !important;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tam giác ABC, D trên AB, E trên BC, G trên AC, tam giác DEG tô màu cam nhạt">
+        <!-- tô tam giác DEG -->
+        <polygon points="173.3,140 196.7,340 390,240" class="sttn-fill-peach"/>
+        <!-- tam giác ABC -->
+        <polygon points="230,40 60,340 470,340" class="sttn-blk"/>
+        <!-- tam giác DEG -->
+        <polygon points="173.3,140 196.7,340 390,240" class="sttn-blk"/>
+        <!-- điểm -->
+        <circle cx="230" cy="40" r="4.5" class="sttn-blkv"/>
+        <circle cx="60" cy="340" r="4.5" class="sttn-blkv"/>
+        <circle cx="470" cy="340" r="4.5" class="sttn-blkv"/>
+        <circle cx="173.3" cy="140" r="4.5" class="sttn-blkv"/>
+        <circle cx="196.7" cy="340" r="4.5" class="sttn-blkv"/>
+        <circle cx="390" cy="240" r="4.5" class="sttn-blkv"/>
+        <!-- nhãn -->
+        <text x="232" y="32" class="sttn-blklbl">A</text>
+        <text x="40" y="360" class="sttn-blklbl">B</text>
+        <text x="476" y="360" class="sttn-blklbl">C</text>
+        <text x="150" y="138" class="sttn-blklbl">D</text>
+        <text x="188" y="362" class="sttn-blklbl">E</text>
+        <text x="398" y="238" class="sttn-blklbl">G</text>
+      </svg>
+    </div>
 
     <p class="sttn-ans-label">Bài giải:</p>
     <div class="sttn-ans">
