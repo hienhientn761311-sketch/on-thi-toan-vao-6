@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trọng tâm kiến thức Buổi 5 - Chu vi, diện tích và thể tích các hình</title>
+<style>
+body { margin: 0; padding: 16px; background: #f5faf2; font-family: Inter, system-ui, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+.sttn-wrap { max-width: 860px !important; margin: 0 auto !important; padding: 8px !important; color: #1c581f !important; }
+.sttn-wrap * { box-sizing: border-box !important; }
+
+.sttn-hero {
+  background: linear-gradient(135deg, #1c581f 0%, #5fbd18 100%) !important;
+  border-radius: 20px !important;
+  padding: clamp(20px, 5vw, 36px) !important;
+  text-align: center !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(28,88,31,0.28) !important;
+}
+.sttn-badge {
+  display: inline-block !important;
+  background: #ffda0f !important; color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 2.4vw, 13px) !important;
+  letter-spacing: .5px !important;
+  padding: 6px 16px !important;
+  border-radius: 999px !important;
+  margin-bottom: 14px !important;
+}
+.sttn-hero-title {
+  color: #fff !important;
+  font-size: clamp(22px, 5.2vw, 34px) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 6px 0 !important;
+}
+.sttn-hero-sub {
+  color: #ceedca !important;
+  font-size: clamp(13px, 3vw, 16px) !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+.sttn-note {
+  background: #e5f6e3 !important;
+  border-left: 5px solid #5fbd18 !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 18px 0 !important;
+}
+.sttn-note p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; font-style: italic !important; }
+
+.sttn-card {
+  background: #fff !important;
+  border: 2px solid #add93f !important;
+  border-radius: 18px !important;
+  padding: clamp(16px, 4vw, 26px) !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 6px 18px rgba(28,88,31,0.10) !important;
+}
+.sttn-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px dashed #ceedca !important;
+}
+.sttn-num {
+  flex: 0 0 auto !important;
+  width: 42px !important; height: 42px !important;
+  background: #1c581f !important; color: #ffda0f !important;
+  border-radius: 12px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 20px !important; font-weight: 800 !important;
+}
+.sttn-head h3 {
+  margin: 0 !important; color: #1c581f !important;
+  font-size: clamp(16px, 3.8vw, 21px) !important; font-weight: 800 !important;
+}
+
+.sttn-sub {
+  color: #1c581f !important;
+  font-weight: 800 !important;
+  font-size: clamp(14px, 3.2vw, 16px) !important;
+  margin: 16px 0 8px 0 !important;
+  display: flex !important; align-items: flex-start !important; gap: 8px !important;
+}
+.sttn-sub .sttn-k {
+  flex: 0 0 auto !important;
+  background: #5fbd18 !important; color: #fff !important;
+  min-width: 24px !important; height: 24px !important;
+  padding: 0 6px !important;
+  border-radius: 7px !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 14px !important; font-weight: 800 !important;
+}
+
+.sttn-card p { font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; margin: 6px 0 !important; }
+
+.sttn-formula {
+  background: #e5f6e3 !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  margin: 10px 0 !important;
+  font-weight: 700 !important;
+  color: #1c581f !important;
+  font-size: clamp(14px, 3.2vw, 17px) !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+}
+
+.sttn-list { list-style: none !important; padding: 0 !important; margin: 8px 0 !important; }
+.sttn-list li {
+  position: relative !important;
+  padding: 8px 12px 8px 34px !important;
+  margin: 8px 0 !important;
+  background: #f5faf2 !important;
+  border-radius: 10px !important;
+  font-size: clamp(13px, 3vw, 15px) !important;
+  line-height: 1.8 !important;
+}
+.sttn-list li::before {
+  content: "✓" !important;
+  position: absolute !important; left: 12px !important; top: 8px !important;
+  color: #5fbd18 !important; font-weight: 800 !important;
+}
+.sttn-list li.sttn-plus::before { content: "+" !important; color: #1c581f !important; }
+.sttn-list li.sttn-minus::before { content: "−" !important; color: #c0272d !important; }
+.sttn-warn { border: 2px solid #ffda0f !important; background: #fffdf0 !important; }
+.sttn-warn::before { content: "⚠" !important; color: #d98c00 !important; }
+
+.sttn-tip {
+  background: #fffdf0 !important;
+  border: 2px solid #ffda0f !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  margin: 14px 0 !important;
+}
+.sttn-tip p { margin: 0 !important; font-size: clamp(13px, 3vw, 15px) !important; line-height: 1.8 !important; }
+.sttn-tip .sttn-tip-label { font-weight: 800 !important; color: #1c581f !important; }
+
+.sttn-hl { background: #ffda0f !important; padding: 1px 6px !important; border-radius: 5px !important; font-weight: 700 !important; }
+</style>
+
+<div class="sttn-wrap">
+
+  <div class="sttn-hero">
+    <span class="sttn-badge">KHÓA HỌC XÂY NỀN VÀO 6 CLC · TỔNG HỢP KIẾN THỨC</span>
+    <p class="sttn-hero-title">TRỌNG TÂM KIẾN THỨC BUỔI 5</p>
+    <p class="sttn-hero-sub">CHU VI, DIỆN TÍCH VÀ THỂ TÍCH CÁC HÌNH</p>
+  </div>
+
+  <div class="sttn-note">
+    <p>Gửi các sĩ tử: Đây là bộ bí kíp tổng quát nhất giúp các con chinh phục mọi bài toán biến thể về Hình học trong chuyên đề vừa học. Hãy ghi nhớ thật kỹ nhé! ♡</p>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">1</div>
+      <h3>TƯ DUY HÌNH KHỐI (3D) VÀ SỰ THAY ĐỔI MẶT</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Bài toán cắt ghép, đục lỗ hình khối</p>
+    <ul class="sttn-list">
+      <li>Khi <b>ghép các khối hình</b> lại với nhau: Diện tích toàn phần mới sẽ bằng tổng diện tích toàn phần các khối ban đầu <span class="sttn-hl">trừ đi phần diện tích các mặt tiếp xúc</span> (mặt bị dán dính vào nhau).</li>
+      <li class="sttn-warn"><b>Lưu ý:</b> Mỗi lần ghép 2 khối với nhau, ta sẽ mất đi <b>2 mặt tiếp xúc</b>!</li>
+    </ul>
+    <p>Khi <b>đục lỗ xuyên tâm</b> khối lập phương:</p>
+    <ul class="sttn-list">
+      <li class="sttn-minus"><b>Mất đi ở ngoài:</b> Ta bị mất đi diện tích của các mặt đục lỗ ở phía ngoài (trước/sau).</li>
+      <li class="sttn-plus"><b>Sinh ra ở trong:</b> Ta lại được thêm diện tích các mặt bên trong của cái lỗ vừa tạo ra (trên, dưới, trái, phải). Chiều sâu của lỗ xuyên qua chính bằng độ dài cạnh khối ban đầu.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Bài toán cắt góc làm hộp không nắp</p>
+    <ul class="sttn-list">
+      <li>Diện tích 1 góc cắt đi chính là diện tích hình vuông. Cạnh của hình vuông cắt đi chính là <span class="sttn-hl">chiều cao</span> của hình hộp lúc sau.</li>
+      <li><b>Kích thước đáy hộp:</b> Chiều dài và chiều rộng của mặt đáy lúc sau sẽ bằng kích thước ban đầu <span class="sttn-hl">trừ đi 2 lần cạnh góc vuông</span> cắt đi.</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Công thức sơn hình lập phương (tạo bởi các khối nhỏ cạnh n)</p>
+    <div class="sttn-formula">
+      Số khối được sơn 1 mặt (nằm ở giữa các mặt) = (n − 2) × (n − 2) × 6<br>
+      Số khối không được sơn mặt nào (nằm giấu ở lõi) = (n − 2) × (n − 2) × (n − 2)
+    </div>
+  </div>
+
+  <div class="sttn-card">
+    <div class="sttn-head">
+      <div class="sttn-num">2</div>
+      <h3>CÁC TUYỆT CHIÊU XỬ LÝ HÌNH PHẲNG (2D)</h3>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">1</span>Mối quan hệ giữa Chu vi và Diện tích (Hình chữ nhật)</p>
+    <div class="sttn-tip">
+      <p><span class="sttn-tip-label">★ Bí kíp "Độ lệch":</span> Trong các hình chữ nhật có <b>cùng diện tích</b>, hình nào có Chiều dài và Chiều rộng càng <span class="sttn-hl">"lệch" nhau</span> (hiệu số giữa dài và rộng càng lớn) thì Chu vi càng lớn!</p>
+    </div>
+
+    <p class="sttn-sub"><span class="sttn-k">2</span>Bài toán xếp vòng tròn khép kín</p>
+    <ul class="sttn-list">
+      <li>Khác với trồng cây đường thẳng, khi xếp thành vòng tròn (khép kín) thì: <span class="sttn-hl">Số người (hoặc Số cây) = Số khoảng cách</span>.</li>
+      <li>Khoảng cách xa nhất giữa hai người trên một hình tròn chính là độ dài <span class="sttn-hl">đường kính</span> của hình tròn đó!</li>
+    </ul>
+
+    <p class="sttn-sub"><span class="sttn-k">3</span>Tỉ số diện tích &amp; Tuyệt chiêu "Trừ phần thừa"</p>
+    <ul class="sttn-list">
+      <li><b>Trong tam giác:</b> Hai tam giác có <b>chung chiều cao</b> thì Tỉ số Diện tích bằng đúng Tỉ số Độ dài đáy.</li>
+      <li><b>Trong hình thang:</b> Hai tam giác tạo bởi hai đường chéo và hai cạnh bên luôn có <span class="sttn-hl">diện tích bằng nhau</span>! (Kẻ thêm đường phụ song song để tạo hình thang nếu cần).</li>
+      <li><b>Tính gián tiếp (Nguyên lí bù trừ):</b> Đừng cố tính trực tiếp phần diện tích bị kẹt ở giữa (hoặc phần gạch chéo lồi lõm). Hãy tính phần diện tích tổng thể, sau đó <span class="sttn-hl">trừ đi (−) các phần diện tích thừa</span> (các tam giác ở góc, hoặc các góc phần tư hình tròn,...).</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
