@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phân tích đề Toán vào 6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --core:#1C581F; --signal:#5FBD18; --yellow:#FFDA0F;
+    --deep:#01350C; --leaf:#57AA19; --lime:#ADD93F; --mint:#CEEDCA; --ink:#28222E;
+    --muted:#5b5563; --mint-soft:#F3FAF1; --yellow-soft:#FFF8D6; --grid:#e4ebe2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:"Be Vietnam Pro","Segoe UI",Arial,sans-serif;font-size:16.5px;line-height:1.6}
+  header{background:linear-gradient(135deg,var(--deep) 0%,var(--core) 55%,var(--leaf) 100%);color:#fff;padding:36px 16px 30px;text-align:center;border-bottom:5px solid var(--signal)}
+  header h1{margin:0;font-size:clamp(24px,4.2vw,38px);font-weight:800}
+  header p{margin:10px 0 0;color:var(--yellow);font-weight:700}
+  main{max-width:1000px;margin:0 auto;padding:26px 16px 60px}
+  section{margin:0 0 34px}
+  h2{display:flex;align-items:center;gap:12px;margin:0 0 6px;color:var(--core);font-size:clamp(20px,3vw,26px)}
+  h2 .tag{background:var(--core);color:var(--yellow);border-radius:10px;padding:2px 12px;font-size:.8em}
+  .lead{margin:0 0 16px;color:var(--muted)}
+  .card{background:#fff;border:2px solid var(--mint);border-radius:16px;padding:18px 20px}
+
+  /* Tiles */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0 0 16px}
+  .tile{background:var(--core);color:#fff;border-radius:14px;padding:14px 16px}
+  .tile .v{font-size:32px;font-weight:800;color:var(--yellow);line-height:1.15}
+  .tile .l{font-size:14.5px;opacity:.95}
+
+  /* Bar chart (single series, sorted) */
+  .chart{display:grid;grid-template-columns:minmax(170px,300px) 1fr;column-gap:14px;row-gap:10px;align-items:center}
+  .chart .name{font-weight:700;font-size:15px;line-height:1.3}
+  .chart .name small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+  .track{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0 calc(100% / 6 - 1px),var(--grid) calc(100% / 6 - 1px) calc(100% / 6))}
+  .bar{position:absolute;left:0;top:4px;bottom:4px;background:var(--core);border-radius:0 4px 4px 0;min-width:4px;transition:background .15s}
+  .bar.top{background:var(--core)}
+  .bar.rest{background:var(--leaf)}
+  .val{position:absolute;top:50%;transform:translateY(-50%);font-weight:800;font-size:15px;color:var(--ink);padding-left:8px;white-space:nowrap}
+  .track:hover .bar{filter:brightness(1.15)}
+  .tip{position:absolute;bottom:calc(100% + 6px);left:0;background:var(--ink);color:#fff;font-size:13px;padding:6px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2}
+  .track:hover .tip{opacity:1}
+  .axis{grid-column:2;display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:-4px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin-top:12px}
+  .legend i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .note{background:var(--yellow-soft);border-left:5px solid var(--yellow);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:15.5px}
+
+  /* A2 */
+  .groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+  .g{border:2px solid var(--mint);border-radius:16px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:8px}
+  .g .no{width:36px;height:36px;border-radius:50%;background:var(--core);color:var(--yellow);font-weight:800;display:grid;place-items:center}
+  .g h3{margin:0;font-size:16.5px;line-height:1.4;color:var(--deep)}
+  .g .feat{margin-top:auto;background:var(--mint-soft);border-radius:10px;padding:8px 10px;font-size:14.5px}
+  .g .feat b{color:var(--core)}
+
+  /* A3 */
+  .trends{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+  .t{border-radius:16px;padding:16px;background:var(--mint-soft);border:2px solid var(--mint)}
+  .t .ic{font-size:26px;line-height:1}
+  .t h3{margin:8px 0 6px;font-size:16.5px;color:var(--core)}
+  .t p{margin:0;font-size:15px}
+  .t.hot{background:var(--core);border-color:var(--core);color:#fff}
+  .t.hot h3{color:var(--yellow)}
+
+  @media (max-width:640px){
+    .chart{grid-template-columns:1fr} .chart .name{margin-top:6px} .axis{grid-column:1}
+  }
+  @media print{ *{-webkit-print-color-adjust:exact;print-color-adjust:exact} section{break-inside:avoid} .tip{display:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>PHÂN TÍCH NHANH ĐỀ THI TOÁN VÀO LỚP 6</h1>
+  <p>Tần suất kiến thức · Nhóm câu phân loại · Xu hướng đề 2022 – 2026</p>
+</header>
+
+<main>
+
+<!-- ======================= A ======================= -->
+<section>
+  <h2><span class="tag">A</span>Tần suất các mảng kiến thức trong đề thật</h2>
+  <p class="lead">Tỉ lệ phần trăm số câu thuộc từng mảng trong các đề thi thật, sắp xếp từ cao xuống thấp.</p>
+
+  <div class="tiles">
+    <div class="tile"><div class="v">61,8%</div><div class="l">3 mảng lớn nhất cộng lại: toán điển hình, số học – tính toán, hình phẳng</div></div>
+    <div class="tile"><div class="v">22,8%</div><div class="l">Toán điển hình: mảng có nhiều câu nhất</div></div>
+    <div class="tile"><div class="v">≈ 6%</div><div class="l">Mảng ít nhất (thống kê, tỉ số phần trăm) vẫn có khoảng 1 câu trong mỗi đề 15–20 câu</div></div>
+  </div>
+
+  <div class="card">
+    <div class="chart" role="table" aria-label="Tần suất các mảng kiến thức">
+      <div class="name" role="rowheader">Toán điển hình<small>tỉ số, phân số có lời văn, TBC, giả thiết tạm, tuổi, tỉ lệ – công việc</small></div>
+      <div class="track" role="cell"><div class="bar top" style="width:calc(22.8% * 10 / 3)"></div><span class="val" style="left:calc(22.8% * 10 / 3)">22,8%</span><span class="tip">Toán điển hình: 22,8% số câu</span></div>
+
+      <div class="name" role="rowheader">Số học – tính toán<small>cấu tạo số, dãy, tính nhanh, tìm x, phân số, số thập phân</small></div>
+      <div class="track" role="cell"><div class="bar top" style="width:calc(21.7% * 10 / 3)"></div><span class="val" style="left:calc(21.7% * 10 / 3)">21,7%</span><span class="tip">Số học – tính toán: 21,7% số câu</span></div>
+
+      <div class="name" role="rowheader">Hình phẳng<small>tỉ số diện tích, hình tròn</small></div>
+      <div class="track" role="cell"><div class="bar top" style="width:calc(17.3% * 10 / 3)"></div><span class="val" style="left:calc(17.3% * 10 / 3)">17,3%</span><span class="tip">Hình phẳng: 17,3% số câu</span></div>
+
+      <div class="name" role="rowheader">Đại lượng<small>thời gian, lịch, chuyển động</small></div>
+      <div class="track" role="cell"><div class="bar rest" style="width:calc(9.9% * 10 / 3)"></div><span class="val" style="left:calc(9.9% * 10 / 3)">9,9%</span><span class="tip">Đại lượng – thời gian – lịch – chuyển động: 9,9% số câu</span></div>
+
+      <div class="name" role="rowheader">Hình hộp chữ nhật – hình lập phương</div>
+      <div class="track" role="cell"><div class="bar rest" style="width:calc(8.2% * 10 / 3)"></div><span class="val" style="left:calc(8.2% * 10 / 3)">8,2%</span><span class="tip">Hình hộp chữ nhật – hình lập phương: 8,2% số câu</span></div>
+
+      <div class="name" role="rowheader">Chia hết – số dư<small>tận cùng, chẵn lẻ, bất biến</small></div>
+      <div class="track" role="cell"><div class="bar rest" style="width:calc(7.3% * 10 / 3)"></div><span class="val" style="left:calc(7.3% * 10 / 3)">7,3%</span><span class="tip">Chia hết – số dư – tận cùng – chẵn lẻ – bất biến: 7,3% số câu</span></div>
+
+      <div class="name" role="rowheader">Tỉ số phần trăm</div>
+      <div class="track" role="cell"><div class="bar rest" style="width:calc(6.4% * 10 / 3)"></div><span class="val" style="left:calc(6.4% * 10 / 3)">6,4%</span><span class="tip">Tỉ số phần trăm: 6,4% số câu</span></div>
+
+      <div class="name" role="rowheader">Thống kê – xác suất<small>đếm, lô-gic</small></div>
+      <div class="track" role="cell"><div class="bar rest" style="width:calc(6.3% * 10 / 3)"></div><span class="val" style="left:calc(6.3% * 10 / 3)">6,3%</span><span class="tip">Thống kê – xác suất – đếm – lô-gic: 6,3% số câu</span></div>
+
+      <div class="axis"><span>0%</span><span>5%</span><span>10%</span><span>15%</span><span>20%</span><span>25%</span><span>30%</span></div>
+    </div>
+    <div class="legend"><span><i style="background:var(--core)"></i>3 mảng trọng tâm (≈ 62% số câu)</span><span><i style="background:var(--leaf)"></i>Các mảng còn lại</span></div>
+  </div>
+
+  <div class="note"><b>Gợi ý phân bổ thời gian ôn:</b> dành khoảng 60% thời lượng cho 3 mảng trọng tâm. Không bỏ mảng nào: mảng ít nhất vẫn chiếm khoảng 6% số câu.</div>
+</section>
+
+<!-- ======================= B ======================= -->
+<section>
+  <h2><span class="tag">B</span>Sáu nhóm câu phân loại</h2>
+  <p class="lead">Những dạng quyết định điểm 9 – 10, thường nằm ở câu cuối hoặc bài tự luận.</p>
+  <div class="groups">
+    <div class="g"><div class="no">1</div>
+      <h3>Tỉ số diện tích có giao điểm; hình thang hai đường chéo; dùng diện tích tìm tỉ số đoạn thẳng</h3>
+      <div class="feat"><b>Đặc điểm:</b> có ở hầu hết đề có tự luận, là nhóm phân loại số 1.</div></div>
+    <div class="g"><div class="no">2</div>
+      <h3>Chuyển động nhiều giai đoạn: sớm/muộn với hai vận tốc, sửa xe, gặp nhau lần 2, ba vật, đường dốc</h3>
+      <div class="feat"><b>Đặc điểm:</b> thường là bài tự luận thứ nhất của nhiều đề.</div></div>
+    <div class="g"><div class="no">3</div>
+      <h3>Bất biến – số dư – chẵn lẻ có yêu cầu chứng minh bằng lời</h3>
+      <div class="feat"><b>Đặc điểm:</b> bài tự luận cuối, đòi hỏi lập luận chặt chẽ.</div></div>
+    <div class="g"><div class="no">4</div>
+      <h3>Tổ hợp – Dirichlet – tô màu – trò chơi – cực trị</h3>
+      <div class="feat"><b>Đặc điểm:</b> xuất hiện ở đề học bổng, vòng 2.</div></div>
+    <div class="g"><div class="no">5</div>
+      <h3>Phân số “phần còn lại”, tính ngược với “phân số + k”, góp bằng 1/k của người còn lại</h3>
+      <div class="feat"><b>Đặc điểm:</b> có ở cả câu ngắn khó và bài tự luận.</div></div>
+    <div class="g"><div class="no">6</div>
+      <h3>Phần trăm kép: giảm giá vẫn lãi, tăng/giảm liên tiếp, số lượng – doanh thu, khô – tươi</h3>
+      <div class="feat"><b>Đặc điểm:</b> tăng mạnh từ năm 2018.</div></div>
+  </div>
+</section>
+
+<!-- ======================= C ======================= -->
+<section>
+  <h2><span class="tag">C</span>Xu hướng đề 2022 – 2026</h2>
+  <p class="lead">Sáu thay đổi chính về hình thức và nội dung đề thi.</p>
+  <div class="trends">
+    <div class="t hot"><div class="ic">📝</div><h3>Từ tự luận sang câu ngắn</h3>
+      <p>Đề chủ yếu là câu điền đáp số hoặc trắc nghiệm (70 – 85% số điểm), kèm 2 – 3 bài tự luận. Nhiều trường đổi tên kì thi thành “khảo sát / đánh giá năng lực”.</p></div>
+    <div class="t hot"><div class="ic">⏱️</div><h3>Thời gian ngắn, cần tốc độ</h3>
+      <p>Trung bình 1,5 – 3 phút mỗi câu. Có đề rút còn 30 phút cho 12 câu, có đề 60 phút cho 40 câu.</p></div>
+    <div class="t"><div class="ic">🛒</div><h3>Bối cảnh thực tế, đề dài</h3>
+      <p>Mua bán, khuyến mại, bể nước, câu lạc bộ, dã ngoại; nhiều thông tin thừa; có số liệu liên môn (tỉ lệ khối lượng, phần trăm nước…).</p></div>
+    <div class="t"><div class="ic">📊</div><h3>Biểu đồ và khả năng xảy ra</h3>
+      <p>Mỗi đề có biểu đồ hoặc bảng số liệu, và câu về “tỉ số mô tả số lần lặp lại của một khả năng” (nội dung mới của Toán 5).</p></div>
+    <div class="t"><div class="ic">🎯</div><h3>Phân hóa dồn vào cuối đề</h3>
+      <p>Phân hóa dồn vào 1 – 3 câu cuối hoặc vòng 2; câu đại trà dễ hơn đề cũ. Các mẹo số học (tận cùng, lũy thừa) chuyển lên vòng 2.</p></div>
+    <div class="t"><div class="ic">🔁</div><h3>Bài cũ lặp lại nhiều</h3>
+      <p>Dạng bài cũ lặp lại giữa các trường, các năm, nên luyện ngân hàng đề cũ mang lại hiệu quả thực sự.</p></div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
